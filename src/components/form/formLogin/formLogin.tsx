@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../button/Button";
 import { Input } from "../../input/Input";
 import { loginSchema } from "../formSchemas";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FormStyle } from "./style";
 import { iLoginData } from "./types";
 
@@ -52,7 +52,7 @@ export const FormLogin = () => {
       <div>
         <p>Não tem uma conta? cadastre-se</p>
         <a href="">Cadastre-se</a>
-        {/* <Link to='/register'>Cadastre-se</Link> */}
+        <Link to="/register">Cadastre-se</Link>
       </div>
     </FormStyle>
   );
