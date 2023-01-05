@@ -1,66 +1,80 @@
-import Button from '../../button/Button'
-import { Input } from '../../input/Input';
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button } from "../../button/Button";
+import { Input } from "../../input/Input";
+import { FormStyle } from "./style";
+import { registerSchema } from "../formSchemas";
+import { iRegisterData } from "./types";
 // import { Link } from "react-router-dom";
-import { FormStyle } from './style';
 
-export const FormRegister = () =>  {
-    function handle(){
-        console.log("oi")
-    }
-    const errors = {
-        password: {
-            message: "oii"
-        }
-    }
+export const FormRegister = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iRegisterData>({
+    resolver: yupResolver(registerSchema),
+  });
 
+  const submit: SubmitHandler<iLoginFormData> = async (data) => {
+    console.log(data);
+  };
+
+  function handleClick() {
+    console.log("click");
+  }
 
   return (
-    <FormStyle>
-        <div>
-            <h1>Registro</h1>
-            <a>Voltar para login</a>
-            {/* <Link to='/'>Voltar para login</Link> */}
-        </div>
+    <FormStyle onSubmit={handleSubmit(submit)}>
+      <div>
+        <h1>Registro</h1>
+        <a>Voltar para login</a>
+        {/* <Link to='/'>Voltar para login</Link> */}
+      </div>
       <Input
-       placeHolder='Digite seu nome'
-       errorInput={errors?.password?.message} 
-    //    register={register("name")} 
-       type="text"
-       children="name"
-    />
-
-    <Input
-        placeHolder='Digite seu email'
-        errorInput={errors?.password?.message} 
-        //    register={register("name")} 
+        placeHolder="Digite seu nome"
+        errorInput={errors.name?.message}
+        register={register("name")}
         type="text"
-        children="email"
-    />
-    <Input
-        placeHolder='Digite sua senha'
-        errorInput={errors?.password?.message} 
-        //    register={register("name")} 
-        type="text"
+        children="Nome"
+      />
+      <Input
+        placeHolder="Digite seu email"
+        errorInput={errors.email?.message}
+        register={register("email")}
+        type="email"
+        children="e-mail"
+      />
+      <Input
+        placeHolder="Digite sua senha"
+        errorInput={errors.password?.message}
+        register={register("password")}
+        type="password"
         children="Senha"
-    />
-    <Input
-        placeHolder='Confirme sua senha'
-        errorInput={errors?.password?.message} 
-        //    register={register("name")} 
-        type="text"
+      />
+      <Input
+        placeHolder="Confirme sua senha"
+        errorInput={errors.confirmPassword?.message}
+        register={register("confirmPassword")}
+        type="password"
         children="Confirmaçao de senha"
-    />
+      />
 
-    <Input
-        placeHolder='Discord (Opcional)'
-        errorInput={errors?.password?.message} 
-        //    register={register("name")} 
+      <Input
+        placeHolder="Discord (Opcional)"
+        errorInput={errors.socialMedia?.message}
+        register={register("socialMedia")}
         type="text"
         children="Discord"
-    />
+      />
 
-
-      <Button type={'submit'} buttonType={'register'} children={"Registrar"} onClick={handle} />
+      <Button
+        type={"submit"}
+        buttonType={"register"}
+        children={"Registrar"}
+        onClick={handleClick}
+      />
     </FormStyle>
   );
 };
