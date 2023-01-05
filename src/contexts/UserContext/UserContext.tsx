@@ -4,7 +4,7 @@ import { useState, useEffect, createContext } from "react";
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
-  const [user, setUser] = useState<iUser | null>({null});
+  const [user, setUser] = useState<iUser | null>(null);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
