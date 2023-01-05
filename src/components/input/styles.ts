@@ -3,7 +3,8 @@ import TextField from "@mui/material/TextField";
 import styled from "styled-components";
 
 export const BoxInput = styled.div`
-  width: 393px;
+  width: 100%;
+  max-width: 393px;
   margin-top: 10px;
 
   display: flex;
