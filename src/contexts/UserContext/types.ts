@@ -3,6 +3,11 @@ export interface iUserContextProps {
 }
 
 export interface iUserContext {
-  token: string | null;
-  setToken: React.Dispatch<React.SetStateAction<string | null>>;
+  user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
+}
+
+export type iUser = {
+  token: string;
+  id: string;
 }
