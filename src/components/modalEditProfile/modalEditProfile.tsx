@@ -1,6 +1,6 @@
 import { Input } from "../input/Input";
 import StyledForm from "./styles";
-import Button from "../button/Button";
+import { Button } from "../button/Button";
 import { profileSchema } from "../form/formSchemas";
 import { IProfile } from "./types";
 import { useForm } from "react-hook-form";

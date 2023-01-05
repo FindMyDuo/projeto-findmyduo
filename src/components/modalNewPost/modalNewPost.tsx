@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import { Button } from "../button/Button";
 import StyledForm from "./styles";
 import MySelect from "../select/select";
 import { useForm } from "react-hook-form";
