@@ -7,7 +7,7 @@ import { FormStyle } from "./style";
 import { registerSchema } from "../formSchemas";
 import { iRegisterData } from "./types";
 import { iLoginData } from "../formLogin/types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const FormRegister = () => {
   const {
@@ -31,7 +31,7 @@ export const FormRegister = () => {
       <div>
         <h1>Registro</h1>
         <a>Voltar para login</a>
-        {/* <Link to='/'>Voltar para login</Link> */}
+        <Link to='/login'>Voltar para login</Link>
       </div>
       <Input
         placeHolder="Digite seu nome"

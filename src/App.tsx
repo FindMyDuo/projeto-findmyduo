@@ -1,5 +1,4 @@
-import { FormLogin } from "./components/form/formLogin/formLogin";
-import { FormRegister } from "./components/form/formRegister/formRegister";
+import { Route } from "react-router-dom";
 import { RoutesMain as Routes } from "./routes/Routes";
 
 function App() {
