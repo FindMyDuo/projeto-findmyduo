@@ -5,8 +5,7 @@ import { RoutesMain as Routes } from "./routes/Routes";
 function App() {
   return (
     <>
-      <FormLogin />
-      <FormRegister />
+      <Routes />
     </>
   );
 }
