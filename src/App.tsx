@@ -1,6 +1,6 @@
 function App() {
   return (
-    <h1>Find my Duo</h1>
+    <h1>Find My Duo</h1>
   )
 }
 
