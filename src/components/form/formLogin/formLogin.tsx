@@ -6,17 +6,18 @@ import { Input } from "../../input/Input";
 import { loginSchema } from "../formSchemas";
 // import { Link } from "react-router-dom";
 import { FormStyle } from "./style";
+import { iLoginData } from "./types";
 
 export const FormLogin = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<iLoginFormData>({
+  } = useForm<iLoginData>({
     resolver: yupResolver(loginSchema),
   });
 
-  const submit: SubmitHandler<iLoginFormData> = async (data) => {
+  const submit: SubmitHandler<iLoginData> = async (data) => {
     console.log(data);
   };
 
