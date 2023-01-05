@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 //regexp will validate the discord username#tag
-const regexp = new RegExp('^.{3,32}#[0-9]{4}$');
+const regexp = new RegExp("^.{3,32}#[0-9]{4}$");
 
 export const loginSchema = yup.object().shape({
   email: yup
@@ -40,4 +40,36 @@ export const registerSchema = yup.object().shape({
       is: (value: string) => value?.length,
       then: (rule) => rule.matches(regexp),
     }),
+});
+
+export const profileSchema = yup.object().shape({
+  name: yup
+    .string()
+    .notRequired()
+    .min(5, "O nome deve conter ao menos 5 digitos"),
+  email: yup.string().notRequired().email("O e-mail preenchido é inválido."),
+  password: yup
+    .string()
+    .notRequired()
+    .min(6, "A senha deve conter 6 characteres."),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "As senhas devem ser iguais.")
+    .notRequired()
+    .min(6, "A senha deve conter 6 characteres."),
+  socialMedia: yup
+    .string()
+    .nullable()
+    .notRequired()
+    .when("socialMedia", {
+      is: (value: string) => value?.length,
+      then: (rule) => rule.matches(regexp),
+    }),
+  profileImage: yup.string().notRequired(),
+});
+
+export const postSchema = yup.object().shape({
+  title: yup.string().required(),
+  content: yup.string().required().min(10, "Escreva um pouco mais."),
+  userId: yup.string().required(),
 });
