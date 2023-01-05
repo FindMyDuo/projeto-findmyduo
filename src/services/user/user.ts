@@ -1,0 +1,26 @@
+import api from "../axios";
+import { useNavigate } from "react-router-dom";
+import { iRegisterData } from "../../components/form/formRegister/types";
+import { iLoginData } from "../../components/form/formLogin/types";
+
+const navigate = useNavigate();
+
+export const signUp = (data: iRegisterData) => {
+  api
+    .post("/register", data, { timeout: 5000 })
+    .then((res) => {
+      navigate("/login");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const signIn = (data: iLoginData) => {
+  api.post("/login", data, { timeout: 5000 }).then((res) => {
+    const { accessToken: token } = res.data;
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+    localStorage.setItem("@TOKEN", token);
+    return token
+  });
+};

@@ -17,7 +17,7 @@ export const FormRegister = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const submit: SubmitHandler<iLoginFormData> = async (data) => {
+  const submit: SubmitHandler<iLoginData> = async (data) => {
     console.log(data);
   };
 
