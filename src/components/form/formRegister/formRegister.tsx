@@ -6,6 +6,7 @@ import { Input } from "../../input/Input";
 import { FormStyle } from "./style";
 import { registerSchema } from "../formSchemas";
 import { iRegisterData } from "./types";
+import { iLoginData } from "../formLogin/types";
 // import { Link } from "react-router-dom";
 
 export const FormRegister = () => {

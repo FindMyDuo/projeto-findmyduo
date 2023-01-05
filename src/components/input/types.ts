@@ -4,6 +4,6 @@ export interface iInput {
   children: React.ReactNode;
   type: string;
   register?: UseFormRegisterReturn<string>;
-  errorInput?: string;
+  errorInput?: any;
   placeHolder: string;
 }
