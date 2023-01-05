@@ -7,7 +7,7 @@ function App() {
     <div>
       <FormRegister/>
       <FormLogin/>
-      </div>
+    </div>
     
 
   )
