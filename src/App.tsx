@@ -1,6 +1,10 @@
+import { RoutesMain as Routes } from "./routes/Routes";
+
 function App() {
   return (
-    <h1>Find My Duo</h1>
+    <>
+    <Routes />
+    </>
   )
 }
 
