@@ -40,7 +40,10 @@ export const registerSchema = yup.object().shape(
       .nullable(true)
       .when("socialMedia", {
         is: (value: string) => value?.length,
-        then: (rule) => rule.min(5).matches(regexp),
+        then: (rule) =>
+          rule
+            .min(5, "O discord deve ter ao menos 5 digitos.")
+            .matches(regexp, "Por favor insira a Tag."),
       }),
   },
   [["socialMedia", "socialMedia"]]

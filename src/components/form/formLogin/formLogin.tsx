@@ -35,6 +35,7 @@ export const FormLogin = () => {
         type="email"
         children="email"
       />
+      <span>{errors?.email ? errors.email.message : null}</span>
       <Input
         placeHolder="Digite sua senha"
         errorInput={errors.password?.message}
@@ -42,6 +43,7 @@ export const FormLogin = () => {
         type="password"
         children="Senha"
       />
+      <span>{errors?.password ? errors.password.message : null}</span>
       <Button
         type={"submit"}
         buttonType={"login"}
