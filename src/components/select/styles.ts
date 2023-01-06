@@ -1,44 +1,13 @@
-import withStyles from "@material-ui/core/styles/withStyles";
-import { FormControl } from "@mui/material";
+import styled from "styled-components";
 
-export const FormStyled = withStyles({
-  root: {
-    backgroundColor: "#21232B",
-    borderRadius: "4px",
-
-    "&  label.MuiFormLabel-root": {
-      color: "#A9AAB2",
-
-      "& span.MuiFormLabel-asterisk": {
-        color: "transparent",
-      },
-    },
-
-    "& div fildset select": {
-      color: "#A9AAB2",
-    },
-
-    "& select::placeholder": {
-      color: "#A9AAB2",
-    },
-
-    "& label.Mui-focused": {
-      color: "#A9AAB2",
-    },
-    "& .MuiSelect-underline:after": {
-      borderBottomColor: "#21232B",
-    },
-
-    "& .MuiOutlinedSelect-root": {
-      "& fieldset": {
-        borderColor: "#21232B",
-      },
-      "&:hover fieldset": {
-        border: "2px solid #21232B",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#0D81EC",
-      },
-    },
-  },
-})(FormControl);
+export const StyledSelect = styled.select`
+  width: 100%;
+  height: 60px;
+  background-color: var(--gray5);
+  color: var(--gray1);
+  border-radius: var(--radius1);
+  border: none;
+  padding-left: 6px;
+  font-size: var(--font5);
+  outline: none;
+`;
