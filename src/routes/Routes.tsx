@@ -1,5 +1,8 @@
+import { Routes, Route } from "react-router-dom";
+import { LoginPage } from "../pages/login";
+import { RegisterPage } from "../pages/register";
+import { DashboardPage } from "../pages/dashboard";
 import { Providers } from "../contexts/Providers";
-import { Route, Routes } from "react-router-dom";
 
 export const RoutesMain = () => {
   return (
@@ -11,5 +14,6 @@ export const RoutesMain = () => {
         <Route path="*" element={<LoginPage />}></Route>
       </Routes>
     </Providers>
+  
   );
 };

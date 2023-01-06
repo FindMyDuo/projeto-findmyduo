@@ -73,7 +73,9 @@ export const profileSchema = yup.object().shape({
       then: (rule) => rule.matches(regexp),
     }),
   profileImage: yup.string().notRequired(),
-});
+},
+[["socialMedia", "socialMedia"]]
+);
 
 export const postSchema = yup.object().shape({
   title: yup.string().required(),

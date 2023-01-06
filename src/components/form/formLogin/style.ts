@@ -5,7 +5,6 @@ export const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   padding: 18px;
-  gap: 8px;
   background-color: #1a1b1f;
 
   > h1 {
