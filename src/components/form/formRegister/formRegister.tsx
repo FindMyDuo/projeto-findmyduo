@@ -15,6 +15,7 @@ export const FormRegister = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<iRegisterData>({
+    mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
 
