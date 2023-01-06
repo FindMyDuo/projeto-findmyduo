@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   *{
@@ -22,6 +22,15 @@ export const GlobalStyles = createGlobalStyle`
   body{
     font-family: 'Inter';
   }
+
+:-webkit-autofill,
+:-webkit-autofill:hover, 
+:-webkit-autofill:focus {
+  border: 0px solid green;
+  -webkit-text-fill-color: #A9AAB2;
+  -webkit-box-shadow: 0 0 0px 1000px #21232B inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
   :root{
     --gray6: #1A1B1F;
