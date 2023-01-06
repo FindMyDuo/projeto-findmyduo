@@ -11,5 +11,4 @@ export interface iButton {
   onClick?: () => void;
   type: "submit" | "button";
   children: React.ReactElement | string;
-  
 }
