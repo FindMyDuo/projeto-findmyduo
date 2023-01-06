@@ -72,7 +72,7 @@ export const StyledButton = styled.button<iButton>`
           align-items: center;
           justify-content: center;
 
-          width: 100%;
+          width: 60px;
           padding: 10px 0;
 
           font-size: var(--font3);
@@ -90,8 +90,8 @@ export const StyledButton = styled.button<iButton>`
             color: var(--fixed-white);
           }
 
-          @media (max-width: 900px) {
-            width: 60px;
+          @media (min-width: 900px) {
+            width: 100%;
           }
         `;
 
@@ -128,6 +128,18 @@ export const StyledButton = styled.button<iButton>`
             width: 100%;
             height: 100%;
             object-fit: cover;
+          }
+        `;
+
+      case 'smallIcon':
+        return css`
+          color: var(--gray3);
+          border: none;
+          background-color: transparent;
+          font-size: var(--font3);
+
+          :hover {
+            color: white;
           }
         `;
     }
