@@ -30,7 +30,6 @@ export const FormRegister = () => {
     <FormStyle onSubmit={handleSubmit(submit)}>
       <div>
         <h1>Registro</h1>
-        <a>Voltar para login</a>
         <Link to='/login'>Voltar para login</Link>
       </div>
       <Input
@@ -40,6 +39,7 @@ export const FormRegister = () => {
         type="text"
         children="Nome"
       />
+      <span>{errors?.name ? errors.name.message : null}</span>
       <Input
         placeHolder="Digite seu email"
         errorInput={errors.email?.message}
@@ -47,6 +47,7 @@ export const FormRegister = () => {
         type="email"
         children="e-mail"
       />
+      <span>{errors?.email ? errors.email.message : null}</span>
       <Input
         placeHolder="Digite sua senha"
         errorInput={errors.password?.message}
@@ -54,6 +55,7 @@ export const FormRegister = () => {
         type="password"
         children="Senha"
       />
+      <span>{errors?.password ? errors.password.message : null}</span>
       <Input
         placeHolder="Confirme sua senha"
         errorInput={errors.confirmPassword?.message}
@@ -61,7 +63,7 @@ export const FormRegister = () => {
         type="password"
         children="Confirmaçao de senha"
       />
-
+      <span>{errors?.confirmPassword ? errors.confirmPassword.message : null}</span>
       <Input
         placeHolder="Discord (Opcional)"
         errorInput={errors.socialMedia?.message}
@@ -69,6 +71,7 @@ export const FormRegister = () => {
         type="text"
         children="Discord"
       />
+      <span>{errors?.socialMedia ? errors.socialMedia.message : null}</span>
 
       <Button
         type={"submit"}
