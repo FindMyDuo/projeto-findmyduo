@@ -10,6 +10,10 @@ export const GlobalStyles = createGlobalStyle`
   ul,ol{
     list-style: none;
   }
+  
+  html, body, #root, .App {
+  height: 100%;
+  }
 
   button{
     cursor: pointer;

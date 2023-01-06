@@ -6,6 +6,7 @@ export const StyleResgisterPage = styled.section`
  background-color: var(--gray6);
  justify-content: center;
  padding: 15px;
+ height: 100%;
 
  > img {
     max-width: 250px;
