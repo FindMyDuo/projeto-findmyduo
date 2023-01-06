@@ -2,7 +2,7 @@ import { Dialog, DialogOverlay } from "@reach/dialog";
 import styled from "styled-components";
 
 export const StyledModal = styled(Dialog)`
-  max-width: 500px;
+  max-width: 400px;
   width: calc(100vw - 2rem);
   margin: 0 auto;
   background-color: var(--gray6);

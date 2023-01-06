@@ -21,7 +21,7 @@ const ModalEditProfile = () => {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(handleAttUser)}>
+    <StyledForm noValidate={true} onSubmit={handleSubmit(handleAttUser)}>
       <Input
         errorInput={errors.name?.message}
         register={register("name")}
@@ -38,16 +38,16 @@ const ModalEditProfile = () => {
       >
         <span>Email do Usuário</span>
       </Input>
-      {
-        <Input
-          errorInput={errors.socialMedia?.message}
-          register={register("socialMedia")}
-          type="text"
-          placeHolder="Name#discord"
-        >
-          <span>Alterar discord</span>
-        </Input>
-      }
+
+      <Input
+        errorInput={errors.socialMedia?.message}
+        register={register("socialMedia")}
+        type="text"
+        placeHolder="Name#discord"
+      >
+        <span>Alterar discord</span>
+      </Input>
+
       <Input
         errorInput={errors.profileImage?.message}
         register={register("profileImage")}

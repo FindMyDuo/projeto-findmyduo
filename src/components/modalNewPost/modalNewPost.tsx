@@ -41,6 +41,12 @@ export const ModalNewPost = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(newPost)}>
+      <input
+        type="text"
+        value={1}
+        {...register("userId")}
+        style={{ display: "none" }}
+      />
       <MySelect
         register={register("title")}
         label="Selecionar jogo"
