@@ -14,6 +14,7 @@ export const FormLogin = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<iLoginData>({
+    mode: "onBlur",
     resolver: yupResolver(loginSchema),
   });
 
