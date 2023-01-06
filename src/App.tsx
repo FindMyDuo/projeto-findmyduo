@@ -1,11 +1,11 @@
-import { Route } from "react-router-dom";
-import { RoutesMain as Routes } from "./routes/Routes";
+import { RoutesMain as Routes} from "./routes/routes";
 
 function App() {
   return (
-    <>
-      <Routes />
-    </>
+    
+        <Routes />
+    
+  
   );
 }
 

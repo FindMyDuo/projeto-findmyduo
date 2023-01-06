@@ -30,7 +30,6 @@ export const FormRegister = () => {
     <FormStyle onSubmit={handleSubmit(submit)}>
       <div>
         <h1>Registro</h1>
-        <a>Voltar para login</a>
         <Link to='/login'>Voltar para login</Link>
       </div>
       <Input

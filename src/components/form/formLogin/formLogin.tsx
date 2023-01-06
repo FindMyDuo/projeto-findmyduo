@@ -23,7 +23,7 @@ export const FormLogin = () => {
 
   const handleClick = () => {
     console.log("click");
-  };
+  }; 
 
   return (
     <FormStyle onSubmit={handleSubmit(submit)}>
@@ -46,14 +46,14 @@ export const FormLogin = () => {
       <span>{errors?.password ? errors.password.message : null}</span>
       <Button
         type={"submit"}
-        buttonType={"login"}
+        //o tipo fiica como register pelo estiilo, e necessario alterar o estilo depois na logica do button 
+        buttonType={"register"}
         children={"Entrar"}
         onClick={handleClick}
       />
 
       <div>
         <p>Não tem uma conta? cadastre-se</p>
-        <a href="">Cadastre-se</a>
         <Link to="/register">Cadastre-se</Link>
       </div>
     </FormStyle>
