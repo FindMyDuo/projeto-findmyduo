@@ -1,7 +1,3 @@
 export const DashboardPage = () => {
-  return (
-    <>
-      <h1>DASHHBOARD</h1>
-    </>
-  );
+  return <NavBar />;
 };
