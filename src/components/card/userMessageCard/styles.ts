@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const UserMessageContainer = styled.ul`
   width: 100%;
   background-color: var(--gray5);
-  padding: 0 20px;
   display: flex;
   flex-direction: column;
 `;
@@ -37,7 +36,7 @@ export const StyledUserMessageCard = styled.li`
 
   img {
     height: 100%;
-    width: 100%;
+    width: 68px;
     border-radius: 100%;
     object-fit: cover;
   }

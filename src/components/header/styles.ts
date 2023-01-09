@@ -1,26 +1,22 @@
 import styled from "styled-components";
 
-export const StyledHeader = styled.header`
-      position: relative;
-      background-color: var(--gray5);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 140px;
-      top: 0;
-      min-width: 250px;
+export const HeaderStyled = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
 
-      > img{
-            max-width: 450px;
-      }
-      > button {
-       
-            background-color: var(--gray6);
-            color: #BBBBBB ;
-            border: none;
-            width: max-content;
-            height: max-content; 
-            padding: 10px 28px ;
-            border-radius: var(--radius1);
-      }
-` 
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--gray5);
+
+  button {
+    background: transparent;
+    border: none;
+    color: var(--gray2);
+  }
+`;

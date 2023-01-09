@@ -1,7 +1,8 @@
 import { FormRegister } from "../../components/form/formRegister/formRegister"
 import { StyleResgisterPage } from "./style"
 import RegisterImg from "../../assets/registerImg.svg";
-import { Header } from "../../components/header/header";
+import Header from "../../components/header/Header";
+
 
 export const RegisterPage = () => {
   return(
