@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
-import { iButton } from './types';
+import styled, { css } from "styled-components";
+import { iButton } from "./types";
 
 export const StyledButton = styled.button<iButton>`
   ${({ buttonType }) => {
     switch (buttonType) {
-      case 'login':
+      case "login":
         return css`
           color: var(--fixed-white);
           background-color: var(--gray5);
@@ -14,7 +14,7 @@ export const StyledButton = styled.button<iButton>`
 
           font-size: 24px;
           font-weight: 700;
-          font-family: 'Inter';
+          font-family: "Inter";
 
           border: 2px ridge var(--color-primary);
           border-radius: var(--radius1);
@@ -25,7 +25,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'register':
+      case "register":
         return css`
           color: var(--fixed-white);
           background-color: var(--color-primary);
@@ -35,7 +35,7 @@ export const StyledButton = styled.button<iButton>`
 
           font-size: var(--font2);
           font-weight: 700;
-          font-family: 'Inter';
+          font-family: "Inter";
 
           box-shadow: 0px 4px 4px var(--color-primary);
           border: none;
@@ -47,7 +47,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'searchUser':
+      case "searchUser":
         return css`
           color: var(--fixed-white);
           background-color: var(--color-primary);
@@ -62,7 +62,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'icons':
+      case "icons":
         return css`
           color: var(--gray1);
           background-color: transparent;
@@ -94,7 +94,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'post':
+      case "post":
         return css`
           color: var(--fixed-white);
           background-color: var(--color-primary);
@@ -112,7 +112,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'userIcon':
+      case "userIcon":
         return css`
           color: var(--gray1);
           background-color: transparent;
@@ -130,7 +130,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'smallIcon':
+      case "smallIcon":
         return css`
           color: var(--gray3);
           border: none;
@@ -142,7 +142,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'exclueProfile':
+      case "exclueProfile":
         return css`
           width: 100%;
           height: 70px;
@@ -166,7 +166,7 @@ export const StyledButton = styled.button<iButton>`
           }
         `;
 
-      case 'logout':
+      case "logout":
         return css`
           width: 100%;
           height: 70px;
