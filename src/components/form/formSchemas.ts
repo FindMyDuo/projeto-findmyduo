@@ -84,3 +84,7 @@ export const postSchema = yup.object().shape({
   content: yup.string().required().min(10, "Escreva um pouco mais."),
   userId: yup.string().required(),
 });
+
+export const postEditSchema = yup.object().shape({
+  content: yup.string().required().min(10, "Escreva um pouco mais."),
+});

@@ -6,7 +6,7 @@ export const StyledModal = styled(Dialog)`
   width: calc(100vw - 2rem);
   margin: 0 auto;
   background-color: var(--gray6);
-  padding: 16px;
+  padding: 18px;
   position: relative;
   z-index: 1;
   border-radius: var(--radius2);
