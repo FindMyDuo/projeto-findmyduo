@@ -10,7 +10,7 @@ export interface iButton {
     | "userIcon"
     | "smallIcon"
     | "exclueProfile"
-    | 'logout';
+    | "logout";
   onClick?: () => void;
   type: "submit" | "button";
   children: React.ReactElement | string;
