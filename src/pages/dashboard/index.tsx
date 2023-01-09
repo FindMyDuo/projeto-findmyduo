@@ -8,6 +8,8 @@ export const DashboardPage = () => {
   return (
     <>
       <Header />
+      <HomeTopList />
+      <UserPostCard />
       <NavBar />
     </>
   );
