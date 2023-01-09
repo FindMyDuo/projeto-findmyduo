@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
+
+export const Teste = styled.div`
+  min-height: max-content;
+  /* padding-bottom: 1px; */
+  background-color: var(--gray6);
+`
 export const CardContainer = styled.ul`
   width: 100%;
+  margin-bottom: 500px;
+  padding-bottom: 112px;
   background-color: var(--gray6);
   display: flex;
   flex-direction: column;
