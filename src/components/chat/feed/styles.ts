@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerChatFeed = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   padding: 10px;
   background: var(--gray5);
 
@@ -96,7 +96,7 @@ export const ContainerChatFeed = styled.main`
 
     > div {
       height: 100%;
-      max-height: 460px;
+      max-height: 420px;
       overflow-y: scroll;
 
       ::-webkit-scrollbar {
