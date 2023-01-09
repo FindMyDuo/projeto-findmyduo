@@ -4,10 +4,10 @@ import { IModalProfile, IGame } from "./types";
 import chat from "../../assets/chat.svg";
 import discord from "../../assets/discord.svg";
 
-import CSGO from "../../assets/Games Ico/CSGO.svg";
-import Valorant from "../../assets/Games Ico/Valorant.svg";
-import PUBG from "../../assets/Games Ico/PUBG.svg";
-import Fortnite from "../../assets/Games Ico/Fortnite.svg";
+import CSGO from "../../assets/GamesIcons/CSGO.svg";
+import Valorant from "../../assets/GamesIcons/Valorant.svg";
+import PUBG from "../../assets/GamesIcons/PUBG.svg";
+import Fortnite from "../../assets/GamesIcons/Fortnite.svg";
 
 const gameImage: { [key: string]: string } = {
   CSGO: CSGO,
