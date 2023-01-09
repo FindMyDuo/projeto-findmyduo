@@ -7,7 +7,10 @@ export interface iButton {
     | "icons"
     | "searchUser"
     | "post"
-    | "userIcon";
+    | "userIcon"
+    | "smallIcon"
+    | "exclueProfile"
+    | 'logout';
   onClick?: () => void;
   type: "submit" | "button";
   children: React.ReactElement | string;

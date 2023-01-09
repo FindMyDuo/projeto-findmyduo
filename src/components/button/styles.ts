@@ -54,7 +54,6 @@ export const StyledButton = styled.button<iButton>`
 
           padding: 12px 20px;
 
-          box-shadow: 0px 4px 4px var(--color-primary);
           border: none;
           border-radius: var(--radius1);
 
@@ -141,6 +140,53 @@ export const StyledButton = styled.button<iButton>`
           :hover {
             color: white;
           }
+        `;
+
+      case 'exclueProfile':
+        return css`
+          width: 100%;
+          height: 70px;
+          padding: 0 11px;
+
+          border: none;
+          border-radius: var(--radius1);
+
+          color: #bd2000;
+          background-color: var(--gray3);
+          font-size: 22px;
+          font-weight: 500;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          :hover {
+            background-color: #bd2000;
+            color: var(--fixed-white);
+          }
+        `;
+
+      case 'logout':
+        return css`
+          width: 100%;
+          height: 70px;
+          padding: 0 11px;
+
+          border: none;
+          border-radius: var(--radius1);
+
+          color: var(--color-primary);
+          background-color: var(--gray3);
+          font-size: 22px;
+          font-weight: 500;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          :hover{
+            background-color: var(--color-primary);
+            color: var(--fixed-white);
         `;
     }
   }}

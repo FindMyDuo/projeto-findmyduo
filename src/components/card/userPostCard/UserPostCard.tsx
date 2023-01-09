@@ -6,7 +6,7 @@ import {
   StyledCard,
 } from './styles';
 import userImg from '../../../assets/userImg.svg';
-import Button from '../../button/Button';
+import { Button } from '../../button/Button';
 import { HiDotsVertical } from 'react-icons/hi';
 import { TbMessage } from 'react-icons/tb';
 import discordIcon from '../../../assets/discord.svg';
@@ -42,9 +42,9 @@ export const UserPostCard = () => {
               <div>
                 <figure>
                   {element.img ? (
-                    <img src={element.img} />
+                    <img title='userPostImg' src={element.img} />
                   ) : (
-                    <img src={noUser} />
+                    <img title='userPostImg' src={noUser} />
                   )}
                 </figure>
                 <section>

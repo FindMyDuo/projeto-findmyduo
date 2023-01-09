@@ -2,7 +2,7 @@ import React from 'react';
 import { CardUserInfo } from '../userPostCard/styles';
 import { StyledUserCard, StyledUserCardContainer } from './styles';
 import userImg from '../../../assets/userImg.svg';
-import Button from '../../button/Button';
+import { Button } from '../../button/Button';
 import vava from '../../../assets/vava.svg';
 import noUser from '../../../assets/noProfilePic.svg';
 import { iUserCard } from './types';
@@ -39,7 +39,7 @@ export const UserCard = () => {
                   {element.img ? (
                     <img src={element.img} alt="" />
                   ) : (
-                    <img src={noUser} />
+                    <img src={noUser} alt="" />
                   )}
                 </figure>
                 <section>
