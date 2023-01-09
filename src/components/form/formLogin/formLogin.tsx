@@ -6,9 +6,13 @@ import { Input } from "../../input/Input";
 import { loginSchema } from "../formSchemas";
 import { Link } from "react-router-dom";
 import { FormStyle } from "./style";
+import { useContext } from "react";
 import { iLoginData } from "./types";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 export const FormLogin = () => {
+  const { login } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -19,12 +23,12 @@ export const FormLogin = () => {
   });
 
   const submit: SubmitHandler<iLoginData> = async (data) => {
-    console.log(data);
+    login(data);
   };
 
   const handleClick = () => {
     console.log("click");
-  }; 
+  };
 
   return (
     <FormStyle onSubmit={handleSubmit(submit)}>
@@ -47,7 +51,7 @@ export const FormLogin = () => {
       <span>{errors?.password ? errors.password.message : null}</span>
       <Button
         type={"submit"}
-        //o tipo fiica como register pelo estiilo, e necessario alterar o estilo depois na logica do button 
+        //o tipo fiica como register pelo estiilo, e necessario alterar o estilo depois na logica do button
         buttonType={"register"}
         children={"Entrar"}
         onClick={handleClick}

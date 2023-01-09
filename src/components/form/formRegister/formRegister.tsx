@@ -6,10 +6,13 @@ import { Input } from "../../input/Input";
 import { FormStyle } from "./style";
 import { registerSchema } from "../formSchemas";
 import { iRegisterData } from "./types";
-import { iLoginData } from "../formLogin/types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 export const FormRegister = () => {
+  const { registerUser } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -19,19 +22,15 @@ export const FormRegister = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const submit: SubmitHandler<iLoginData> = async (data) => {
-    console.log(data);
+  const submit: SubmitHandler<iRegisterData> = async (data) => {
+    registerUser(data);
   };
-
-  function handleClick() {
-    console.log("click");
-  }
 
   return (
     <FormStyle onSubmit={handleSubmit(submit)}>
       <div>
         <h1>Registro</h1>
-        <Link to='/login'>Voltar para login</Link>
+        <Link to="/login">Voltar para login</Link>
       </div>
       <Input
         placeHolder="Digite seu nome"
@@ -64,7 +63,9 @@ export const FormRegister = () => {
         type="password"
         children="Confirmaçao de senha"
       />
-      <span>{errors?.confirmPassword ? errors.confirmPassword.message : null}</span>
+      <span>
+        {errors?.confirmPassword ? errors.confirmPassword.message : null}
+      </span>
       <Input
         placeHolder="Discord (Opcional)"
         errorInput={errors.socialMedia?.message}
@@ -74,12 +75,7 @@ export const FormRegister = () => {
       />
       <span>{errors?.socialMedia ? errors.socialMedia.message : null}</span>
 
-      <Button
-        type={"submit"}
-        buttonType={"register"}
-        children={"Registrar"}
-        onClick={handleClick}
-      />
+      <Button type={"submit"} buttonType={"register"} children={"Registrar"} />
     </FormStyle>
   );
 };
