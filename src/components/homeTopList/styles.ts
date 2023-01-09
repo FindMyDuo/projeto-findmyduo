@@ -13,6 +13,14 @@ export const StyledTopHome = styled.div`
     display: flex;
     gap: 15px;
     padding: 22px 12px;
+    overflow: scroll;
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
   }
 
   li {
@@ -23,9 +31,18 @@ export const StyledTopHome = styled.div`
     figure {
       border: 2px solid transparent;
       opacity: 0.5;
+      height: 60px;
+      width: 60px;
       display: flex;
       align-items: center;
       border-radius: var(--radius1);
+
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: var(--radius1);
+        background-color: transparent;
+      }
 
       :hover {
         opacity: 1;

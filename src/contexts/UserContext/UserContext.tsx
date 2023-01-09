@@ -1,10 +1,10 @@
-import api from "../../services/axios";
-import { Navigate, NavigateFunction, useNavigate } from "react-router-dom";
-import { iUser, iUserContext, iUserContextProps } from "./types";
-import { useState, useEffect, createContext } from "react";
-import { iLoginData } from "../../components/form/formLogin/types";
-import ToolbarSeparator from "material-ui/Toolbar/ToolbarSeparator";
-import { iRegisterData } from "../../components/form/formRegister/types";
+import api from '../../services/axios';
+import { Navigate, NavigateFunction, useNavigate } from 'react-router-dom';
+import { iUser, iUserContext, iUserContextProps } from './types';
+import { useState, useEffect, createContext } from 'react';
+import { iLoginData } from '../../components/form/formLogin/types';
+import ToolbarSeparator from 'material-ui/Toolbar/ToolbarSeparator';
+import { iRegisterData } from '../../components/form/formRegister/types';
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -15,8 +15,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   useEffect(() => {
     async function infoUser() {
-      const token = localStorage.getItem("@TOKEN");
-      const myId: string | null = localStorage.getItem("@ID");
+      const token = localStorage.getItem('@TOKEN');
+      const myId: string | null = localStorage.getItem('@ID');
 
       if (!token && !myId) {
         return;
@@ -36,20 +36,20 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   async function login(data: iLoginData) {
     try {
-      const response = await api.post("/login", data);
+      const response = await api.post('/login', data);
       // Toast
-      localStorage.setItem("@TOKEN", JSON.stringify(response.data.accessToken));
-      localStorage.setItem("@ID", response.data.user.id);
+      localStorage.setItem('@TOKEN', JSON.stringify(response.data.accessToken));
+      localStorage.setItem('@ID', response.data.user.id);
       setUser(response.data.user);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (error) {
       // Toast de erro
     }
   }
   async function registerUser(data: iRegisterData) {
     try {
-      const response = await api.post("/register", data);
-      navigate("/login");
+      const response = await api.post('/register', data);
+      navigate('/login');
     } catch (error) {
       console.log(error);
     }
