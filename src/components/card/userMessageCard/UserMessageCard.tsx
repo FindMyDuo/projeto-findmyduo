@@ -17,12 +17,6 @@ export const UserMessageCard  = () => {
       name: 'Sara Souza',
       content: 'Oi gatinho, me dá skin? rsrs queria te conhecer melhor!',
     },
-    {
-      id: 2,
-
-      name: 'Sara Souza',
-      content: 'Oi gatinho, me dá skin? rsrs queria te conhecer melhor!',
-    },
   ];
 
   return (
