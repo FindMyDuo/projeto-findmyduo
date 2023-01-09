@@ -4,6 +4,7 @@ import {
   CardUserContact,
   CardUserInfo,
   StyledCard,
+  Teste,
 } from './styles';
 import userImg from '../../../assets/userImg.svg';
 import { Button } from '../../button/Button';
@@ -31,58 +32,74 @@ export const UserPostCard = () => {
       time: 'Agora',
       content: 'Alguém quer jogar um valorant comigo? :)',
     },
+    {
+      id: 3,
+      img: userImg,
+      name: 'Andrea Souza',
+      favoriteGames: 'Valorant',
+      time: 'Agora',
+      content: 'Alguém quer jogar um valorant comigo? :)',
+    },
+    {
+      id: 4,
+      img: userImg,
+      name: 'Andrea Souza',
+      favoriteGames: 'Valorant',
+      time: 'Agora',
+      content: 'Alguém quer jogar um valorant comigo? :)',
+    },
   ];
 
   return (
-    <CardContainer>
-      {userCard.map((element) => {
-        return (
-          <StyledCard key={element.id}>
-            <CardUserInfo>
-              <div>
-                <figure>
-                  {element.img ? (
-                    <img title='userPostImg' src={element.img} />
-                  ) : (
-                    <img title='userPostImg' src={noUser} />
-                  )}
-                </figure>
-                <section>
-                  <h3>{element.name}</h3>
-                  <span>{element.favoriteGames + ' | '}</span>
-                  <span>{element.time}</span>
-                </section>
-              </div>
-              <Button
-                buttonType="smallIcon"
-                type="button"
-                onClick={() => console.log('o')}
-              >
-                <HiDotsVertical />
-              </Button>
-            </CardUserInfo>
-            <CardUserContact>
-              <p>{element.content}</p>
-              <div>
+      <CardContainer>
+        {userCard.map((element) => {
+          return (
+            <StyledCard key={element.id}>
+              <CardUserInfo>
+                <div>
+                  <figure>
+                    {element.img ? (
+                      <img title="userPostImg" src={element.img} />
+                    ) : (
+                      <img title="userPostImg" src={noUser} />
+                    )}
+                  </figure>
+                  <section>
+                    <h3>{element.name}</h3>
+                    <span>{element.favoriteGames + ' | '}</span>
+                    <span>{element.time}</span>
+                  </section>
+                </div>
                 <Button
                   buttonType="smallIcon"
                   type="button"
-                  onClick={() => console.log('Ir para o discord')}
+                  onClick={() => console.log('o')}
                 >
-                  {element.discord ? <img src={discordIcon} alt="" /> : <></>}
+                  <HiDotsVertical />
                 </Button>
-                <Button
-                  buttonType="smallIcon"
-                  type="button"
-                  onClick={() => console.log('Abir chat')}
-                >
-                  <TbMessage />
-                </Button>
-              </div>
-            </CardUserContact>
-          </StyledCard>
-        );
-      })}
-    </CardContainer>
+              </CardUserInfo>
+              <CardUserContact>
+                <p>{element.content}</p>
+                <div>
+                  <Button
+                    buttonType="smallIcon"
+                    type="button"
+                    onClick={() => console.log('Ir para o discord')}
+                  >
+                    {element.discord ? <img src={discordIcon} alt="" /> : <></>}
+                  </Button>
+                  <Button
+                    buttonType="smallIcon"
+                    type="button"
+                    onClick={() => console.log('Abir chat')}
+                  >
+                    <TbMessage />
+                  </Button>
+                </div>
+              </CardUserContact>
+            </StyledCard>
+          );
+        })}
+      </CardContainer>
   );
 };
