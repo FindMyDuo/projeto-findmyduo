@@ -32,6 +32,12 @@ export const GlobalStyles = createGlobalStyle`
   transition: background-color 5000s ease-in-out 0s;
 }
 
+[data-reach-dialog-overlay]{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
   :root{
     --gray6: #1A1B1F;
     --gray5: #21232B;

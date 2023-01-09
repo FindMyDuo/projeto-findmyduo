@@ -1,3 +1,5 @@
+import { IGame } from "../../components/ModalUserProfile/types";
+
 export interface iUserContextProps {
   children: React.ReactNode;
 }
@@ -10,4 +12,5 @@ export interface iUserContext {
 export type iUser = {
   token: string;
   id: string;
-}
+  favoriteGames: IGame[];
+};

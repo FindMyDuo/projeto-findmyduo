@@ -7,9 +7,10 @@ export const StyledModal = styled(Dialog)`
   margin: 0 auto;
   background-color: var(--gray6);
   padding: 18px;
-  position: relative;
+  position: absolute;
   z-index: 1;
   border-radius: var(--radius2);
+  top: 32px;
 
   & > button {
     position: absolute;
@@ -32,8 +33,10 @@ export const StyledModal = styled(Dialog)`
 `;
 
 export const StyledOverlayModal = styled(DialogOverlay)`
-  width: 100vw;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
   position: fixed;
@@ -43,4 +46,6 @@ export const StyledOverlayModal = styled(DialogOverlay)`
 
 export const StyledDiv = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
 `;

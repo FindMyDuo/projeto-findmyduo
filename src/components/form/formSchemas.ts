@@ -80,11 +80,18 @@ export const profileSchema = yup.object().shape(
 );
 
 export const postSchema = yup.object().shape({
-  title: yup.string().required(),
-  content: yup.string().required().min(10, "Escreva um pouco mais."),
+  title: yup.string().required("Por favor selecione um jogo"),
+  content: yup
+    .string()
+    .required("Convide seus amigos!")
+    .min(10, "Escreva um pouco mais."),
   userId: yup.string().required(),
 });
 
 export const postEditSchema = yup.object().shape({
   content: yup.string().required().min(10, "Escreva um pouco mais."),
+});
+
+export const newGameSchema = yup.object().shape({
+  newGame: yup.string().required("Por favor selecione um jogo."),
 });
