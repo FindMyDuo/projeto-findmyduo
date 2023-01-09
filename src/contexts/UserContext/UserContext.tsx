@@ -26,6 +26,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         api.defaults.headers.common.authorization = `Bearer ${myToken}`;
         const response = await api.get(`/users/${myId}`);
         setUser(response.data);
+        navigate("/dashboard")
       } catch (error) {
         console.log(error);
         localStorage.clear();
