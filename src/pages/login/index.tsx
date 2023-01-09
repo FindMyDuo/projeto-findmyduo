@@ -1,16 +1,24 @@
 
 import { StyleLoginPage } from "./style"
-import logo from "../../assets/logo.svg";
+
+import loginImg from "../../assets/loginImg.svg";
 import { FormLogin } from "../../components/form/formLogin/formLogin";
+import { Header } from "../../components/header/header";
 
 export const LoginPage = () => {
   return(
     <StyleLoginPage>
-      <img src={logo} alt="logotipo de find my duo" />
-    <FormLogin/>
+      <Header/>
+      <div>
+        <FormLogin/>
+        <img src={loginImg} alt="" />
+        <div>
+          <p>Entre e encontre o <span> DUO</span> perfeito para sua partida</p>
+        </div>
+      </div>
     <footer>
-    <p> Copyright © 2023 FindMyDuo</p>
-    <p> Todos os direitos reservados </p>
+      <p> Copyright © 2023 FindMyDuo</p>
+      <p> Todos os direitos reservados </p>
     </footer>
     </StyleLoginPage>
   

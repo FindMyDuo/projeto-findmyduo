@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   html, body, #root, .App {
-  height: 100%;
+  height: 100%; 
   }
 
   button{
