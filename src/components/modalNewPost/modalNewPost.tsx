@@ -6,11 +6,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { postSchema } from "../form/formSchemas";
 import { INewPost } from "./types";
 import api from "../../services/axios";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { useContext } from "react";
 
 export const ModalNewPost = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(AuthContext);
 
   const {
     register,

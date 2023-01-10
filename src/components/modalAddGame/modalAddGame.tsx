@@ -11,7 +11,7 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 import { useContext } from "react";
 
 const ModalAddGame = ({ setState }: IModalAddGame) => {
-  const { games } = useContext(GamesContext);
+  const { allGames } = useContext(GamesContext);
 
   const { user } = useContext(UserContext);
 
