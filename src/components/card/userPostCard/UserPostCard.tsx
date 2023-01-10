@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   CardContainer,
   CardUserContact,
@@ -14,9 +14,13 @@ import discordIcon from "../../../assets/discord.svg";
 import { iUserPostCard } from "./types";
 import noUser from "../../../assets/noProfilePic.svg";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
+import Modal from "../../modal/modal";
+import { ModalEditPost } from "../../modalEditPost/modalEditPost";
 
 export const UserPostCard = () => {
   const { filteredPosts, filterUsers } = useContext(UserContext);
+
+  const [editModal, setEditModal] = useState(false);
 
   return (
     <CardContainer>
@@ -42,10 +46,21 @@ export const UserPostCard = () => {
               <Button
                 buttonType="smallIcon"
                 type="button"
-                onClick={() => console.log("o")}
+                onClick={() => setEditModal(!editModal)}
               >
                 <HiDotsVertical />
               </Button>
+
+              <Modal
+                title="Editar post"
+                setState={setEditModal}
+                state={editModal}
+              >
+                <ModalEditPost
+                  setState={setEditModal}
+                  post={element}
+                ></ModalEditPost>
+              </Modal>
             </CardUserInfo>
             <CardUserContact>
               <p>{element.content}</p>
