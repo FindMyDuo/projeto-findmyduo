@@ -4,13 +4,13 @@ import MySelect from "../select/select";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { postSchema } from "../form/formSchemas";
-import { INewPost } from "./types";
+import { ImodalNewPost, INewPost } from "./types";
 import api from "../../services/axios";
-import { AuthContext } from "../../contexts/AuthContext/AuthContext";
-import { useContext } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
-export const ModalNewPost = () => {
-  const { user } = useContext(AuthContext);
+export const ModalNewPost = ({ setState }: ImodalNewPost) => {
+  const { user, setLoadingGames } = useContext(UserContext);
 
   const {
     register,
@@ -23,9 +23,16 @@ export const ModalNewPost = () => {
 
   const newPost = async (data: INewPost) => {
     const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
-    await api.post("/posts", data, {
-      headers: { Authorization: `Bearer ${TOKEN}` },
-    });
+    setLoadingGames(true);
+    try {
+      await api.post("/posts", data, {
+        headers: { Authorization: `Bearer ${TOKEN}` },
+      });
+      setState((old) => !old);
+    } catch (error) {
+    } finally {
+      setLoadingGames(false);
+    }
   };
 
   return (

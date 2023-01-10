@@ -1,105 +1,74 @@
-import React from 'react';
+import React, { useContext } from "react";
 import {
   CardContainer,
   CardUserContact,
   CardUserInfo,
   StyledCard,
   Teste,
-} from './styles';
-import userImg from '../../../assets/userImg.svg';
-import { Button } from '../../button/Button';
-import { HiDotsVertical } from 'react-icons/hi';
-import { TbMessage } from 'react-icons/tb';
-import discordIcon from '../../../assets/discord.svg';
-import { iUserPostCard } from './types';
-import noUser from '../../../assets/noProfilePic.svg';
+} from "./styles";
+import userImg from "../../../assets/userImg.svg";
+import { Button } from "../../button/Button";
+import { HiDotsVertical } from "react-icons/hi";
+import { TbMessage } from "react-icons/tb";
+import discordIcon from "../../../assets/discord.svg";
+import { iUserPostCard } from "./types";
+import noUser from "../../../assets/noProfilePic.svg";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 export const UserPostCard = () => {
-  const userCard: Array<iUserPostCard> = [
-    {
-      id: 1,
-      name: 'Andrea Souza',
-      favoriteGames: 'Valorant',
-      time: 'Agora',
-      discord: 'https://www.youtube.com/',
-      content: 'Alguém quer jogar um valorant comigo? :)',
-    },
-    {
-      id: 2,
-      img: userImg,
-      name: 'Andrea Souza',
-      favoriteGames: 'Valorant',
-      time: 'Agora',
-      content: 'Alguém quer jogar um valorant comigo? :)',
-    },
-    {
-      id: 3,
-      img: userImg,
-      name: 'Andrea Souza',
-      favoriteGames: 'Valorant',
-      time: 'Agora',
-      content: 'Alguém quer jogar um valorant comigo? :)',
-    },
-    {
-      id: 4,
-      img: userImg,
-      name: 'Andrea Souza',
-      favoriteGames: 'Valorant',
-      time: 'Agora',
-      content: 'Alguém quer jogar um valorant comigo? :)',
-    },
-  ];
+  const { filteredPosts, filterUsers } = useContext(UserContext);
 
   return (
-      <CardContainer>
-        {userCard.map((element) => {
-          return (
-            <StyledCard key={element.id}>
-              <CardUserInfo>
-                <div>
-                  <figure>
-                    {element.img ? (
-                      <img title="userPostImg" src={element.img} />
-                    ) : (
-                      <img title="userPostImg" src={noUser} />
-                    )}
-                  </figure>
-                  <section>
-                    <h3>{element.name}</h3>
-                    <span>{element.favoriteGames + ' | '}</span>
-                    <span>{element.time}</span>
-                  </section>
-                </div>
+    <CardContainer>
+      {filteredPosts.map((element) => {
+        const user = filterUsers(element.id);
+
+        return (
+          <StyledCard key={element.id}>
+            <CardUserInfo>
+              <div>
+                <figure>
+                  {/* {user!.img ? (
+                    <img title="userPostImg" src={element.img} />
+                  ) : (
+                    <img title="userPostImg" src={noUser} />
+                  )} */}
+                </figure>
+                <section>
+                  <h3>{user?.name}</h3>
+                  <span>{element.title + " | "}</span>
+                </section>
+              </div>
+              <Button
+                buttonType="smallIcon"
+                type="button"
+                onClick={() => console.log("o")}
+              >
+                <HiDotsVertical />
+              </Button>
+            </CardUserInfo>
+            <CardUserContact>
+              <p>{element.content}</p>
+              <div>
                 <Button
                   buttonType="smallIcon"
                   type="button"
-                  onClick={() => console.log('o')}
+                  onClick={() => console.log("Ir para o discord")}
                 >
-                  <HiDotsVertical />
+                  {user?.socialMedia ? <img src={discordIcon} alt="" /> : <></>}
                 </Button>
-              </CardUserInfo>
-              <CardUserContact>
-                <p>{element.content}</p>
-                <div>
-                  <Button
-                    buttonType="smallIcon"
-                    type="button"
-                    onClick={() => console.log('Ir para o discord')}
-                  >
-                    {element.discord ? <img src={discordIcon} alt="" /> : <></>}
-                  </Button>
-                  <Button
-                    buttonType="smallIcon"
-                    type="button"
-                    onClick={() => console.log('Abir chat')}
-                  >
-                    <TbMessage />
-                  </Button>
-                </div>
-              </CardUserContact>
-            </StyledCard>
-          );
-        })}
-      </CardContainer>
+                <Button
+                  buttonType="smallIcon"
+                  type="button"
+                  onClick={() => console.log("Abir chat")}
+                >
+                  <TbMessage />
+                </Button>
+              </div>
+            </CardUserContact>
+          </StyledCard>
+        );
+      })}
+    </CardContainer>
   );
 };

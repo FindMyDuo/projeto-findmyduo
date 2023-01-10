@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledTopHome = styled.div`
   margin-top: 59px;
