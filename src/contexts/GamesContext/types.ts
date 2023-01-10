@@ -1,17 +1,17 @@
 import React, { Dispatch, SetStateAction } from "react";
 
-export interface iAllGames{
+export interface iAllGames {
   name: string;
   genre: string;
   img: string;
 }
 
-export interface iGamesChildren{
+export interface iGamesChildren {
   children: React.ReactNode;
 }
 
-export interface iGamesValue{
+export interface iGamesValue {
   allGames: iAllGames[];
   gameSelected: string;
-  setGameSelected: Dispatch<SetStateAction<string>>
+  setGameSelected: Dispatch<SetStateAction<string>>;
 }

@@ -1,21 +1,19 @@
-import { useState, useEffect, createContext } from 'react';
-import api from '../../services/axios';
-import { iUserContextProps } from '../UserContext/types';
-import { iAllGames, iGamesChildren, iGamesValue } from './types';
+import { useState, useEffect, createContext } from "react";
+import api from "../../services/axios";
+import { iUserContextProps } from "../UserContext/types";
+import { iAllGames, iGamesChildren, iGamesValue } from "./types";
 
 export const GamesContext = createContext({} as iGamesValue);
 
-export const GamesContextProvider = ({ children } : iGamesChildren) => {
+export const GamesContextProvider = ({ children }: iGamesChildren) => {
   const [allGames, setAllGames] = useState<iAllGames[]>([]);
-  const [gameSelected, setGameSelected] = useState('')
-
+  const [gameSelected, setGameSelected] = useState("");
 
   useEffect(() => {
     async function allGamesReq() {
       try {
-        const response = await api.get('/games');
-        setAllGames(response.data)
-        console.log(response);
+        const response = await api.get("/games");
+        setAllGames(response.data);
       } catch (error) {
         console.log(error);
       }

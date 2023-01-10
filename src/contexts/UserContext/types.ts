@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { iLoginData } from "../../components/form/formLogin/types";
 import { iRegisterData } from "../../components/form/formRegister/types";
 
@@ -10,6 +11,18 @@ export interface iUserContext {
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   login: (data: iLoginData) => void;
   registerUser: (data: iRegisterData) => void;
+  posts: iPost[];
+  filterUsers: (id: number) => iUserResponse | undefined;
+  setLoadingGames: Dispatch<SetStateAction<boolean>>;
+  filteredPosts: iPost[];
+  setFilterPosts: Dispatch<SetStateAction<string>>;
+}
+
+export interface iPost {
+  content: string;
+  id: number;
+  title: string;
+  userId: string;
 }
 
 export type iUser = {
@@ -28,4 +41,5 @@ export type iUserResponse = {
   socialMedia: string;
   id: number;
   name: string;
+  img: string;
 };
