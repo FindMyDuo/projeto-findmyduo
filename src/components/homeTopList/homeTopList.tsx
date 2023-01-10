@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyledTopHome } from './styles';
 import vava from '../../assets/GamesIcons/Valorant.svg';
 import lol from '../../assets/GamesIcons/League of Legends.svg';
@@ -9,12 +9,8 @@ import { GamesContext } from '../../contexts/GamesContext/GamesContext';
 import { iAllGames } from '../../contexts/GamesContext/types';
 
 export const HomeTopList = () => {
-  const {user} = useContext(UserContext)
-  const {allGames} = useContext(GamesContext)
-
-  console.log(allGames);
-  
-  console.log(user);
+  const { user } = useContext(UserContext);
+  const { allGames, gameSelected, setGameSelected } = useContext(GamesContext);
 
   return (
     <>
@@ -23,7 +19,7 @@ export const HomeTopList = () => {
         <ul>
           {allGames.map((element: iAllGames) => {
             return (
-              <li>
+              <li onClick={() => setGameSelected(element.name)}>
                 <figure>
                   <img src={element.img} alt="" />
                 </figure>
@@ -34,9 +30,11 @@ export const HomeTopList = () => {
         <div>
           <span>
             <img src={joystick} alt="" />
-            {/* <h2>{allGames[0].}</h2> */}
+            <h2>{gameSelected}</h2>
           </span>
-          <Button buttonType='searchUser' type='button'>Procurar DUO</Button>
+          <Button buttonType="searchUser" type="button">
+            Procurar DUO
+          </Button>
         </div>
       </StyledTopHome>
     </>
