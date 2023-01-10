@@ -88,6 +88,13 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
   }
 
+  function logout() {
+    localStorage.removeItem('@TOKEN')
+    localStorage.removeItem('@ID')
+    setUser(null)
+    navigate('/')
+}
+
   return (
     <UserContext.Provider
       value={{
@@ -100,6 +107,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setLoadingGames,
         filteredPosts,
         setFilterPosts,
+        logout
       }}
     >
       {children}

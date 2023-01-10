@@ -62,11 +62,11 @@ export const ModalEditProfile = () => {
       </Input>
       {errors.name && <span> {errors.name.message}</span>}
       <Input
-        errorInput={errors.profileImage?.message}
-        register={register("profileImage")}
+        errorInput={errors.url?.message}
+        register={register("url")}
         type="text"
         placeHolder="URL"
-        defaultValue={user!.profileImage}
+        defaultValue={user!.url}
       >
         <span>Alterar foto</span>
       </Input>
