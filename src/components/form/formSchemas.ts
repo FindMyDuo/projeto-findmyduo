@@ -51,20 +51,12 @@ export const registerSchema = yup.object().shape(
 
 export const profileSchema = yup.object().shape(
   {
-    name: yup.string().matches(/.{5,}/, {
+    name: yup.string().required().matches(/.{5,}/, {
       excludeEmptyString: true,
       message: "Seu nome precisa ter pelo menos 5 caracteres",
     }),
 
-    email: yup.string().email("O e-mail preenchido é inválido."),
-    password: yup.string().matches(/.{6,}/, {
-      excludeEmptyString: true,
-      message: "Sua senha precisa ter pelo menos 6 carateres",
-    }),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais.")
-      .notRequired(),
+    email: yup.string().required().email("O e-mail preenchido é inválido."),
     profileImage: yup.string(),
     socialMedia: yup
       .string()
@@ -89,7 +81,10 @@ export const postSchema = yup.object().shape({
 });
 
 export const postEditSchema = yup.object().shape({
-  content: yup.string().required().min(10, "Escreva um pouco mais."),
+  content: yup
+    .string()
+    .required("Convide seus amigos!")
+    .min(10, "Escreva um pouco mais."),
 });
 
 export const newGameSchema = yup.object().shape({

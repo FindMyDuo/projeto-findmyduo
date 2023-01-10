@@ -19,12 +19,10 @@ export const ModalEditPost = ({ post, setState }: IModalEdit) => {
 
   const editPost = async (data: IPost) => {
     const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
-    const { data: attData } = await api.patch(`/posts/${post.id}`, data, {
+    await api.patch(`/posts/${post.id}`, data, {
       headers: { Authorization: `Bearer ${TOKEN}` },
     });
 
-    console.log(attData);
-    /*FUNÇÃO QUE BUSCA OS DADOS DO USUÁRIO NOVAMENTE AQUI*/
     setState((old) => !old);
   };
 

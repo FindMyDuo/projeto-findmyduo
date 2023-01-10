@@ -13,6 +13,7 @@ interface IUser {
 export interface IGame {
   name: string;
   genre: string;
+  img: string;
 }
 
 export interface IModalProfile {
