@@ -4,5 +4,5 @@ export interface IProfile {
   password: string;
   confirmPassword: string;
   socialMedia: string;
-  profileImage: string;
+  url: string;
 }

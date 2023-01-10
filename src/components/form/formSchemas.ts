@@ -57,7 +57,7 @@ export const profileSchema = yup.object().shape(
     }),
 
     email: yup.string().required().email("O e-mail preenchido é inválido."),
-    profileImage: yup.string(),
+    url: yup.string(),
     socialMedia: yup
       .string()
       .notRequired()
