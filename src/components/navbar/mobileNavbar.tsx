@@ -1,16 +1,17 @@
 import logoIcon from "../../assets/aditionalIcons/logo-icon.svg";
 import { SlideClasses } from "./styles";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
-import { StyledNavbar } from "./styles";
-import { tNavButton } from "./types";
+import { StyledMobileNavbar } from "./styles";
+import { tDevice, tNavButton } from "./types";
 
-export const NavBar = () => {
+export const MobileNavBar = () => {
   const [button, setButton] = useState<tNavButton | null>();
 
   const homeClick = (e: React.MouseEvent) => {
     //Redirect button
-    const parent: any = (e.target as HTMLButtonElement).parentElement?.parentElement;
+    const parent: any = (e.target as HTMLButtonElement).parentElement
+      ?.parentElement;
     if (parent.classList.contains("slide-up-navbar")) {
       parent.classList.add("slide-down-navbar");
       parent.classList.remove("slide-up-navbar");
@@ -19,7 +20,8 @@ export const NavBar = () => {
   };
 
   const chatClick = (e: React.MouseEvent) => {
-    const parent: any = (e.target as HTMLButtonElement).parentElement?.parentElement;
+    const parent: any = (e.target as HTMLButtonElement).parentElement
+      ?.parentElement;
     if (button !== "chat") {
       if (parent.classList.contains("slide-down-navbar")) {
         parent.classList.remove("slide-down-navbar");
@@ -36,7 +38,8 @@ export const NavBar = () => {
   };
 
   const profileClick = (e: React.MouseEvent) => {
-    const parent: any = (e.target as HTMLButtonElement).parentElement?.parentElement;
+    const parent: any = (e.target as HTMLButtonElement).parentElement
+      ?.parentElement;
     if (button !== "profile") {
       if (parent.classList.contains("slide-down-navbar")) {
         parent.classList.remove("slide-down-navbar");
@@ -54,7 +57,8 @@ export const NavBar = () => {
 
   const globalClick = (e: React.MouseEvent) => {
     //Redirect button
-    const parent: any = (e.target as HTMLButtonElement).parentElement?.parentElement;
+    const parent: any = (e.target as HTMLButtonElement).parentElement
+      ?.parentElement;
     if (parent.classList.contains("slide-up-navbar")) {
       parent.classList.add("slide-down-navbar");
       parent.classList.remove("slide-up-navbar");
@@ -64,7 +68,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <StyledNavbar>
+      <StyledMobileNavbar>
         <div>
           <button onClick={homeClick}>
             <StyledHomeIcon>Outlined</StyledHomeIcon>
@@ -79,7 +83,7 @@ export const NavBar = () => {
             <StyledUserIcon>Outlined</StyledUserIcon>
           </button>
         </div>
-      </StyledNavbar>
+      </StyledMobileNavbar>
       <SlideClasses />
     </>
   );
