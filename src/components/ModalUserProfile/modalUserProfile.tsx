@@ -1,20 +1,7 @@
 import { DiscordButton, StyledDiv, StyledLink } from "./styles";
 import { IModalProfile, IGame } from "./types";
-
 import chat from "../../assets/chat.svg";
 import discord from "../../assets/discord.svg";
-
-import CSGO from "../../assets/GamesIcons/CSGO.svg";
-import Valorant from "../../assets/GamesIcons/Valorant.svg";
-import PUBG from "../../assets/GamesIcons/PUBG.svg";
-import Fortnite from "../../assets/GamesIcons/Fortnite.svg";
-
-const gameImage: { [key: string]: string } = {
-  CSGO: CSGO,
-  Valorant: Valorant,
-  PUBG: PUBG,
-  Fortnite: Fortnite,
-};
 
 const ModalProfileUser = ({ user }: IModalProfile) => {
   return (
@@ -28,9 +15,7 @@ const ModalProfileUser = ({ user }: IModalProfile) => {
 
       <div>
         {user.favoriteGames.map((game: IGame) => {
-          return (
-            <img key={game.name} src={gameImage[game.name]} alt={game.name} />
-          );
+          return <img key={game.name} src={game.img} alt={game.name} />;
         })}
       </div>
 

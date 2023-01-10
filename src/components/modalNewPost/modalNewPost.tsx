@@ -5,26 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { postSchema } from "../form/formSchemas";
 import { INewPost } from "./types";
+import api from "../../services/axios";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { useContext } from "react";
 
 export const ModalNewPost = () => {
-  const gameList = [
-    {
-      name: "Fortinite",
-      genre: "Battle royale",
-    },
-    {
-      name: "PUBG",
-      genre: "Battle royale",
-    },
-    {
-      name: "Valorant",
-      genre: "FPS",
-    },
-    {
-      name: "Minecraft",
-      genre: "Survival",
-    },
-  ];
+  const { user } = useContext(AuthContext);
 
   const {
     register,
@@ -35,15 +21,18 @@ export const ModalNewPost = () => {
     resolver: yupResolver(postSchema),
   });
 
-  const newPost = (data: INewPost) => {
-    console.log(data);
+  const newPost = async (data: INewPost) => {
+    const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
+    await api.post("/posts", data, {
+      headers: { Authorization: `Bearer ${TOKEN}` },
+    });
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(newPost)}>
       <input
         type="text"
-        value={1}
+        value={user!.id + ""}
         {...register("userId")}
         style={{ display: "none" }}
       />
@@ -51,14 +40,16 @@ export const ModalNewPost = () => {
         register={register("title")}
         label="Selecionar jogo"
         placeholder="Selecionar jogo"
-        list={gameList}
+        list={user!.favoriteGames}
       />
+      {errors.title && <p>{errors.title.message}</p>}
       <span>Digite seu texto</span>
       <textarea
         {...register("content")}
         disabled={false}
         placeholder="Qual a play de hoje?"
       ></textarea>
+      {errors.content && <p>{errors.content.message}</p>}
       <Button type="submit" buttonType="register">
         <span>Postar</span>
       </Button>

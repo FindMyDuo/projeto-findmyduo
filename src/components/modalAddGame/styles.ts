@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDiv = styled.div`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -12,5 +12,11 @@ export const StyledDiv = styled.div`
   }
   button {
     margin-top: 16px;
+  }
+
+  & > span {
+    font-size: var(--font6);
+    color: var(--gray1);
+    margin-top: -26px;
   }
 `;

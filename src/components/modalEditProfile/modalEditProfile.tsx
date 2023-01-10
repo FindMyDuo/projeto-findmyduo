@@ -5,8 +5,11 @@ import { profileSchema } from "../form/formSchemas";
 import { IProfile } from "./types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/axios";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
-const ModalEditProfile = () => {
+export const ModalEditProfile = () => {
   const {
     register,
     handleSubmit,
@@ -16,8 +19,14 @@ const ModalEditProfile = () => {
     resolver: yupResolver(profileSchema),
   });
 
+  const { user } = useContext(UserContext);
+
   const handleAttUser = (data: IProfile) => {
-    console.log(data);
+    const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
+    const ID = JSON.parse(localStorage.getItem("@ID")!);
+    api.patch(`users/${ID}`, data, {
+      headers: { Authorization: `Bearer ${TOKEN}` },
+    });
   };
 
   return (
@@ -27,51 +36,41 @@ const ModalEditProfile = () => {
         register={register("name")}
         type="text"
         placeHolder="Nome"
+        defaultValue={user!.name}
       >
         <span>Nome de usuário</span>
       </Input>
+      {errors.name && <span> {errors.name.message}</span>}
       <Input
         errorInput={errors.email?.message}
         register={register("email")}
         type="text"
         placeHolder="Email"
+        defaultValue={user!.email}
       >
         <span>Email do Usuário</span>
       </Input>
-
+      {errors.name && <span> {errors.name.message}</span>}
       <Input
         errorInput={errors.socialMedia?.message}
         register={register("socialMedia")}
         type="text"
         placeHolder="Name#discord"
+        defaultValue={user!.socialMedia}
       >
         <span>Alterar discord</span>
       </Input>
-
+      {errors.name && <span> {errors.name.message}</span>}
       <Input
         errorInput={errors.profileImage?.message}
         register={register("profileImage")}
         type="text"
         placeHolder="URL"
+        defaultValue={user!.profileImage}
       >
         <span>Alterar foto</span>
       </Input>
-      <Input
-        errorInput={errors.password?.message}
-        register={register("password")}
-        type="password"
-        placeHolder="Senha"
-      >
-        <span>Alterar senha</span>
-      </Input>
-      <Input
-        errorInput={errors.confirmPassword?.message}
-        register={register("confirmPassword")}
-        type="password"
-        placeHolder="Confirmação de senha"
-      >
-        <span>Confirmar senha</span>
-      </Input>
+      {errors.name && <span> {errors.name.message}</span>}
       <Button type="submit" buttonType="register">
         <span>Confirmar</span>
       </Button>

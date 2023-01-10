@@ -10,6 +10,7 @@ export const Input = ({
   register,
   errorInput,
   placeHolder,
+  defaultValue,
 }: iInput) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -26,6 +27,7 @@ export const Input = ({
             label={children}
             placeholder={placeHolder}
             {...register}
+            defaultValue={defaultValue}
           />
           <i onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? (

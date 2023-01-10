@@ -13,15 +13,15 @@ const StyledForm = styled.form`
 
   span {
     margin-bottom: -10px;
-    color: #bbbbbb;
+    color: var(--gray1);
     font-size: 14px;
     padding-left: 6px;
   }
 
   textarea {
     resize: vertical;
-    background-color: #21232b;
-    color: #bbbbbb;
+    background-color: var(--gray5);
+    color: var(--gray1);
     padding: 8px;
     border: none;
     border-radius: var(--radius1);
@@ -30,15 +30,22 @@ const StyledForm = styled.form`
     font-size: var(--font5);
     outline: none;
   }
+
   textarea::placeholder {
     font-family: "Inter";
     font-weight: 400;
     font-size: var(--font5);
-    color: #bbbbbb;
+    color: var(--gray2);
   }
 
   .MuiList-root {
     background-color: #21232b;
+  }
+
+  p {
+    color: var(--gray1);
+    font-size: var(--font6);
+    margin-top: -12px;
   }
 `;
 

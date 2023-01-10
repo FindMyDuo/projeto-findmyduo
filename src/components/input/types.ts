@@ -6,4 +6,5 @@ export interface iInput {
   register?: UseFormRegisterReturn<string>;
   errorInput?: any;
   placeHolder: string;
+  defaultValue?: string;
 }

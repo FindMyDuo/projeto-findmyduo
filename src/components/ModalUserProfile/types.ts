@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface IUser {
   email: string;
   name: string;
@@ -11,8 +13,10 @@ interface IUser {
 export interface IGame {
   name: string;
   genre: string;
+  img: string;
 }
 
 export interface IModalProfile {
   user: IUser;
+  setState: Dispatch<SetStateAction<boolean>>;
 }
