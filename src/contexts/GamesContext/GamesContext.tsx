@@ -7,6 +7,8 @@ export const GamesContext = createContext({} as iGamesValue);
 
 export const GamesContextProvider = ({ children } : iGamesChildren) => {
   const [allGames, setAllGames] = useState<iAllGames[]>([]);
+  const [gameSelected, setGameSelected] = useState('')
+
 
   useEffect(() => {
     async function allGamesReq() {
@@ -22,7 +24,7 @@ export const GamesContextProvider = ({ children } : iGamesChildren) => {
   }, []);
 
   return (
-    <GamesContext.Provider value={{ allGames }}>
+    <GamesContext.Provider value={{ allGames, gameSelected, setGameSelected }}>
       {children}
     </GamesContext.Provider>
   );

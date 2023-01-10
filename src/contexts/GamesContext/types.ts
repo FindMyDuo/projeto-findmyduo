@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 export interface iAllGames{
   name: string;
@@ -12,4 +12,6 @@ export interface iGamesChildren{
 
 export interface iGamesValue{
   allGames: iAllGames[];
+  gameSelected: string;
+  setGameSelected: Dispatch<SetStateAction<string>>
 }
