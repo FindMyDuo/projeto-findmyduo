@@ -55,13 +55,20 @@ export const MobileNavBar = () => {
     }
   };
 
-  const globalClick = (e: React.MouseEvent) => {
-    //Redirect button
+  const globalUsersClick = (e: React.MouseEvent) => {
     const parent: any = (e.target as HTMLButtonElement).parentElement
       ?.parentElement;
-    if (parent.classList.contains("slide-up-navbar")) {
+    if (button !== "users") {
+      if (parent.classList.contains("slide-down-navbar")) {
+        parent.classList.remove("slide-down-navbar");
+      }
+      parent.classList.add("slide-up-navbar");
+      setButton("users");
+    } else if (button === "users") {
+      if (parent.classList.contains("slide-up-navbar")) {
+        parent.classList.remove("slide-up-navbar");
+      }
       parent.classList.add("slide-down-navbar");
-      parent.classList.remove("slide-up-navbar");
       setButton(null);
     }
   };
@@ -76,7 +83,7 @@ export const MobileNavBar = () => {
           <button onClick={chatClick}>
             <StyledChatIcon>Outlined</StyledChatIcon>
           </button>
-          <button onClick={globalClick}>
+          <button onClick={globalUsersClick}>
             <img src={logoIcon} alt="" />
           </button>
           <button onClick={profileClick}>
