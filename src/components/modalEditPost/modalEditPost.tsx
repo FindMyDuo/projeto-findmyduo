@@ -6,8 +6,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { postEditSchema } from "../form/formSchemas";
 import { IModalEdit, IPost } from "./types";
 import api from "../../services/axios";
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { useContext } from "react";
 
 export const ModalEditPost = ({ post, setState }: IModalEdit) => {
+  const { setLoadingGames } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -17,12 +21,34 @@ export const ModalEditPost = ({ post, setState }: IModalEdit) => {
     resolver: yupResolver(postEditSchema),
   });
 
-  const editPost = async (data: IPost) => {
-    const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
-    await api.patch(`/posts/${post.id}`, data, {
-      headers: { Authorization: `Bearer ${TOKEN}` },
-    });
+  const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
 
+  const editPost = async (data: IPost) => {
+    setLoadingGames(true);
+    try {
+      await api.patch(`/posts/${post.id}`, data, {
+        headers: { Authorization: `Bearer ${TOKEN}` },
+      });
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoadingGames(false);
+    }
+
+    setState((old) => !old);
+  };
+
+  const deletePost = async () => {
+    setLoadingGames(true);
+    try {
+      await api.delete(`/posts/${post.id}`, {
+        headers: { Authorization: `Bearer ${TOKEN}` },
+      });
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoadingGames(false);
+    }
     setState((old) => !old);
   };
 
@@ -37,6 +63,9 @@ export const ModalEditPost = ({ post, setState }: IModalEdit) => {
       {errors.content && <span>{errors.content.message}</span>}
       <Button type="submit" buttonType="register">
         <span>Postar</span>
+      </Button>
+      <Button buttonType="register" type="button" onClick={deletePost}>
+        <span>Excluir</span>
       </Button>
     </StyledForm>
   );

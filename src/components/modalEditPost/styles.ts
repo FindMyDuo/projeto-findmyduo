@@ -8,10 +8,9 @@ const StyledForm = styled.form`
 
   button {
     margin-top: 16px;
-    margin-bottom: 16px;
   }
 
-  span {
+  & > span {
     margin-bottom: -10px;
     color: #bbbbbb;
     font-size: 14px;
@@ -39,6 +38,11 @@ const StyledForm = styled.form`
 
   .MuiList-root {
     background-color: #21232b;
+  }
+
+  button + button {
+    background-color: red;
+    box-shadow: none;
   }
 `;
 

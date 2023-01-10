@@ -8,9 +8,14 @@ import { ImodalNewPost, INewPost } from "./types";
 import api from "../../services/axios";
 import { Dispatch, SetStateAction, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext/UserContext";
+import { GamesContext } from "../../contexts/GamesContext/GamesContext";
 
 export const ModalNewPost = ({ setState }: ImodalNewPost) => {
   const { user, setLoadingGames } = useContext(UserContext);
+
+  const { allGames } = useContext(GamesContext);
+
+  console.log(allGames);
 
   const {
     register,
@@ -47,7 +52,7 @@ export const ModalNewPost = ({ setState }: ImodalNewPost) => {
         register={register("title")}
         label="Selecionar jogo"
         placeholder="Selecionar jogo"
-        list={user!.favoriteGames}
+        list={allGames}
       />
       {errors.title && <p>{errors.title.message}</p>}
       <span>Digite seu texto</span>
