@@ -1,6 +1,7 @@
-import React from 'react';
-import { GamesContextProvider } from './GamesContext/GamesContext';
-import { UserProvider } from './UserContext/UserContext';
+import React from "react";
+import { GamesContextProvider } from "./GamesContext/GamesContext";
+import { UserProvider } from "./UserContext/UserContext";
+import { AuthContextProvider } from "./AuthContext/AuthContext";
 
 interface iProvider {
   children: React.ReactNode;
@@ -9,7 +10,9 @@ interface iProvider {
 export const Providers = ({ children }: iProvider) => {
   return (
     <UserProvider>
-      <GamesContextProvider>{children}</GamesContextProvider>
+      <AuthContextProvider>
+        <GamesContextProvider>{children}</GamesContextProvider>
+      </AuthContextProvider>
     </UserProvider>
   );
 };

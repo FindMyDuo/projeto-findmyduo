@@ -9,9 +9,11 @@ import { iRegisterData } from "./types";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
 
 export const FormRegister = () => {
   const { registerUser } = useContext(UserContext);
+  const { handleSubmitAuthRegister } = useContext(AuthContext);
 
   const {
     register,
@@ -24,6 +26,7 @@ export const FormRegister = () => {
 
   const submit: SubmitHandler<iRegisterData> = async (data) => {
     registerUser(data);
+    handleSubmitAuthRegister(data);
   };
 
   return (
@@ -75,7 +78,11 @@ export const FormRegister = () => {
       />
       <span>{errors?.socialMedia ? errors.socialMedia.message : null}</span>
 
-      <Button type={"submit"} buttonType={"register"} children={"Registrar"} />
+      <Button
+        type={"submit"}
+        buttonType={"register"}
+        children={"Registrar"}
+      />
     </FormStyle>
   );
 };
