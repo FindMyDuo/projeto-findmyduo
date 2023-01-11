@@ -11,16 +11,6 @@ import { UserCard } from "../../components/card/userCard/UserCard";
 
 export const DashboardPage = () => {
   const [device, setDevice] = useState<tDevice>("desktop");
-  const { innerWidth, innerHeight } = window;
-
-  /*   const observer = React.useRef(
-    new ResizeObserver((entries) => {
-      const { width } = entries[0].contentRect;
-      console.log(width);
-      setDevice("desktop")
-    })
-  );
- */
 
   return (
     <>
@@ -30,7 +20,6 @@ export const DashboardPage = () => {
       <UserPostCard />
       <MobileNavBar />
       <DesktopNavBar />
-      {/* device === "desktop" ? <DesktopNavBar /> : <MobileNavBar /> */}
     </>
   );
 };

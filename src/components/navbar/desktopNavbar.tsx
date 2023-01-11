@@ -1,28 +1,46 @@
 import logo from "../../assets/logoDesktop.svg";
 import logoIcon from "../../assets/aditionalIcons/logo-icon.svg";
-import { tNavButton } from "./types";
+import React, { MouseEventHandler, useContext, useState } from "react";
+import { NavContext } from "../../contexts/NavContext/NavContext";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
 import { StyledDesktopNavbar } from "./styles";
-import { useContext, useState } from "react";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
 
 export const DesktopNavBar = () => {
   const { user } = useContext(UserContext);
-  const [button, setButton] = useState<tNavButton | null>(null);
+  const { nav, setNav } = useContext(NavContext);
   const [showProfileModal, setProfileModal] = useState<boolean>(false);
 
-  function handleClick(e: any) {
+  function handleClick(
+    e: React.MouseEvent<HTMLButtonElement, MouseEventHandler>
+  ) {
     const value = e.target.value;
     if (value === "") {
-      setButton(null);
+      setProfileModal(false);
+      setNav(null);
     } else if (value === "chat") {
-      setButton("chat");
+      if (nav === value) {
+        setNav(null);
+      } else {
+        setNav("chat");
+        setProfileModal(false);
+      }
     } else if (value === "users") {
-      setButton("users");
+      if (nav === value) {
+        setNav(null);
+      } else {
+        setNav("users");
+        setProfileModal(false);
+      }
     } else if (value === "profile") {
-      setButton("profile");
-      setProfileModal(!showProfileModal);
+      if (nav === value) {
+        setNav(null);
+        setProfileModal(false);
+      } else {
+        setNav("profile");
+        setProfileModal(true);
+      }
     }
   }
 
@@ -31,7 +49,7 @@ export const DesktopNavBar = () => {
       <StyledDesktopNavbar>
         <img className="logo" src={logo} alt="" />
         <div>
-          {button === null ? (
+          {nav === null ? (
             <button className="active-button" value="" onClick={handleClick}>
               <StyledHomeIcon>Outlined</StyledHomeIcon>
               <h3>Home</h3>
@@ -42,7 +60,7 @@ export const DesktopNavBar = () => {
               <h3>Home</h3>
             </button>
           )}
-          {button === "chat" ? (
+          {nav === "chat" ? (
             <button
               className="active-button"
               value="chat"
@@ -57,7 +75,7 @@ export const DesktopNavBar = () => {
               <h3>Chat</h3>
             </button>
           )}
-          {button === "users" ? (
+          {nav === "users" ? (
             <button
               className="active-button"
               value="users"
@@ -72,7 +90,7 @@ export const DesktopNavBar = () => {
               <h3>Usuários Global</h3>
             </button>
           )}
-          {button === "profile" ? (
+          {nav === "profile" ? (
             <button
               className="active-button"
               value="profile"

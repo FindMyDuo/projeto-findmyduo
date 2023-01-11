@@ -7,26 +7,27 @@ import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
 import { StyledMobileNavbar } from "./styles";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
 import ChatFeed from "../chat/feed/ChatFeed";
+import { NavContext } from "../../contexts/NavContext/NavContext";
 
 export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
-  const [button, setButton] = useState<tNavButton | null>(null);
+  const { nav, setNav } = useContext(NavContext);
 
-  function handleClick(e: any) {
-    const parent: any = (e.target as HTMLButtonElement).parentElement
+  function handleClick(e: React.MouseEvent) {
+    const parent: HTMLElement | null | undefined = (e.target as HTMLButtonElement).parentElement
       ?.parentElement;
-    if (button !== e.target.value && e.target.value !== "") {
+    if (nav !== e.target.value && e.target.value !== "") {
       if (parent.classList.contains("slide-down-navbar")) {
         parent.classList.remove("slide-down-navbar");
       }
       parent.classList.add("slide-up-navbar");
-      setButton(e.target.value);
-    } else if (button === e.target.value || e.target.value === "") {
+      setNav(e.target.value);
+    } else if (nav === e.target.value || e.target.value === "") {
       if (parent.classList.contains("slide-up-navbar")) {
         parent.classList.remove("slide-up-navbar");
       }
       parent.classList.add("slide-down-navbar");
-      setButton(null);
+      setNav(null);
     }
   }
 
@@ -35,7 +36,7 @@ export const MobileNavBar = () => {
       <SlideClasses />
       <StyledMobileNavbar>
         <div>
-          {button === null ? (
+          {nav === null ? (
             <button className="active-button" value="" onClick={handleClick}>
               <StyledHomeIcon>Outlined</StyledHomeIcon>
             </button>
@@ -44,7 +45,7 @@ export const MobileNavBar = () => {
               <StyledHomeIcon>Outlined</StyledHomeIcon>
             </button>
           )}
-          {button === "chat" ? (
+          {nav === "chat" ? (
             <button
               className="active-button"
               value="chat"
@@ -57,7 +58,7 @@ export const MobileNavBar = () => {
               <StyledChatIcon>Outlined</StyledChatIcon>
             </button>
           )}
-          {button === "users" ? (
+          {nav === "users" ? (
             <button
               className="active-button"
               value="users"
@@ -70,7 +71,7 @@ export const MobileNavBar = () => {
               <img src={logoIcon} alt="" />
             </button>
           )}
-          {button === "profile" ? (
+          {nav === "profile" ? (
             <button
               className="active-button"
               value="profile"
@@ -84,8 +85,8 @@ export const MobileNavBar = () => {
             </button>
           )}
         </div>
-        {button === "profile" ? <ModalProfileUser user={user} /> : null}
-        {button === "chat" ? <ChatFeed /> : null}
+        {nav === "profile" ? <ModalProfileUser user={user} /> : null}
+        {nav === "chat" ? <ChatFeed /> : null}
       </StyledMobileNavbar>
     </>
   );
