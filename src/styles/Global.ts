@@ -32,7 +32,7 @@ export const GlobalStyles = createGlobalStyle`
   transition: background-color 5000s ease-in-out 0s;
 }
 
-[data-reach-dialog-overlay]{
+[data-reach-dialog-overlay] [data-reach-dialog-inner]{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,10 @@ export const GlobalStyles = createGlobalStyle`
   bottom: 0;
   left: 0;
   right: 0;
-  
+}
+[data-reach-dialog-overlay]{
+  display: flex;
+  justify-content: center;
 }
 
   :root{

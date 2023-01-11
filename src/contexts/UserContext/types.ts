@@ -12,11 +12,12 @@ export interface iUserContext {
     login: (data: iLoginData) => void;
     registerUser: (data: iRegisterData) => void;
     posts: iPost[];
-    filterUsers: (id: number) => iUserResponse | undefined;
+    filterUsers: (id: string) => iUserResponse | undefined;
     setLoadingGames: Dispatch<SetStateAction<boolean>>;
     filteredPosts: iPost[];
     setFilterPosts: Dispatch<SetStateAction<string>>;
     logout: () => void;
+    setObserver: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface iPost {
@@ -42,5 +43,5 @@ export type iUserResponse = {
     socialMedia: string;
     id: number;
     name: string;
-    img: string;
+    url: string;
 };

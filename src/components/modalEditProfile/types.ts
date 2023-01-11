@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IProfile {
   name: string;
   email: string;
@@ -5,4 +7,8 @@ export interface IProfile {
   confirmPassword: string;
   socialMedia: string;
   url: string;
+}
+
+export interface IEditProfile {
+  setState: Dispatch<SetStateAction<boolean>>
 }

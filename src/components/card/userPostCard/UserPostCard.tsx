@@ -25,18 +25,18 @@ export const UserPostCard = () => {
   return (
     <CardContainer>
       {filteredPosts.map((element) => {
-        const user = filterUsers(element.id);
-
+        const user = filterUsers(element.userId);
+        console.log(user)
         return (
           <StyledCard key={element.id}>
             <CardUserInfo>
               <div>
                 <figure>
-                  {/* {user!.img ? (
-                    <img title="userPostImg" src={element.img} />
+                  {user.url ? (
+                    <img title="userPostImg" src={user.url} />
                   ) : (
                     <img title="userPostImg" src={noUser} />
-                  )} */}
+                  )}
                 </figure>
                 <section>
                   <h3>{user?.name}</h3>
