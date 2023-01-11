@@ -3,21 +3,19 @@ import styled from "styled-components";
 export const Teste = styled.div`
   min-height: max-content;
   /* padding-bottom: 1px; */
-  background-color: var(--gray6);
 `;
 export const CardContainer = styled.ul`
   width: 100%;
-  background-color: var(--gray6);
   display: flex;
   flex-direction: column-reverse;
-  gap: 12px;
+  gap: 1rem;
   padding: 1rem 1rem 5rem 1rem;
 `;
 
 export const StyledCard = styled.li`
-  width: 100%;
   height: max-content;
   min-height: 196px;
+  border-radius: 4px;
 
   background-color: var(--gray5);
 
