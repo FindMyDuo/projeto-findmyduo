@@ -4,7 +4,6 @@ import { Modal } from "../../modal/modal";
 import { Button } from "../../button/Button";
 import { TbMessage } from "react-icons/tb";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
-import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
 import { ModalEditPost } from "../../modalEditPost/modalEditPost";
 import { HiDotsVertical } from "react-icons/hi";
 import { useContext, useState } from "react";
@@ -15,15 +14,89 @@ import {
   StyledCard,
   Teste,
 } from "./styles";
+import { iPost } from "../../../contexts/UserContext/types";
+import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
+import {
+  doc,
+  getDoc,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
 export const UserPostCard = () => {
   const { user, filteredPosts, filterUsers } = useContext(UserContext);
-  const { handleSelect } = useContext(ChatContext);
-
   const [editModal, setEditModal] = useState(false);
+  const { currentUser } = useContext(AuthContext);
+  const [userFirebase, setUserFirebase] = useState(null as any);
 
   const myId = localStorage.getItem("@ID");
   const myIdNumber = parseInt(myId);
+
+  const handleSelect = async (userUid: string, userName: any) => {
+    console.log(userName);
+    if (userFirebase === null) {
+      const combinedId =
+        currentUser.uid > userUid
+          ? currentUser.uid + userUid
+          : userUid + currentUser.uid;
+
+      try {
+        const res = await getDoc(doc(db, "chats", combinedId));
+
+        if (!res.exists()) {
+          await setDoc(doc(db, "chats", combinedId), { messages: [] });
+          await updateDoc(doc(db, "userChats", currentUser.uid), {
+            [combinedId + ".userInfo"]: {
+              uid: userUid,
+              displayName: userName.name,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+          await updateDoc(doc(db, "userChats", userUid), {
+            [combinedId + ".userInfo"]: {
+              uid: currentUser.uid,
+              displayName: currentUser.displayName,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      const combinedId =
+        currentUser.uid > userFirebase.uid
+          ? currentUser.uid + userFirebase.uid
+          : userFirebase.uid + currentUser.uid;
+
+      try {
+        const res = await getDoc(doc(db, "chats", combinedId));
+
+        if (!res.exists()) {
+          await setDoc(doc(db, "chats", combinedId), { messages: [] });
+          await updateDoc(doc(db, "userChats", currentUser.uid), {
+            [combinedId + ".userInfo"]: {
+              uid: userFirebase.uid,
+              displayName: userFirebase.displayName,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+          await updateDoc(doc(db, "userChats", userFirebase.uid), {
+            [combinedId + ".userInfo"]: {
+              uid: currentUser.uid,
+              displayName: currentUser.displayName,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    setUserFirebase(null);
+  };
 
   return (
     <CardContainer>
@@ -78,7 +151,7 @@ export const UserPostCard = () => {
                 <Button
                   buttonType="smallIcon"
                   type="button"
-                  // onClick={() => handleSelect(element.uid)}
+                  onClick={() => handleSelect(element.uid, user)}
                 >
                   <TbMessage />
                 </Button>

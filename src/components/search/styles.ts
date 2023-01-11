@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const FormSearch = styled.form`
+export const FormSearch = styled.div`
   width: 100%;
   max-width: 390px;
   padding: 10px;
 
   display: flex;
+  flex-direction: column;
 
   background: var(--gray4);
   border-radius: var(--radius1);
@@ -33,4 +34,10 @@ export const FormSearch = styled.form`
       color: var(--gray2);
     }
   }
+`;
+
+export const UserChat = styled.div`
+  width: 100%;
+  padding: 10px;
+  background: var(--gray3);
 `;
