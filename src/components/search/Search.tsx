@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { FormSearch } from "./styles";
 import SearchIcon from "@mui/icons-material/Search";
+import { useContext } from "react";
+import { FormSearch } from "./styles";
 import { ChatContext } from "../../contexts/ChatContext/ChatContext";
 
 const Search = () => {
@@ -20,7 +20,7 @@ const Search = () => {
       />
       {user && (
         <div onClick={() => handleSelect}>
-          <img src="" alt=""/>
+          <img src="" alt="" />
           <div>
             <span>{user.displayName}</span>
           </div>

@@ -1,4 +1,8 @@
-import React from 'react';
+import vava from "../../assets/vava.svg";
+import noUserPic from "../../assets/noProfilePic.svg";
+import { Button } from "../button/Button";
+import { RxExit } from "react-icons/rx";
+import { RiUserUnfollowFill } from "react-icons/ri";
 import {
   BackGroundProfile,
   ProfilePicture,
@@ -6,15 +10,9 @@ import {
   UserFavoriteGames,
   UserFavoriteGamesTitle,
   UserProfileInfo,
-} from './styles';
-import noUserPic from '../../assets/noProfilePic.svg';
-import vava from '../../assets/vava.svg';
-import { Button } from '../button/Button';
-import { RiUserUnfollowFill } from 'react-icons/ri';
-import { RxExit } from 'react-icons/rx';
+} from "./styles";
 
 export const Profile = () => {
-
   return (
     <>
       <TopBackGround />
@@ -25,10 +23,7 @@ export const Profile = () => {
         <UserProfileInfo>
           <h2>Player 01</h2>
           <h3>Player Name#Discord</h3>
-          <Button
-            buttonType="searchUser"
-            type="button"
-          >
+          <Button buttonType="searchUser" type="button">
             Editar usuário
           </Button>
         </UserProfileInfo>

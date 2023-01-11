@@ -1,29 +1,28 @@
-import { Button } from "../button/Button";
-import StyledForm from "./styles";
-import MySelect from "../select/select";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { postEditSchema } from "../form/formSchemas";
-import { IModalEdit, IPost } from "./types";
 import api from "../../services/axios";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import StyledForm from "./styles";
+import { Button } from "../button/Button";
+import { useForm } from "react-hook-form";
 import { useContext } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { postEditSchema } from "../form/formSchemas";
+import { iModalEdit, iPost } from "./types";
 
-export const ModalEditPost = ({ post, setState }: IModalEdit) => {
+export const ModalEditPost = ({ post, setState }: iModalEdit) => {
   const { setLoadingGames } = useContext(UserContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IPost>({
+  } = useForm<iPost>({
     mode: "onBlur",
     resolver: yupResolver(postEditSchema),
   });
 
   const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
 
-  const editPost = async (data: IPost) => {
+  const editPost = async (data: iPost) => {
     setLoadingGames(true);
     try {
       await api.patch(`/posts/${post.id}`, data, {

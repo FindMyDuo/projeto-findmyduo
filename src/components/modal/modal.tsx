@@ -1,7 +1,7 @@
 import { StyledModal, StyledOverlayModal } from "./style";
-import IModal from "./types";
+import { iModal } from "./types";
 
-const Modal = ({ title, setState, state, children }: IModal) => {
+export const Modal = ({ title, setState, state, children }: iModal) => {
   return (
     <StyledOverlayModal isOpen={state} onDismiss={() => setState(!state)}>
       <StyledModal>
@@ -13,5 +13,3 @@ const Modal = ({ title, setState, state, children }: IModal) => {
     </StyledOverlayModal>
   );
 };
-
-export default Modal;

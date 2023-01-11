@@ -1,15 +1,15 @@
-import { useForm } from "react-hook-form";
-import { SubmitHandler } from "react-hook-form/dist/types";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "../../button/Button";
-import { Input } from "../../input/Input";
-import { FormStyle } from "./style";
-import { registerSchema } from "../formSchemas";
-import { iRegisterData } from "./types";
 import { Link } from "react-router-dom";
+import { Input } from "../../input/Input";
+import { Button } from "../../button/Button";
+import { useForm } from "react-hook-form";
+import { FormStyle } from "./style";
 import { useContext } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
 import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
+import { SubmitHandler } from "react-hook-form/dist/types";
+import { iRegisterData } from "./types";
+import { registerSchema } from "../formSchemas";
 
 export const FormRegister = () => {
   const { registerUser } = useContext(UserContext);
@@ -48,7 +48,7 @@ export const FormRegister = () => {
         errorInput={errors.email?.message}
         register={register("email")}
         type="email"
-        children="e-mail"
+        children="Email"
       />
       <span>{errors?.email ? errors.email.message : null}</span>
       <Input
@@ -78,11 +78,7 @@ export const FormRegister = () => {
       />
       <span>{errors?.socialMedia ? errors.socialMedia.message : null}</span>
 
-      <Button
-        type={"submit"}
-        buttonType={"register"}
-        children={"Registrar"}
-      />
+      <Button type={"submit"} buttonType={"register"} children={"Registrar"} />
     </FormStyle>
   );
 };

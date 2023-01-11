@@ -7,12 +7,11 @@ export const Teste = styled.div`
 `;
 export const CardContainer = styled.ul`
   width: 100%;
-  margin-bottom: 500px;
-  padding-bottom: 112px;
   background-color: var(--gray6);
   display: flex;
   flex-direction: column-reverse;
   gap: 12px;
+  padding: 1rem 1rem 5rem 1rem;
 `;
 
 export const StyledCard = styled.li`

@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import { db } from "../../firebase/firebase";
+import { AuthContext } from "../AuthContext/AuthContext";
 import { iChat, iChatContext } from "./types";
+import { createContext, useContext, useReducer, useState } from "react";
 import {
   collection,
   doc,
@@ -11,8 +13,6 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
-import { AuthContext } from "../AuthContext/AuthContext";
 
 export const ChatContext = createContext({} as iChatContext);
 
@@ -144,7 +144,7 @@ export const ChatContextProvider = ({ children }: iChat) => {
         handleKey,
         user,
         data: state,
-        dispatch
+        dispatch,
       }}
     >
       {children}

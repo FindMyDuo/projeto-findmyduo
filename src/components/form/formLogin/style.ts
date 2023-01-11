@@ -5,7 +5,7 @@ export const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   padding: 18px;
-  background-color: #1a1b1f;
+  z-index: 1;
 
   > h1 {
     font-size: var(--font1);

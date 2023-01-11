@@ -1,14 +1,14 @@
-import React, { createContext, useEffect, useState } from "react";
+import firebase from "firebase/compat";
+import { auth, db } from "../../firebase/firebase";
 import { iAuth, iAuthContext } from "./types";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth, db } from "../../firebase/firebase";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import firebase from "firebase/compat";
 
 export const AuthContext = createContext({} as iAuthContext);
 

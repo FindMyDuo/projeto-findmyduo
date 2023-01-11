@@ -1,4 +1,4 @@
-export interface iUserPostCard{
+export interface iUserPostCard {
   id?: number;
   img?: string;
   name: string;
