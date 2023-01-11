@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
-import { StyledTopHome } from "./styles";
-import vava from "../../assets/GamesIcons/Valorant.svg";
-import lol from "../../assets/GamesIcons/League of Legends.svg";
 import joystick from "../../assets/joystick.svg";
+import { Modal } from "../modal/modal";
 import { Button } from "../button/Button";
+import { iAllGames } from "../../contexts/GamesContext/types";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 import { GamesContext } from "../../contexts/GamesContext/GamesContext";
-import { iAllGames } from "../../contexts/GamesContext/types";
-import Modal from "../modal/modal";
 import { ModalNewPost } from "../modalNewPost/modalNewPost";
+import { StyledTopHome } from "./styles";
+import { useContext, useState } from "react";
 
 export const HomeTopList = () => {
   const { setFilterPosts } = useContext(UserContext);

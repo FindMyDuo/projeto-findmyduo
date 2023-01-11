@@ -30,9 +30,18 @@ export const SlideClasses = createGlobalStyle`
       height: 7rem;
     }
 
-
   }
-`;
+
+  @keyframes slide-down-profile {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: 10rem;
+    }
+  }
+    `;
 
 export const StyledMobileNavbar = styled.aside`
   position: fixed;
@@ -46,6 +55,7 @@ export const StyledMobileNavbar = styled.aside`
   justify-content: space-between;
   align-items: flex-end;
   overflow-y: hidden;
+  gap: 1rem;
 
   div {
     display: flex;

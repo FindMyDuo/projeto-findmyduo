@@ -1,16 +1,13 @@
 import logo from "../../assets/logoDesktop.svg";
 import logoIcon from "../../assets/aditionalIcons/logo-icon.svg";
-import React, { useContext, useEffect, useState } from "react";
-import { SlideClasses } from "./styles";
-import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
-import { tDevice, tNavButton } from "./types";
-import { StyledDesktopNavbar } from "./styles";
-import ModalProfileUser from "../ModalUserProfile/modalUserProfile";
 import { UserContext } from "../../contexts/UserContext/UserContext";
+import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
+import { StyledDesktopNavbar } from "./styles";
+import { useContext, useState } from "react";
+import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
 
 export const DesktopNavBar = () => {
-
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   const [showProfileModal, setProfileModal] = useState<boolean>(false);
   const handleProfileClick = () => {};

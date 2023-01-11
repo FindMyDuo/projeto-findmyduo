@@ -1,22 +1,22 @@
 import { Dispatch, SetStateAction } from "react";
 
-interface IUser {
+interface iUser {
   email: string;
   name: string;
   age: string;
-  favoriteGames: IGame[];
+  favoriteGames: iGame[];
   socialMedia: string;
   id: number;
   url: string;
 }
 
-export interface IGame {
+export interface iGame {
   name: string;
   genre: string;
   img: string;
 }
 
-export interface IModalProfile {
-  user: IUser;
+export interface iModalProfile {
+  user: iUser;
   setState: Dispatch<SetStateAction<boolean>>;
 }

@@ -1,4 +1,13 @@
-import React, { useContext, useState } from "react";
+import noUser from "../../../assets/noProfilePic.svg";
+import discordIcon from "../../../assets/discord.svg";
+import { Modal } from "../../modal/modal";
+import { Button } from "../../button/Button";
+import { TbMessage } from "react-icons/tb";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
+import { ModalEditPost } from "../../modalEditPost/modalEditPost";
+import { HiDotsVertical } from "react-icons/hi";
+import { useContext, useState } from "react";
 import {
   CardContainer,
   CardUserContact,
@@ -6,17 +15,6 @@ import {
   StyledCard,
   Teste,
 } from "./styles";
-import userImg from "../../../assets/userImg.svg";
-import { Button } from "../../button/Button";
-import { HiDotsVertical } from "react-icons/hi";
-import { TbMessage } from "react-icons/tb";
-import discordIcon from "../../../assets/discord.svg";
-import { iUserPostCard } from "./types";
-import noUser from "../../../assets/noProfilePic.svg";
-import { UserContext } from "../../../contexts/UserContext/UserContext";
-import Modal from "../../modal/modal";
-import { ModalEditPost } from "../../modalEditPost/modalEditPost";
-import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
 
 export const UserPostCard = () => {
   const { filteredPosts, filterUsers } = useContext(UserContext);

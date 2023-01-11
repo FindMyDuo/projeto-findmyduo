@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext/UserContext";
 import api from "../../services/axios";
 import StyledDiv from "./styles";
-import { IModalDelete } from "./types";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { iModalDelete } from "./types";
 
-const ModalDeleteProfile = ({ setState }: IModalDelete) => {
+export const ModalDeleteProfile = ({ setState }: iModalDelete) => {
   const deleteUser = () => {
     const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
     const ID = JSON.parse(localStorage.getItem("@ID")!);
@@ -21,5 +21,3 @@ const ModalDeleteProfile = ({ setState }: IModalDelete) => {
     </StyledDiv>
   );
 };
-
-export default ModalDeleteProfile;

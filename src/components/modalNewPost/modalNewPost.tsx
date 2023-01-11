@@ -1,32 +1,29 @@
-import { Button } from "../button/Button";
-import StyledForm from "./styles";
-import MySelect from "../select/select";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { postSchema } from "../form/formSchemas";
-import { ImodalNewPost, INewPost } from "./types";
 import api from "../../services/axios";
-import { Dispatch, SetStateAction, useContext } from "react";
+import StyledForm from "./styles";
+import { MySelect } from "../select/select";
+import { Button } from "../button/Button";
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { postSchema } from "../form/formSchemas";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 import { GamesContext } from "../../contexts/GamesContext/GamesContext";
+import { iModalNewPost, iNewPost } from "./types";
 
-export const ModalNewPost = ({ setState }: ImodalNewPost) => {
+export const ModalNewPost = ({ setState }: iModalNewPost) => {
   const { user, setLoadingGames } = useContext(UserContext);
-
   const { allGames } = useContext(GamesContext);
-
-  console.log(allGames);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<INewPost>({
+  } = useForm<iNewPost>({
     mode: "onBlur",
     resolver: yupResolver(postSchema),
   });
 
-  const newPost = async (data: INewPost) => {
+  const newPost = async (data: iNewPost) => {
     const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
     setLoadingGames(true);
     try {

@@ -4,12 +4,9 @@ import styled from "styled-components";
 
 export const BoxInput = styled.div`
   width: 100%;
-  max-width: 393px;
   margin-top: 10px;
-
   display: flex;
   flex-direction: column;
-
   position: relative;
 
   i {

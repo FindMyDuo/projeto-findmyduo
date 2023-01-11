@@ -1,14 +1,14 @@
-import { useForm } from "react-hook-form";
-import { SubmitHandler } from "react-hook-form/dist/types";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "../../button/Button";
-import { Input } from "../../input/Input";
-import { loginSchema } from "../formSchemas";
 import { Link } from "react-router-dom";
+import { Input } from "../../input/Input";
+import { Button } from "../../button/Button";
+import { useForm } from "react-hook-form";
 import { FormStyle } from "./style";
 import { useContext } from "react";
 import { iLoginData } from "./types";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "../formSchemas";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { SubmitHandler } from "react-hook-form/dist/types";
 
 export const FormLogin = () => {
   const { login } = useContext(UserContext);
@@ -38,7 +38,7 @@ export const FormLogin = () => {
         errorInput={errors.email?.message}
         register={register("email")}
         type="email"
-        children="email"
+        children="Email"
       />
       <span>{errors?.email ? errors.email.message : null}</span>
       <Input

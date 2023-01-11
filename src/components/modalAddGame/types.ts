@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IModalAddGame {
+export interface iModalAddGame {
   setState: Dispatch<SetStateAction<boolean>>;
 }
 
-export interface IGame {
+export interface iGame {
   name: string;
   genre: string;
 }
 
-export interface INewGame {
+export interface iNewGame {
   newGame: string;
 }

@@ -1,6 +1,5 @@
-import { useState, useEffect, createContext } from "react";
 import api from "../../services/axios";
-import { iUserContextProps } from "../UserContext/types";
+import { useState, useEffect, createContext } from "react";
 import { iAllGames, iGamesChildren, iGamesValue } from "./types";
 
 export const GamesContext = createContext({} as iGamesValue);

@@ -12,7 +12,7 @@ export const StyledTopHome = styled.div`
   ul {
     display: flex;
     gap: 15px;
-    padding: 22px 12px;
+    padding: 1rem;
     overflow: scroll;
     ::-webkit-scrollbar {
       width: 1px;

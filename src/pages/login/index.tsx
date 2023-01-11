@@ -6,18 +6,20 @@ import Header from "../../components/header/header";
 export const LoginPage = () => {
   return (
     <StyleLoginPage>
-      <Header/>
+      <Header />
       <div>
-        <FormLogin/>
+        <FormLogin />
         <img src={loginImg} alt="" />
         <div>
-          <p>Entre e encontre o <span> DUO</span> perfeito para sua partida</p>
+          <p>
+            Entre e encontre o <span> DUO</span> perfeito para sua partida
+          </p>
         </div>
       </div>
-    <footer>
-      <p> Copyright © 2023 FindMyDuo</p>
-      <p> Todos os direitos reservados </p>
-    </footer>
+      <footer>
+        <p> Copyright © 2023 FindMyDuo</p>
+        <p> Todos os direitos reservados </p>
+      </footer>
     </StyleLoginPage>
   );
 };

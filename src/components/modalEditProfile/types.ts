@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IProfile {
+export interface iProfile {
   name: string;
   email: string;
   password: string;
@@ -9,6 +9,6 @@ export interface IProfile {
   url: string;
 }
 
-export interface IEditProfile {
+export interface iEditProfile {
   setState: Dispatch<SetStateAction<boolean>>
 }

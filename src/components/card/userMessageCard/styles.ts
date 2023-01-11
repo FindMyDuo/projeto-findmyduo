@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const UserMessageContainer = styled.ul`
   width: 100%;
@@ -15,13 +15,13 @@ export const StyledUserMessageCard = styled.li`
   height: 74px;
   margin-bottom: 22px;
 
-  h3{
+  h3 {
     color: var(--fixed-white);
     font-size: var(--font4);
     margin-bottom: 12px;
   }
 
-  p{
+  p {
     color: var(--gray1);
     font-size: var(--font5);
   }
@@ -41,7 +41,7 @@ export const StyledUserMessageCard = styled.li`
     object-fit: cover;
   }
 
-  span{
+  span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,8 +67,8 @@ export const MessageCounter = styled.div`
   display: flex;
   flex-direction: column;
 
-  p{
+  p {
     margin-bottom: 10px;
     color: var(--color-primary);
   }
-`
+`;

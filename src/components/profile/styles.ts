@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TopBackGround = styled.div`
   min-height: 30vh;
@@ -76,12 +76,11 @@ export const UserFavoriteGames = styled.ul`
 
   overflow-y: hidden;
   overflow-x: scroll;
-  
+
   ::-webkit-scrollbar {
     width: 10px;
     height: 0.5px;
   }
-
 
   background-color: var(--gray3);
 

@@ -1,4 +1,4 @@
-export interface iUserMessageCard{
+export interface iUserMessageCard {
   id?: number;
   img?: string;
   name: string;
