@@ -7,6 +7,7 @@ export const StyledUserCardContainer = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
 `;
 
 export const StyledUserCard = styled.li`

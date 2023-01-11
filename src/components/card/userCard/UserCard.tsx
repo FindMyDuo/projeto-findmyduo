@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CardUserInfo } from "../userPostCard/styles";
 import { StyledUserCard, StyledUserCardContainer } from "./styles";
 import { Button } from "../../button/Button";
 import noUser from "../../../assets/noProfilePic.svg";
 import { iUserCard } from "./types";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { Modal } from "../../modal/modal";
+import ModalViewerProfile from "../../modalViewerUser/modalUserProfile";
+import { iUserResponse } from "../../../contexts/UserContext/types";
 
 export const UserCard = () => {
-  const { allUsers } = useContext(UserContext);
+  const { allUsers, setCurrentUser } = useContext(UserContext);
+  const [modalUser, setModalUser] = useState(false);
 
   return (
     <StyledUserCardContainer>
@@ -35,10 +39,17 @@ export const UserCard = () => {
               <Button
                 type="button"
                 buttonType="searchUser"
-                onClick={() => console.log("Abrir modal")}
+                onClick={() => {
+                  setCurrentUser(element as any);
+                  setModalUser(!modalUser);
+                }}
               >
                 Ver perfil
               </Button>
+
+              <Modal setState={setModalUser} state={modalUser} title="Perfil">
+                <ModalViewerProfile />
+              </Modal>
             </CardUserInfo>
           </StyledUserCard>
         );

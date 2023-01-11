@@ -7,6 +7,7 @@ export interface iUserCard {
   url?: string;
   confirmPassword?: string;
   favoriteGames?: iFavoriteGames;
+  age?: string;
 }
 
 export interface iFavoriteGames {

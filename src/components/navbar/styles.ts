@@ -58,14 +58,14 @@ export const StyledMobileNavbar = styled.aside`
   gap: 1rem;
   z-index: 1;
 
-  div {
+  & > div {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
   }
 
-  button {
+  & > div > button {
     background-color: transparent;
     height: 60px;
     width: 60px;
