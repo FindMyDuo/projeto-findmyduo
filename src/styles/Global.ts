@@ -69,4 +69,8 @@ export const GlobalStyles = createGlobalStyle`
     --radius1: .5rem;    //8px
     --radius2: 1rem;    //16px
   }
+
+  body {
+    background-color: var(--gray6);
+  }
 `;
