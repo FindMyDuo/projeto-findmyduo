@@ -3,11 +3,11 @@ import { ContainerChatFeed } from "./styles";
 import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
 import Search from "../../search/Search";
 import noPicture from "../../../assets/noProfilePic.svg";
-import { UserMessageCard } from "../../card/userMessageCard/UserMessageCard";
 import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
 import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
 import { doc, onSnapshot } from "@firebase/firestore";
 import { db } from "../../../firebase/firebase";
+import { MessageCounter, StyledUserMessageCard, UserMessageContact, UserMessageContainer } from "../../card/userMessageCard/styles";
 
 const ChatFeed = () => {
   const [chats, setChats] = useState([]);
@@ -74,7 +74,34 @@ const ChatFeed = () => {
       <div>
         <h3>Messagens</h3>
         <div>
-          <UserMessageCard userInfo={chats} select={handleSelect} />
+          <UserMessageContainer>
+            {Object.entries(chats)
+              ?.sort((a, b) => b[1].date - a[1].date)
+              .map((element) => (
+                <StyledUserMessageCard
+                  key={element[0]}
+                  onClick={() => handleSelect(element[1].userInfo)}
+                >
+                  <UserMessageContact>
+                    <figure>
+                      {element.img ? (
+                        <img src={element.img} alt="" />
+                      ) : (
+                        <img src={noPicture} alt="" />
+                      )}
+                    </figure>
+                    <div>
+                      <h3>{element[1].userInfo.displayName}</h3>
+                      <p>{element[1].lastMessage?.text}</p>
+                    </div>
+                  </UserMessageContact>
+                  <MessageCounter>
+                    <p>20min</p>
+                    <span>1</span>
+                  </MessageCounter>
+                </StyledUserMessageCard>
+              ))}
+          </UserMessageContainer>
         </div>
       </div>
     </ContainerChatFeed>

@@ -5,6 +5,7 @@ export interface iPost {
   content: string;
   userId?: string | undefined;
   id: number;
+  uid: any;
 }
 
 export interface iModalEdit {
