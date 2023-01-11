@@ -26,15 +26,18 @@ export const ModalNewPost = ({ setState }: iModalNewPost) => {
   const newPost = async (data: iNewPost) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN")!);
     const uid = localStorage.getItem("@userUID");
+    const dataUser = {
+      content: data.content,
+      title: data.title,
+      userId: data.userId,
+      uid: uid,
+    };
     setLoadingGames(true);
     try {
-      await api.post(
-        "/posts",
-        { ...data, uid: uid },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      await api.post("/posts", dataUser, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      console.log(dataUser);
       setState((old) => !old);
     } catch (error) {
     } finally {
