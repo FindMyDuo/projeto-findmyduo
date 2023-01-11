@@ -36,61 +36,119 @@ export const MobileNavBar = () => {
   return (
     <>
       <SlideClasses />
-      <StyledMobileNavbar>
-        <div>
-          {nav === null ? (
-            <button className="active-button" value="" onClick={handleClick}>
-              <StyledHomeIcon>Outlined</StyledHomeIcon>
-            </button>
-          ) : (
-            <button value="" onClick={handleClick}>
-              <StyledHomeIcon>Outlined</StyledHomeIcon>
-            </button>
-          )}
-          {nav === "chat" ? (
-            <button
-              className="active-button"
-              value="chat"
-              onClick={handleClick}
-            >
-              <StyledChatIcon>Outlined</StyledChatIcon>
-            </button>
-          ) : (
-            <button value="chat" onClick={handleClick}>
-              <StyledChatIcon>Outlined</StyledChatIcon>
-            </button>
-          )}
-          {nav === "users" ? (
-            <button
-              className="active-button"
-              value="users"
-              onClick={handleClick}
-            >
-              <img src={logoIcon} alt="" />
-            </button>
-          ) : (
-            <button value="users" onClick={handleClick}>
-              <img src={logoIcon} alt="" />
-            </button>
-          )}
-          {nav === "profile" ? (
-            <button
-              className="active-button"
-              value="profile"
-              onClick={handleClick}
-            >
-              <StyledUserIcon>Outlined</StyledUserIcon>
-            </button>
-          ) : (
-            <button value="profile" onClick={handleClick}>
-              <StyledUserIcon>Outlined</StyledUserIcon>
-            </button>
-          )}
-        </div>
-        {nav === "profile" ? <ModalProfileUser user={user} /> : null}
-        {nav === "chat" ? <ChatFeed /> : null}
-        {nav === "users" ? <UserCard /> : null}
-      </StyledMobileNavbar>
+      {nav ? (
+        <StyledMobileNavbar className="slide-up-navbar">
+          <div>
+            {nav === null ? (
+              <button className="active-button" value="" onClick={handleClick}>
+                <StyledHomeIcon>Outlined</StyledHomeIcon>
+              </button>
+            ) : (
+              <button value="" onClick={handleClick}>
+                <StyledHomeIcon>Outlined</StyledHomeIcon>
+              </button>
+            )}
+            {nav === "chat" ? (
+              <button
+                className="active-button"
+                value="chat"
+                onClick={handleClick}
+              >
+                <StyledChatIcon>Outlined</StyledChatIcon>
+              </button>
+            ) : (
+              <button value="chat" onClick={handleClick}>
+                <StyledChatIcon>Outlined</StyledChatIcon>
+              </button>
+            )}
+            {nav === "users" ? (
+              <button
+                className="active-button"
+                value="users"
+                onClick={handleClick}
+              >
+                <img src={logoIcon} alt="" />
+              </button>
+            ) : (
+              <button value="users" onClick={handleClick}>
+                <img src={logoIcon} alt="" />
+              </button>
+            )}
+            {nav === "profile" ? (
+              <button
+                className="active-button"
+                value="profile"
+                onClick={handleClick}
+              >
+                <StyledUserIcon>Outlined</StyledUserIcon>
+              </button>
+            ) : (
+              <button value="profile" onClick={handleClick}>
+                <StyledUserIcon>Outlined</StyledUserIcon>
+              </button>
+            )}
+          </div>
+          {nav === "profile" ? <ModalProfileUser user={user} /> : null}
+          {nav === "chat" ? <ChatFeed /> : null}
+          {nav === "users" ? <UserCard /> : null}
+        </StyledMobileNavbar>
+      ) : (
+        <StyledMobileNavbar className="slide-down-navbar">
+          <div>
+            {nav === null ? (
+              <button className="active-button" value="" onClick={handleClick}>
+                <StyledHomeIcon>Outlined</StyledHomeIcon>
+              </button>
+            ) : (
+              <button value="" onClick={handleClick}>
+                <StyledHomeIcon>Outlined</StyledHomeIcon>
+              </button>
+            )}
+            {nav === "chat" ? (
+              <button
+                className="active-button"
+                value="chat"
+                onClick={handleClick}
+              >
+                <StyledChatIcon>Outlined</StyledChatIcon>
+              </button>
+            ) : (
+              <button value="chat" onClick={handleClick}>
+                <StyledChatIcon>Outlined</StyledChatIcon>
+              </button>
+            )}
+            {nav === "users" ? (
+              <button
+                className="active-button"
+                value="users"
+                onClick={handleClick}
+              >
+                <img src={logoIcon} alt="" />
+              </button>
+            ) : (
+              <button value="users" onClick={handleClick}>
+                <img src={logoIcon} alt="" />
+              </button>
+            )}
+            {nav === "profile" ? (
+              <button
+                className="active-button"
+                value="profile"
+                onClick={handleClick}
+              >
+                <StyledUserIcon>Outlined</StyledUserIcon>
+              </button>
+            ) : (
+              <button value="profile" onClick={handleClick}>
+                <StyledUserIcon>Outlined</StyledUserIcon>
+              </button>
+            )}
+          </div>
+          {nav === "profile" ? <ModalProfileUser user={user} /> : null}
+          {nav === "chat" ? <ChatFeed /> : null}
+          {nav === "users" ? <UserCard /> : null}
+        </StyledMobileNavbar>
+      )}
     </>
   );
 };
