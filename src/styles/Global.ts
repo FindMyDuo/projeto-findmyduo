@@ -72,5 +72,6 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: var(--gray6);
+    margin-top: 5rem;
   }
 `;

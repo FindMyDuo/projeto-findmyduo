@@ -5,11 +5,12 @@ export const HeaderStyled = styled.header`
   top: 0;
   left: 0;
   width: 100%;
+  height: 5rem;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
 
   background: var(--gray5);
 
