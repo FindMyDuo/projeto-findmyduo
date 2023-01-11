@@ -9,9 +9,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../formSchemas";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
 import { SubmitHandler } from "react-hook-form/dist/types";
+import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
 
 export const FormLogin = () => {
   const { login } = useContext(UserContext);
+  const { handleSubmitAuthLogin } = useContext(AuthContext);
 
   const {
     register,
@@ -24,6 +26,7 @@ export const FormLogin = () => {
 
   const submit: SubmitHandler<iLoginData> = async (data) => {
     login(data);
+    handleSubmitAuthLogin(data);
   };
 
   const handleClick = () => {

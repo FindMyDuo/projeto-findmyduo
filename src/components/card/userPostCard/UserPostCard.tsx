@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 export const UserPostCard = () => {
-  const { filteredPosts, filterUsers } = useContext(UserContext);
+  const { user, filteredPosts, filterUsers } = useContext(UserContext);
   const { handleSelect } = useContext(ChatContext);
 
   const [editModal, setEditModal] = useState(false);
@@ -26,7 +26,6 @@ export const UserPostCard = () => {
     <CardContainer>
       {filteredPosts.map((element) => {
         const user = filterUsers(element.userId);
-        console.log(user);
         return (
           <StyledCard key={element.id}>
             <CardUserInfo>
@@ -50,7 +49,6 @@ export const UserPostCard = () => {
               >
                 <HiDotsVertical />
               </Button>
-
               <Modal
                 title="Editar post"
                 setState={setEditModal}
