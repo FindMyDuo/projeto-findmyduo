@@ -2,12 +2,12 @@ import React, { Dispatch, SetStateAction } from "react";
 
 export interface iChatContext {
   handleSelect: (userUid: string) => void;
-  setSearchName: Dispatch<SetStateAction<string>>;
-  handleSubmitSearch: () => void;
+  setSearchName: any;
+  handleSubmitSearch: any;
   handleKey: (e: { code: string }) => void;
   user: any;
   data: any;
-  dispatch: Dispatch<{ type: any; payload: { uid: number } }>;
+  dispatch: any;
 }
 
 export interface iChat {

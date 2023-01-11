@@ -22,6 +22,7 @@ export interface iUserContext {
 }
 
 export interface iPost {
+  uid: string;
   content: string;
   id: number;
   title: string;
@@ -29,6 +30,7 @@ export interface iPost {
 }
 
 export type iUser = {
+  id: string;
   token: string;
   user: iUserResponse;
 };
