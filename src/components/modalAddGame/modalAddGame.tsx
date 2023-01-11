@@ -1,72 +1,70 @@
-import { Button } from "../button/Button";
-import { StyledForm } from "./styles";
-import MySelect from "../select/select";
-import { IModalAddGame, INewGame } from "./types";
-import { IGame } from "./types";
-import { newGameSchema } from "../form/formSchemas";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 import api from "../../services/axios";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import MySelect from "../select/select";
+import { iGame } from "./types";
+import { Button } from "../button/Button";
+import { useForm } from "react-hook-form";
 import { useContext } from "react";
+import { StyledForm } from "./styles";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 import { GamesContext } from "../../contexts/GamesContext/GamesContext";
+import { newGameSchema } from "../form/formSchemas";
+import { iModalAddGame, iNewGame } from "./types";
 
-const ModalAddGame = ({ setState }: IModalAddGame) => {
-    const { allGames } = useContext(GamesContext);
+export const ModalAddGame = ({ setState }: iModalAddGame) => {
+  const { user } = useContext(UserContext);
+  const { allGames } = useContext(GamesContext);
 
-    const { user } = useContext(UserContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NewGame>({
+    mode: "onBlur",
+    resolver: yupResolver(newGameSchema),
+  });
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<INewGame>({
-        mode: "onBlur",
-        resolver: yupResolver(newGameSchema),
-    });
+  const alreadyHave = (gameA: iGame, gameB: iGame) => gameA.name === gameB.name;
 
-    const alreadyHave = (gameA: IGame, gameB: IGame) =>
-        gameA.name === gameB.name;
-
-    const onlyNew = (
-        AllGames: IGame[],
-        MyGames: IGame[],
-        compareFunction: (gameA: IGame, gameB: IGame) => boolean
-    ) =>
-        AllGames.filter(
-            (Game) => !MyGames.some((MyGame) => compareFunction(MyGame, Game))
-        );
-
-    const newGames = onlyNew(allGames, user!.favoriteGames, alreadyHave);
-
-    const addGame = (data: INewGame) => {
-        const newGame = allGames.find((game: IGame) => game.name === data.newGame);
-        const newListFavorites = [...user!.favoriteGames, newGame];
-        const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
-        api.patch(
-            `users/${user!.id}`,
-            { favoriteGames: newListFavorites },
-            { headers: { Authorization: `Bearer ${TOKEN}` } }
-        );
-
-        setState((old) => !old);
-    };
-
-    return (
-        <StyledForm onSubmit={handleSubmit(addGame)}>
-            <p>Selecione um jogo</p>
-            <MySelect
-                register={register("newGame")}
-                placeholder="Selecione um Jogo"
-                label={"Selecione um jogo"}
-                list={newGames}
-            ></MySelect>
-            <span>{errors.newGame && errors.newGame.message}</span>
-            <Button buttonType="register" type="submit">
-                <span>Adicionar</span>
-            </Button>
-        </StyledForm>
+  const onlyNew = (
+    AllGames: iGame[],
+    MyGames: iGame[],
+    compareFunction: (gameA: iGame, gameB: iGame) => boolean
+  ) =>
+    AllGames.filter(
+      (Game) => !MyGames.some((MyGame) => compareFunction(MyGame, Game))
     );
+
+  const newGames = onlyNew(allGames, user!.favoriteGames, alreadyHave);
+
+  const addGame = (data: iNewGame) => {
+    const newGame = allGames.find((game: iGame) => game.name === data.newGame);
+    const newListFavorites = [...user!.favoriteGames, newGame];
+    const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
+    api.patch(
+      `users/${user!.id}`,
+      { favoriteGames: newListFavorites },
+      { headers: { Authorization: `Bearer ${TOKEN}` } }
+    );
+
+    setState((old) => !old);
+  };
+
+  return (
+    <StyledForm onSubmit={handleSubmit(addGame)}>
+      <p>Selecione um jogo</p>
+      <MySelect
+        register={register("newGame")}
+        placeholder="Selecione um Jogo"
+        label={"Selecione um jogo"}
+        list={newGames}
+      ></MySelect>
+      <span>{errors.newGame && errors.newGame.message}</span>
+      <Button buttonType="register" type="submit">
+        <span>Adicionar</span>
+      </Button>
+    </StyledForm>
+  );
 };
 
 export default ModalAddGame;

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IModalDelete {
+export interface iModalDelete {
   setState: Dispatch<SetStateAction<boolean>>;
 }

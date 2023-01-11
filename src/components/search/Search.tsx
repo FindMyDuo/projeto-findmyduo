@@ -1,16 +1,15 @@
-import React from 'react'
-import { FormSearch } from './styles'
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
+import { FormSearch } from "./styles";
 
 const Search = () => {
   return (
     <FormSearch>
-        <button title='SearchButton'>
-            <SearchIcon />
-        </button>
-        <input type="text" placeholder='Pesquisar'/>
+      <button title="SearchButton">
+        <SearchIcon />
+      </button>
+      <input type="text" placeholder="Pesquisar" />
     </FormSearch>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

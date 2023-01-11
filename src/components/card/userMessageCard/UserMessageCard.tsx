@@ -1,21 +1,21 @@
-import React from 'react';
-import userImg from '../../../assets/userImg.svg';
-import noPicture from '../../../assets/noProfilePic.svg';
+import React from "react";
+import userImg from "../../../assets/userImg.svg";
+import noPicture from "../../../assets/noProfilePic.svg";
 import {
   MessageCounter,
   StyledUserMessageCard,
   UserMessageContact,
   UserMessageContainer,
-} from './styles';
-import { iUserMessageCard } from './types';
+} from "./styles";
+import { iUserMessageCard } from "./types";
 
-export const UserMessageCard  = () => {
-  const messageMoc : Array <iUserMessageCard> = [
+export const UserMessageCard = () => {
+  const messageMoc: Array<iUserMessageCard> = [
     {
       id: 1,
       img: userImg,
-      name: 'Sara Souza',
-      content: 'Oi gatinho, me dá skin? rsrs queria te conhecer melhor!',
+      name: "Sara Souza",
+      content: "Oi gatinho, me dá skin? rsrs queria te conhecer melhor!",
     },
   ];
 

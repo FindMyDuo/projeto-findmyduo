@@ -1,29 +1,28 @@
-import React from 'react';
-import { CardUserInfo } from '../userPostCard/styles';
-import { StyledUserCard, StyledUserCardContainer } from './styles';
-import userImg from '../../../assets/userImg.svg';
-import { Button } from '../../button/Button';
-import vava from '../../../assets/vava.svg';
-import noUser from '../../../assets/noProfilePic.svg';
-import { iUserCard } from './types';
+import vava from "../../../assets/vava.svg";
+import userImg from "../../../assets/userImg.svg";
+import noUser from "../../../assets/noProfilePic.svg";
+import { Button } from "../../button/Button";
+import { iUserCard } from "./types";
+import { CardUserInfo } from "../userPostCard/styles";
+import { StyledUserCard, StyledUserCardContainer } from "./styles";
 
 export const UserCard = () => {
   const userMocCard: Array<iUserCard> = [
     {
       id: 1,
       img: userImg,
-      name: 'Sara Souza',
+      name: "Sara Souza",
       gameImg: vava,
     },
     {
       id: 2,
       img: userImg,
-      name: 'Sara Souza',
+      name: "Sara Souza",
       gameImg: vava,
     },
     {
       id: 3,
-      name: 'Sara Souza',
+      name: "Sara Souza",
       gameImg: vava,
     },
   ];
@@ -50,7 +49,7 @@ export const UserCard = () => {
               <Button
                 type="button"
                 buttonType="searchUser"
-                onClick={() => console.log('Abrir modal')}
+                onClick={() => console.log("Abrir modal")}
               >
                 Ver perfil
               </Button>

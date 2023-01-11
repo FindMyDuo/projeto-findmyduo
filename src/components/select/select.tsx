@@ -1,9 +1,8 @@
 import InputLabel from "@mui/material/InputLabel";
-
+import { iSelect } from "./types";
 import { StyledSelect } from "./styles";
-import { ISelect } from "./types";
 
-const MySelect = ({ placeholder, list, label, register }: ISelect) => {
+const MySelect = ({ placeholder, list, label, register }: iSelect) => {
   return (
     <StyledSelect {...register}>
       <option value="">{placeholder}</option>

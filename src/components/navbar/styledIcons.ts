@@ -1,8 +1,8 @@
 import ChatIcon from "@mui/icons-material/Chat";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
-import { styled as style } from "@mui/system";
 import { white } from "material-ui/styles/colors";
+import { styled as style } from "@mui/system";
 
 export const StyledChatIcon = style(ChatIcon, {
   name: "StyledChatIcon",

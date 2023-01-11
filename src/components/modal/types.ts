@@ -1,10 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
-interface IModal {
+export interface iModal {
   setState: Dispatch<SetStateAction<boolean>>;
   title: string;
   state: boolean;
   children: React.ReactNode;
 }
-
-export default IModal;
