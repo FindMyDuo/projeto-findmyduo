@@ -31,24 +31,60 @@ export const MobileNavBar = () => {
 
   return (
     <>
+      <SlideClasses />
       <StyledMobileNavbar>
         <div>
-          <button value="" onClick={handleClick}>
-            <StyledHomeIcon>Outlined</StyledHomeIcon>
-          </button>
-          <button value="chat" onClick={handleClick}>
-            <StyledChatIcon>Outlined</StyledChatIcon>
-          </button>
-          <button value="users" onClick={handleClick}>
-            <img src={logoIcon} alt="" />
-          </button>
-          <button value="profile" onClick={handleClick}>
-            <StyledUserIcon>Outlined</StyledUserIcon>
-          </button>
+          {button === null ? (
+            <button className="active-button" value="" onClick={handleClick}>
+              <StyledHomeIcon>Outlined</StyledHomeIcon>
+            </button>
+          ) : (
+            <button value="" onClick={handleClick}>
+              <StyledHomeIcon>Outlined</StyledHomeIcon>
+            </button>
+          )}
+          {button === "chat" ? (
+            <button
+              className="active-button"
+              value="chat"
+              onClick={handleClick}
+            >
+              <StyledChatIcon>Outlined</StyledChatIcon>
+            </button>
+          ) : (
+            <button value="chat" onClick={handleClick}>
+              <StyledChatIcon>Outlined</StyledChatIcon>
+            </button>
+          )}
+          {button === "users" ? (
+            <button
+              className="active-button"
+              value="users"
+              onClick={handleClick}
+            >
+              <img src={logoIcon} alt="" />
+            </button>
+          ) : (
+            <button value="users" onClick={handleClick}>
+              <img src={logoIcon} alt="" />
+            </button>
+          )}
+          {button === "profile" ? (
+            <button
+              className="active-button"
+              value="profile"
+              onClick={handleClick}
+            >
+              <StyledUserIcon>Outlined</StyledUserIcon>
+            </button>
+          ) : (
+            <button value="profile" onClick={handleClick}>
+              <StyledUserIcon>Outlined</StyledUserIcon>
+            </button>
+          )}
         </div>
         {button == "profile" ? <ModalProfileUser user={user} /> : null}
       </StyledMobileNavbar>
-      <SlideClasses />
     </>
   );
 };

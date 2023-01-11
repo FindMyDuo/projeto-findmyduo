@@ -13,22 +13,18 @@ export const DesktopNavBar = () => {
   const [showProfileModal, setProfileModal] = useState<boolean>(false);
 
   function handleClick(e: any) {
-    if (button !== e.target.value && e.target.value !== "") {
-      setButton(e.target.value);
-    } else if (button === e.target.value || e.target.value === "") {
+    console.log(e.target);
+    const value = e.target.value;
+    if (value === "") {
       setButton(null);
+    } else if (value === "chat") {
+      setButton("chat");
+    } else if (value === "users") {
+      setButton("users");
+    } else if (value === "profile") {
+      setButton("profile");
+      setProfileModal(!showProfileModal);
     }
-    checkModal();
-  }
-
-  function checkModal() {
-    if (button === "profile") {
-      setProfileModal(true);
-    } else {
-      setProfileModal(false);
-    }
-
-    console.log(showProfileModal)
   }
 
   return (
@@ -36,22 +32,62 @@ export const DesktopNavBar = () => {
       <StyledDesktopNavbar>
         <img className="logo" src={logo} alt="" />
         <div>
-          <button value="" onClick={handleClick}>
-            <StyledHomeIcon>Outlined</StyledHomeIcon>
-            <h3>Home</h3>
-          </button>
-          <button value="chat" onClick={handleClick}>
-            <StyledChatIcon>Outlined</StyledChatIcon>
-            <h3>Chat</h3>
-          </button>
-          <button value="users" onClick={handleClick}>
-            <img src={logoIcon} alt="" />
-            <h3>Usuários Global</h3>
-          </button>
-          <button value="profile" onClick={handleClick}>
-            <StyledUserIcon>Outlined</StyledUserIcon>
-            <h3>Perfil</h3>
-          </button>
+          {button === null ? (
+            <button className="active-button" value="" onClick={handleClick}>
+              <StyledHomeIcon>Outlined</StyledHomeIcon>
+              <h3>Home</h3>
+            </button>
+          ) : (
+            <button value="" onClick={handleClick}>
+              <StyledHomeIcon>Outlined</StyledHomeIcon>
+              <h3>Home</h3>
+            </button>
+          )}
+          {button === "chat" ? (
+            <button
+              className="active-button"
+              value="chat"
+              onClick={handleClick}
+            >
+              <StyledChatIcon>Outlined</StyledChatIcon>
+              <h3>Chat</h3>
+            </button>
+          ) : (
+            <button value="chat" onClick={handleClick}>
+              <StyledChatIcon>Outlined</StyledChatIcon>
+              <h3>Chat</h3>
+            </button>
+          )}
+          {button === "users" ? (
+            <button
+              className="active-button"
+              value="users"
+              onClick={handleClick}
+            >
+              <img src={logoIcon} alt="" />
+              <h3>Usuários Global</h3>
+            </button>
+          ) : (
+            <button value="users" onClick={handleClick}>
+              <img src={logoIcon} alt="" />
+              <h3>Usuários Global</h3>
+            </button>
+          )}
+          {button === "profile" ? (
+            <button
+              className="active-button"
+              value="profile"
+              onClick={handleClick}
+            >
+              <StyledUserIcon>Outlined</StyledUserIcon>
+              <h3>Perfil</h3>
+            </button>
+          ) : (
+            <button value="profile" onClick={handleClick}>
+              <StyledUserIcon>Outlined</StyledUserIcon>
+              <h3>Perfil</h3>
+            </button>
+          )}
         </div>
       </StyledDesktopNavbar>
       {showProfileModal ? <ModalProfileUser user={user} /> : null}

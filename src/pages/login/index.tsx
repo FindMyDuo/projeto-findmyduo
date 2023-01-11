@@ -1,7 +1,7 @@
-import { StyleLoginPage } from "./style";
 import loginImg from "../../assets/loginImg.svg";
+import { Header } from "../../components/header/header";
 import { FormLogin } from "../../components/form/formLogin/formLogin";
-import Header from "../../components/header/header";
+import { StyleLoginPage } from "./style";
 
 export const LoginPage = () => {
   return (

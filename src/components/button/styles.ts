@@ -8,14 +8,11 @@ export const StyledButton = styled.button<iButton>`
         return css`
           color: var(--fixed-white);
           background-color: var(--gray5);
-
           width: 100%;
           height: 66px;
-
           font-size: 24px;
           font-weight: 700;
           font-family: "Inter";
-
           border: 2px ridge var(--color-primary);
           border-radius: var(--radius1);
 
