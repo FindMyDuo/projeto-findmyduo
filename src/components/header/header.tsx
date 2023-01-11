@@ -3,7 +3,7 @@ import { HeaderStyled } from "./styles";
 import logoHeader from "../../assets/logo-inline.svg";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-const Header = () => {
+export const Header = () => {
   return (
     <HeaderStyled>
       <img src={logoHeader} alt="Logo Find my Duo" />
@@ -13,5 +13,3 @@ const Header = () => {
     </HeaderStyled>
   );
 };
-
-export default Header;

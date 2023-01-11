@@ -11,7 +11,7 @@ export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
   const [button, setButton] = useState<tNavButton | null>(null);
 
-  function handleClick(e: React.MouseEvent) {
+  function handleClick(e: any) {
     const parent: any = (e.target as HTMLButtonElement).parentElement
       ?.parentElement;
     if (button !== e.target.value && e.target.value !== "") {

@@ -56,6 +56,7 @@ export const StyledMobileNavbar = styled.aside`
   align-items: flex-end;
   overflow-y: hidden;
   gap: 1rem;
+  z-index: 2;
 
   div {
     display: flex;
@@ -70,14 +71,6 @@ export const StyledMobileNavbar = styled.aside`
     width: 60px;
     border: none;
     border-radius: 16px;
-
-    :hover {
-      background-color: var(--color-primary);
-    }
-
-    :focus {
-      background-color: var(--color-primary);
-    }
   }
 
   img {
@@ -86,6 +79,10 @@ export const StyledMobileNavbar = styled.aside`
 
   svg {
     pointer-events: none;
+  }
+
+  .active-button {
+    background-color: var(--color-primary);
   }
 
   @media (max-width: 991px) {
@@ -138,6 +135,7 @@ export const StyledDesktopNavbar = styled.aside`
     h3 {
       text-align: center;
       color: white;
+      pointer-events: none;
     }
 
     img {
@@ -151,14 +149,10 @@ export const StyledDesktopNavbar = styled.aside`
       height: 38px;
       pointer-events: none;
     }
+  }
 
-    :hover {
-      background-color: var(--color-primary);
-    }
-
-    :focus {
-      background-color: var(--color-primary);
-    }
+  .active-button {
+    background-color: var(--color-primary);
   }
 
   @media (max-width: 991px) {
