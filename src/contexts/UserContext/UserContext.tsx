@@ -22,6 +22,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [allUsers, setAllUsers] = useState([] as iUserResponse[]);
   const [loadingGames, setLoadingGames] = useState(false);
   const [filterPosts, setFilterPosts] = useState("todos");
+  const [currentUser, setCurrentUser] = useState({} as iUserResponse);
 
   function filterUsers(id: number) {
     const findUser = allUsers.find((e: iUserResponse) => e.id == id);
@@ -119,6 +120,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         logout,
         setObserver,
         allUsers,
+        currentUser,
+        setCurrentUser,
       }}
     >
       {children}

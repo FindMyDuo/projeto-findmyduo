@@ -7,6 +7,7 @@ import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
 import { StyledMobileNavbar } from "./styles";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
 import ChatFeed from "../chat/feed/ChatFeed";
+import { UserCard } from "../card/userCard/UserCard";
 
 export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
@@ -86,6 +87,7 @@ export const MobileNavBar = () => {
         </div>
         {button === "profile" ? <ModalProfileUser user={user} /> : null}
         {button === "chat" ? <ChatFeed /> : null}
+        {button === "users" ? <UserCard /> : null}
       </StyledMobileNavbar>
     </>
   );
