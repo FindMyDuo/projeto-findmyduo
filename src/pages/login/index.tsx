@@ -1,5 +1,5 @@
 import loginImg from "../../assets/loginImg.svg";
-import { Header } from "../../components/header/header";
+import Header from "../../components/header/header";
 import { FormLogin } from "../../components/form/formLogin/formLogin";
 import { StyleLoginPage } from "./style";
 
