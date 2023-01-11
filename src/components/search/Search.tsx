@@ -1,16 +1,33 @@
-import React from 'react'
-import { FormSearch } from './styles'
-import SearchIcon from '@mui/icons-material/Search';
+import React, { useContext } from "react";
+import { FormSearch } from "./styles";
+import SearchIcon from "@mui/icons-material/Search";
+import { ChatContext } from "../../contexts/ChatContext/ChatContext";
 
 const Search = () => {
-  return (
-    <FormSearch>
-        <button title='SearchButton'>
-            <SearchIcon />
-        </button>
-        <input type="text" placeholder='Pesquisar'/>
-    </FormSearch>
-  )
-}
+  const { setSearchName, handleSubmitSearch, handleKey, user, handleSelect } =
+    useContext(ChatContext);
 
-export default Search
+  return (
+    <FormSearch onSubmit={handleSubmitSearch}>
+      <button title="SearchButton">
+        <SearchIcon />
+      </button>
+      <input
+        type="text"
+        placeholder="Pesquisar"
+        onKeyDown={handleKey}
+        onChange={(e) => setSearchName(e.target.value)}
+      />
+      {user && (
+        <div onClick={() => handleSelect}>
+          <img src="" alt=""/>
+          <div>
+            <span>{user.displayName}</span>
+          </div>
+        </div>
+      )}
+    </FormSearch>
+  );
+};
+
+export default Search;

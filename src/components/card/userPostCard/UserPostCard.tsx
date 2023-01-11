@@ -16,9 +16,11 @@ import noUser from "../../../assets/noProfilePic.svg";
 import { UserContext } from "../../../contexts/UserContext/UserContext";
 import Modal from "../../modal/modal";
 import { ModalEditPost } from "../../modalEditPost/modalEditPost";
+import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
 
 export const UserPostCard = () => {
   const { filteredPosts, filterUsers } = useContext(UserContext);
+  const { handleSelect } = useContext(ChatContext);
 
   const [editModal, setEditModal] = useState(false);
 
@@ -26,13 +28,13 @@ export const UserPostCard = () => {
     <CardContainer>
       {filteredPosts.map((element) => {
         const user = filterUsers(element.userId);
-        console.log(user)
+        console.log(user);
         return (
           <StyledCard key={element.id}>
             <CardUserInfo>
               <div>
                 <figure>
-                  {user.url ? (
+                  {user?.url ? (
                     <img title="userPostImg" src={user.url} />
                   ) : (
                     <img title="userPostImg" src={noUser} />
@@ -75,7 +77,7 @@ export const UserPostCard = () => {
                 <Button
                   buttonType="smallIcon"
                   type="button"
-                  onClick={() => console.log("Abir chat")}
+                  // onClick={() => handleSelect(element.uid)}
                 >
                   <TbMessage />
                 </Button>
