@@ -24,6 +24,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
+import { NavContext } from "../../../contexts/NavContext/NavContext";
 
 export const UserPostCard = () => {
   const { user, filteredPosts, filterUsers } = useContext(UserContext);
@@ -31,11 +32,17 @@ export const UserPostCard = () => {
   const { currentUser } = useContext(AuthContext);
   const [userFirebase, setUserFirebase] = useState(null as any);
 
+  const { setNav } = useContext(NavContext);
+
   const myId = localStorage.getItem("@ID");
   const myIdNumber = parseInt(myId);
 
-  const handleSelect = async (userUid: string, userName: any) => {
-    console.log(userName);
+  const handleSelect = async (
+    e: React.MouseEvent<HTMLButtonElement>,
+    userUid: string,
+    userName: any
+  ) => {
+    setNav("chat");
     if (userFirebase === null) {
       const combinedId =
         currentUser.uid > userUid
@@ -151,7 +158,7 @@ export const UserPostCard = () => {
                 <Button
                   buttonType="smallIcon"
                   type="button"
-                  onClick={() => handleSelect(element.uid, user)}
+                  onClick={(e) => handleSelect(e, element.uid, user)}
                 >
                   <TbMessage />
                 </Button>

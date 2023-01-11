@@ -8,12 +8,16 @@ import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
 import { doc, onSnapshot } from "@firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { MessageCounter, StyledUserMessageCard, UserMessageContact, UserMessageContainer } from "../../card/userMessageCard/styles";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { NavContext } from "../../../contexts/NavContext/NavContext";
 
 const ChatFeed = () => {
   const [chats, setChats] = useState([]);
 
+  const { allUsers } = useContext(UserContext)
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
+  const { setChat } = useContext(NavContext)
 
   useEffect(() => {
     const getChats = () => {
@@ -33,6 +37,7 @@ const ChatFeed = () => {
 
   const handleSelect = (user) => {
     dispatch({ type: "CHANGE_USER", payload: user });
+    setChat(true)
   };
 
   return (
@@ -77,30 +82,38 @@ const ChatFeed = () => {
           <UserMessageContainer>
             {Object.entries(chats)
               ?.sort((a, b) => b[1].date - a[1].date)
-              .map((element) => (
-                <StyledUserMessageCard
-                  key={element[0]}
-                  onClick={() => handleSelect(element[1].userInfo)}
-                >
-                  <UserMessageContact>
-                    <figure>
-                      {element.img ? (
-                        <img src={element.img} alt="" />
-                      ) : (
-                        <img src={noPicture} alt="" />
-                      )}
-                    </figure>
-                    <div>
-                      <h3>{element[1].userInfo.displayName}</h3>
-                      <p>{element[1].lastMessage?.text}</p>
-                    </div>
-                  </UserMessageContact>
-                  <MessageCounter>
-                    <p>20min</p>
-                    <span>1</span>
-                  </MessageCounter>
-                </StyledUserMessageCard>
-              ))}
+              .map((element) => {
+
+                const result = allUsers.find(user => {
+                  return user.name === element[1].userInfo.displayName
+                })
+
+                return (
+                  <StyledUserMessageCard
+                    key={element[0]}
+                    onClick={() => handleSelect(element[1].userInfo)}
+                  >
+                    <UserMessageContact>
+                      <figure>
+                        {result?.url ? (
+                          <img src={result.url} alt="" />
+                        ) : (
+                          <img src={noPicture} alt="" />
+                        )}
+                      </figure>
+
+                      <div>
+                        <h3>{element[1].userInfo.displayName}</h3>
+                        <p>{element[1].lastMessage?.text}</p>
+                      </div>
+                    </UserMessageContact>
+                    <MessageCounter>
+                      <p>20min</p>
+                      <span>1</span>
+                    </MessageCounter>
+                  </StyledUserMessageCard>
+                )
+              })}
           </UserMessageContainer>
         </div>
       </div>

@@ -9,10 +9,11 @@ import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
 import ChatFeed from "../chat/feed/ChatFeed";
 import { NavContext } from "../../contexts/NavContext/NavContext";
 import { UserCard } from "../card/userCard/UserCard";
+import Messages from "../chat/messages/Messages";
 
 export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
-  const { nav, setNav } = useContext(NavContext);
+  const { nav, setNav, isChat, setChat } = useContext(NavContext);
 
   function handleClick(e: React.MouseEvent) {
     const parent: HTMLElement | null | undefined = (
