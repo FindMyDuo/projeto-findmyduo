@@ -7,10 +7,11 @@ export const StyledModal = styled(Dialog)`
   margin: 0 auto;
   background-color: var(--gray6);
   padding: 18px;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 4;
   border-radius: var(--radius2);
   top: 0;
+  transform: translateY(50%);
 
   & > button {
     position: absolute;
@@ -40,7 +41,7 @@ export const StyledOverlayModal = styled(DialogOverlay)`
   background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
 `;
 

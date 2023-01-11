@@ -10,12 +10,12 @@ export const GamesContextProvider = ({ children }: iGamesChildren) => {
 
   useEffect(() => {
     async function allGamesReq() {
-      // try {
-      //   const response = await api.get("/games");
-      //   setAllGames(response.data);
-      // } catch (error) {
-      //   console.log(error);
-      // }
+      try {
+        const response = await api.get("/games");
+        setAllGames(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
     allGamesReq();
   }, []);

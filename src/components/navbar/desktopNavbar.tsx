@@ -13,7 +13,6 @@ export const DesktopNavBar = () => {
   const [showProfileModal, setProfileModal] = useState<boolean>(false);
 
   function handleClick(e: any) {
-    console.log(e.target);
     const value = e.target.value;
     if (value === "") {
       setButton(null);

@@ -1,8 +1,8 @@
 import api from "../../services/axios";
-import StyledForm from "./styles";
 import { Input } from "../input/Input";
 import { Button } from "../button/Button";
 import { useForm } from "react-hook-form";
+import { StyledForm } from "./styles";
 import { useContext } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext/UserContext";
