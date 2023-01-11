@@ -25,6 +25,8 @@ export const UserPostCard = () => {
   return (
     <CardContainer>
       {filteredPosts.map((element) => {
+        console.log(element);
+
         const user = filterUsers(element.userId);
         return (
           <StyledCard key={element.id}>

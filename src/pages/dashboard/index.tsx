@@ -1,4 +1,4 @@
-import { Header } from "../../components/header/header";
+import Header from "../../components/header/header";
 import ChatFeed from "../../components/chat/feed/ChatFeed";
 import React, { useState, useEffect } from "react";
 import { tDevice } from "../../components/navbar/types";
