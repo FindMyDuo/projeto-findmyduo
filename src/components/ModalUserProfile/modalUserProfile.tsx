@@ -61,20 +61,30 @@ const ModalProfileUser = ({ user }: IModalProfile) => {
                 <ModalAddGame setState={setModalAddGame} />
             </Modal>
 
-            <div>
-                {user.favoriteGames.map((game: IGame) => {
-                    return (
-                        <img key={game.name} src={game.img} alt={game.name} />
-                    );
-                })}
-            </div>
+            {user.favoriteGames ? (
+                <div>
+                    {user.favoriteGames.map((game: IGame) => {
+                        return (
+                            <img
+                                key={game.name}
+                                src={game.img}
+                                alt={game.name}
+                            />
+                        );
+                    })}
+                </div>
+            ) : <div style={{
+                display: "none",
+            }}></div>
+                    
+            }
 
             <Modal
                 state={modalProfile}
                 setState={setModalProfile}
                 title={"PERFIL"}
             >
-                <ModalEditProfile />
+                <ModalEditProfile setState={setModalProfile}/>
             </Modal>
             <Modal
                 state={modalDelete}

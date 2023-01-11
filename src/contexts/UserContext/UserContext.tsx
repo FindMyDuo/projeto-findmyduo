@@ -16,6 +16,7 @@ export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
   const navigate: NavigateFunction = useNavigate();
+  const [observer, setObserver] = useState(true)
 
   const [user, setUser] = useState<iUser | null>(null);
   const [posts, setPosts] = useState([] as iPost[]);
@@ -24,7 +25,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [filterPosts, setFilterPosts] = useState("todos");
 
   function filterUsers(id: number) {
-    const findUser = allUsers.find((e: iUserResponse) => e.id === id);
+    const findUser = allUsers.find((e: iUserResponse) => e.id == id);
     return findUser;
   }
 
@@ -65,7 +66,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
       }
     }
     infoUser();
-  }, [navigate, loadingGames]);
+  }, [navigate, loadingGames, observer]);
 
   async function login(data: iLoginData) {
     try {
@@ -107,7 +108,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setLoadingGames,
         filteredPosts,
         setFilterPosts,
-        logout
+        logout,
+        setObserver,
       }}
     >
       {children}
