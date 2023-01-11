@@ -19,6 +19,8 @@ export interface iUserContext {
   logout: () => void;
   setObserver: Dispatch<SetStateAction<boolean>>;
   allUsers: iUserResponse;
+  currentUser: iUserResponse;
+  setCurrentUser: Dispatch<SetStateAction<iUserResponse>>;
 }
 
 export interface iPost {
@@ -36,7 +38,7 @@ export type iUser = {
 };
 export type iUserResponse = {
   email: string;
-  age: string;
+  age: string | undefined;
   favoriteGames: [
     {
       name: string;
