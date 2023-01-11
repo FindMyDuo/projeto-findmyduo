@@ -16,8 +16,7 @@ export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
   const navigate: NavigateFunction = useNavigate();
-  const [observer, setObserver] = useState(true)
-
+  const [observer, setObserver] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);
   const [posts, setPosts] = useState([] as iPost[]);
   const [allUsers, setAllUsers] = useState([]);
@@ -55,10 +54,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         const responsePost = await api.get("/posts");
         const responseAllUsers = await api.get("/users");
         setPosts(responsePost.data);
-        console.log(responsePost.data);
         setUser(response.data);
         setAllUsers(responseAllUsers.data);
-        console.log(responseAllUsers.data);
         navigate("/dashboard");
       } catch (error) {
         console.log(error);
@@ -90,11 +87,11 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   }
 
   function logout() {
-    localStorage.removeItem('@TOKEN')
-    localStorage.removeItem('@ID')
-    setUser(null)
-    navigate('/')
-}
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@ID");
+    setUser(null);
+    navigate("/");
+  }
 
   return (
     <UserContext.Provider
