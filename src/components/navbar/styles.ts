@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 export const SlideClasses = createGlobalStyle`
   .slide-up-navbar{
     animation: slide-up 500ms;
-    height: 100%;
+    height: calc(100% - 5rem);
   }
 
   @keyframes slide-up {
@@ -12,7 +12,7 @@ export const SlideClasses = createGlobalStyle`
     }
 
     to {
-      height: 100%;
+      height: calc(100% - 5rem);
     }
   }
 
@@ -23,7 +23,7 @@ export const SlideClasses = createGlobalStyle`
 
   @keyframes slide-down {
     from {
-      height: 100%;
+      height: calc(100% - 5rem);
     }
 
     to {
@@ -56,7 +56,7 @@ export const StyledMobileNavbar = styled.aside`
   align-items: flex-end;
   overflow-y: hidden;
   gap: 1rem;
-  z-index: 2;
+  z-index: 1;
 
   div {
     display: flex;

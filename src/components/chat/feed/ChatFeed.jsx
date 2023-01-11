@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContainerChatFeed } from "./styles";
 import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
 import Search from "../../search/Search";
@@ -6,7 +6,7 @@ import noPicture from "../../../assets/noProfilePic.svg";
 import { UserMessageCard } from "../../card/userMessageCard/UserMessageCard";
 import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
 import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
-import { DocumentData, doc, onSnapshot } from "@firebase/firestore";
+import { doc, onSnapshot } from "@firebase/firestore";
 import { db } from "../../../firebase/firebase";
 
 const ChatFeed = () => {
@@ -17,14 +17,11 @@ const ChatFeed = () => {
 
   useEffect(() => {
     const getChats = () => {
-      const unsub = onSnapshot(
-        doc(db, "userChats", currentUser.uid),
-        (doc) => {
-          if (doc) {
-            setChats(doc.data());
-          }
+      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        if (doc) {
+          setChats(doc.data());
         }
-      );
+      });
 
       return () => {
         unsub();
