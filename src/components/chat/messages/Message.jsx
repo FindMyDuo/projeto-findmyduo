@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../../contexts/AuthContext/AuthContext";
 import { ChatContext } from "../../../contexts/ChatContext/ChatContext";
+import { MessagesStyled } from "./styles";
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const Message = ({ message }) => {
   }, [message]);
 
   return (
-    <div className={`message ${message.senderId === currentUser.uid && "owner"}`}>
+    <MessagesStyled className={`message ${message.senderId === currentUser.uid && "owner"}`}>
       <div>
         <p>{message.text}</p>
         <span>{new Date(message.date * 1000).toLocaleTimeString()}</span>
@@ -22,7 +23,7 @@ const Message = ({ message }) => {
           alt=""
         />}
       </div>
-    </div>
+    </MessagesStyled>
   );
 };
 

@@ -30,7 +30,7 @@ const Messages = () => {
             <img src={noPicture} alt="" />
           </figure>
           <span>
-            <p>Sara Stowner</p>
+            <p>{data.user?.displayName}</p>
             <img src="" alt="" />
           </span>
         </div>
