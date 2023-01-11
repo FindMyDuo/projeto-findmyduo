@@ -100,9 +100,9 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
         <RiUserUnfollowLine size={30} />
       </button>
 
-      <div>
+      <div onClick={() => logout()}>
         <h2> logout </h2>
-        <LogoutIcon sx={{ fontSize: 30 }} onClick={() => logout()} />
+        <LogoutIcon sx={{ fontSize: 30 }}  />
       </div>
     </StyledDiv>
   );
