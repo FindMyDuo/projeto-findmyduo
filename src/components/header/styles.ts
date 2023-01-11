@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const HeaderStyled = styled.header`
   position: fixed;
   top: 0;
@@ -11,9 +10,7 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-
   background: var(--gray5);
-
   button {
     background: transparent;
     border: none;
