@@ -22,11 +22,12 @@ export const UserPostCard = () => {
 
   const [editModal, setEditModal] = useState(false);
 
+  const myId = localStorage.getItem("@ID");
+  const myIdNumber = parseInt(myId);
+
   return (
     <CardContainer>
       {filteredPosts.map((element) => {
-        console.log(element);
-
         const user = filterUsers(element.userId);
         return (
           <StyledCard key={element.id}>
@@ -44,13 +45,15 @@ export const UserPostCard = () => {
                   <span>{element.title + " | "}</span>
                 </section>
               </div>
-              <Button
-                buttonType="smallIcon"
-                type="button"
-                onClick={() => setEditModal(!editModal)}
-              >
-                <HiDotsVertical />
-              </Button>
+              {user?.id === myIdNumber && (
+                <Button
+                  buttonType="smallIcon"
+                  type="button"
+                  onClick={() => setEditModal(!editModal)}
+                >
+                  <HiDotsVertical />
+                </Button>
+              )}
               <Modal
                 title="Editar post"
                 setState={setEditModal}

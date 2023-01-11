@@ -1,6 +1,16 @@
 export interface iUserCard {
-  img?: string;
-  id?: number;
-  gameImg?: string;
+  email: string;
+  id: number;
+  name: string;
+  password: string;
+  socialMedia: string;
+  url?: string;
+  confirmPassword?: string;
+  favoriteGames?: iFavoriteGames;
+}
+
+export interface iFavoriteGames {
+  genre: string;
+  img: string;
   name: string;
 }

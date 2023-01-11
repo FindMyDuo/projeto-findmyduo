@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledUserCardContainer = styled.ul`
   width: 100%;
@@ -14,9 +14,9 @@ export const StyledUserCard = styled.li`
   height: 82px;
   padding: 6px;
 
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-  :hover{
+  :hover {
     transform: scale(1.02);
     border: 1px solid var(--fixed-white);
   }
@@ -47,6 +47,7 @@ export const StyledUserCard = styled.li`
   }
 
   section img {
+    margin-right: 5px;
     height: 25px;
     width: 25px;
     border-radius: 2px;

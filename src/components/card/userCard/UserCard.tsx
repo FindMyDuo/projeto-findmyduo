@@ -1,56 +1,41 @@
-import React from 'react';
-import { CardUserInfo } from '../userPostCard/styles';
-import { StyledUserCard, StyledUserCardContainer } from './styles';
-import userImg from '../../../assets/userImg.svg';
-import { Button } from '../../button/Button';
-import vava from '../../../assets/vava.svg';
-import noUser from '../../../assets/noProfilePic.svg';
-import { iUserCard } from './types';
+import React, { useContext } from "react";
+import { CardUserInfo } from "../userPostCard/styles";
+import { StyledUserCard, StyledUserCardContainer } from "./styles";
+import { Button } from "../../button/Button";
+import noUser from "../../../assets/noProfilePic.svg";
+import { iUserCard } from "./types";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 export const UserCard = () => {
-  const userMocCard: Array<iUserCard> = [
-    {
-      id: 1,
-      img: userImg,
-      name: 'Sara Souza',
-      gameImg: vava,
-    },
-    {
-      id: 2,
-      img: userImg,
-      name: 'Sara Souza',
-      gameImg: vava,
-    },
-    {
-      id: 3,
-      name: 'Sara Souza',
-      gameImg: vava,
-    },
-  ];
+  const { allUsers } = useContext(UserContext);
 
   return (
     <StyledUserCardContainer>
-      {userMocCard.map((element: iUserCard) => {
+      {allUsers.map((element: iUserCard) => {
         return (
           <StyledUserCard key={element.id}>
             <CardUserInfo>
               <div>
                 <figure>
-                  {element.img ? (
-                    <img src={element.img} alt="" />
+                  {element.url ? (
+                    <img src={element.url} alt="" />
                   ) : (
                     <img src={noUser} alt="" />
                   )}
                 </figure>
                 <section>
                   <h2>{element.name}</h2>
-                  <img src={element.gameImg} alt="" />
+
+                  {element.favoriteGames &&
+                    element.favoriteGames.map((e) => (
+                      <img key={e.name} src={e.img} alt="" />
+                    ))}
                 </section>
               </div>
               <Button
                 type="button"
                 buttonType="searchUser"
-                onClick={() => console.log('Abrir modal')}
+                onClick={() => console.log("Abrir modal")}
               >
                 Ver perfil
               </Button>

@@ -18,6 +18,7 @@ export interface iUserContext {
   setFilterPosts: Dispatch<SetStateAction<string>>;
   logout: () => void;
   setObserver: Dispatch<SetStateAction<boolean>>;
+  allUsers: iUserResponse;
 }
 
 export interface iPost {
@@ -38,10 +39,12 @@ export type iUserResponse = {
     {
       name: string;
       genre: string;
+      img: string;
     }
   ];
   socialMedia: string;
   id: number;
   name: string;
   url: string;
+  password?: string;
 };
