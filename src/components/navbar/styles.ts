@@ -1,4 +1,3 @@
-import styledEngineSc from "@mui/styled-engine-sc";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const SlideClasses = createGlobalStyle`
