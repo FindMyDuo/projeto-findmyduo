@@ -61,6 +61,7 @@ export const ContainerChatFeed = styled.main`
 
       figure {
         width: 60px;
+        height: 60px;
         display: flex;
         justify-content: center;
         background: var(--color-primary);
@@ -69,6 +70,7 @@ export const ContainerChatFeed = styled.main`
 
         img {
           width: 60px;
+          height: 60px;
           border-radius: 50%;
           object-fit: cover;
           cursor: pointer;
@@ -93,9 +95,8 @@ export const ContainerChatFeed = styled.main`
 
     > div {
       height: 100%;
-      overflow-y: auto;
-      margin-bottom: 5.75rem;
-
+      overflow-y: scroll;
+      padding-bottom: 5.75rem;
       ::-webkit-scrollbar {
         display: none;
       }

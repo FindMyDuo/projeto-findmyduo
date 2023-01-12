@@ -158,4 +158,5 @@ export const StyledDiv = styled.div`
   height: fit-content;
   border-top: 1px solid var(--gray1);
   background-color: var(--gray5);
+  z-index: 1;
 `;

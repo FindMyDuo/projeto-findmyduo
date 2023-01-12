@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledTopHome = styled.div`
-  margin-top: 59px;
   background-color: var(--gray5);
 
   h2 {
     color: var(--gray1);
     padding: 0 12px;
+    padding-top: 1rem;
   }
 
   ul {
