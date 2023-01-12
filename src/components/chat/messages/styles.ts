@@ -4,8 +4,9 @@ export const ContainerMessages = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  padding-top: 5.75rem;
+  height: calc(100% - 5.75rem);
+  position: absolute;
+  top: 0;
 
   > div:nth-child(1) {
     padding: 10px;
@@ -13,7 +14,10 @@ export const ContainerMessages = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     background-color: var(--gray6);
+    height: 5.75rem;
+    z-index: 1;
 
     > div {
       display: flex;
@@ -30,6 +34,7 @@ export const ContainerMessages = styled.div`
 
       img {
         width: 70px;
+        height: 70px;
         border-radius: 50%;
       }
     }
@@ -46,7 +51,7 @@ export const ContainerMessages = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90%;
+    height: 100%;
     padding: 15px;
     overflow-y: scroll;
   }
