@@ -14,14 +14,15 @@ const Message = ({ message }) => {
   }, [message]);
 
   return (
-    <MessagesStyled className={`message ${message.senderId === currentUser.uid && "owner"}`}>
+    <MessagesStyled
+      className={`message ${message.senderId === currentUser.uid && "owner"}`}
+    >
       <div>
         <p>{message.text}</p>
-        <span>{new Date(message.date * 1000).toLocaleTimeString()}</span>
-        {message.image && <img
-          src={message.image}
-          alt=""
-        />}
+        <span>
+          {new Date(message.date * 1000).toLocaleTimeString().slice(0, -3)}
+        </span>
+        {message.image && <img src={message.image} alt="" />}
       </div>
     </MessagesStyled>
   );

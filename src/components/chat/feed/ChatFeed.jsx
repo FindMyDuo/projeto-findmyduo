@@ -45,37 +45,11 @@ const ChatFeed = () => {
       <div>
         <div>
           <h1>Chat</h1>
-          <button title="Exit">
-            <KeyboardReturnIcon color="primary" fontSize="large" />
-          </button>
         </div>
         <Search />
       </div>
-
-      <div>
-        <h3>Recentes</h3>
-        <div>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-          <figure>
-            <img src={noPicture} alt="" />
-          </figure>
-        </div>
-      </div>
-
+      {/* DONT TOUCH THAT DIV */}
+      <div></div>
       <div>
         <h3>Messagens</h3>
         <div>
