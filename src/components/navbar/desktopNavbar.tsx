@@ -13,9 +13,9 @@ export const DesktopNavBar = () => {
   const [showProfileModal, setProfileModal] = useState<boolean>(false);
 
   function handleClick(
-    e: React.MouseEvent<HTMLButtonElement, MouseEventHandler>
+    e: any
   ) {
-    const value = e.target.value;
+    const value: any = e.target.value;
     if (value === "") {
       setProfileModal(false);
       setNav(null);

@@ -1,3 +1,4 @@
+import styledEngineSc from "@mui/styled-engine-sc";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const SlideClasses = createGlobalStyle`
@@ -8,7 +9,7 @@ export const SlideClasses = createGlobalStyle`
 
   @keyframes slide-up {
     from {
-      height: 7rem;
+      height: 5.75rem;
     }
 
     to {
@@ -18,7 +19,9 @@ export const SlideClasses = createGlobalStyle`
 
   .slide-down-navbar {
     animation: slide-down 500ms;
-    height: 7rem;
+    height: 5.75rem;
+    border-top: 1px solid var(--gray1);
+
   }
 
   @keyframes slide-down {
@@ -27,7 +30,7 @@ export const SlideClasses = createGlobalStyle`
     }
 
     to {
-      height: 7rem;
+      height: 5.75rem;
     }
 
   }
@@ -48,7 +51,7 @@ export const StyledMobileNavbar = styled.aside`
   bottom: 0;
   display: none;
   width: 100%;
-  height: 7rem;
+  height: 5.75rem;
   background-color: var(--gray5);
   flex-direction: column-reverse;
   justify-content: space-between;
@@ -56,13 +59,6 @@ export const StyledMobileNavbar = styled.aside`
   overflow-y: hidden;
   gap: 1rem;
   z-index: 1;
-
-  .nav-bar {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-  }
 
   & > div > button {
     background-color: transparent;
@@ -110,13 +106,14 @@ export const StyledDesktopNavbar = styled.aside`
     height: 60px;
   }
 
-   .nav-div {
+  .nav-div {
     margin: auto 0;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: fit-content;
     gap: 1rem;
+    padding: 0%;
   }
 
   button {
@@ -157,4 +154,15 @@ export const StyledDesktopNavbar = styled.aside`
   @media (max-width: 991px) {
     display: none;
   }
+`;
+
+export const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  height: fit-content;
+  border-top: 1px solid var(--gray1);
+  background-color: var(--gray5);
 `;
