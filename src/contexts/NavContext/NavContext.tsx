@@ -6,7 +6,7 @@ export const NavContext = createContext({} as iNav);
 
 export const NavContextProvider = ({ children }: iNavChildren) => {
   const [nav, setNav] = useState<tNav | null>(null);
-  const [isChat, setChat] = useState<boolean>(false)
+  const [isChat, setChat] = useState<boolean>(false);
 
   return (
     <NavContext.Provider value={{ nav, setNav, isChat, setChat }}>

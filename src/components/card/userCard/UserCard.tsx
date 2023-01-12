@@ -16,7 +16,7 @@ export const UserCard = () => {
   return (
     <StyledUserCardContainer>
       <h2>Todos os usuários - {allUsers.length}</h2>
-      {allUsers.map((element: iUserCard) => {
+      {allUsers.map((element: iUserResponse) => {
         return (
           <StyledUserCard key={element.id}>
             <CardUserInfo>

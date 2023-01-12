@@ -28,6 +28,21 @@ export const signIn = (
     const user: iUser = {
       token: res.data.accessToken,
       id: res.data.id,
+      name: undefined,
+      url: undefined,
+      socialMedia: undefined,
+      email: undefined,
+      favoriteGames: undefined,
+      user: {
+        email: "",
+        age: undefined,
+        favoriteGames: [],
+        socialMedia: "",
+        id: 0,
+        name: "",
+        url: "",
+        password: undefined,
+      },
     };
     return user;
   });

@@ -25,7 +25,8 @@ import { db } from "../../../firebase/firebase";
 import { NavContext } from "../../../contexts/NavContext/NavContext";
 
 export const UserPostCard = () => {
-  const { filteredPosts, filterUsers, setCurrentPost, currentPost } = useContext(UserContext);
+  const { filteredPosts, filterUsers, setCurrentPost, currentPost } =
+    useContext(UserContext);
   const [editModal, setEditModal] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const [userFirebase, setUserFirebase] = useState(null as any);
@@ -33,7 +34,7 @@ export const UserPostCard = () => {
   const { setNav } = useContext(NavContext);
 
   const myId = localStorage.getItem("@ID");
-  const myIdNumber = parseInt(myId);
+  const myIdNumber = parseInt(myId!);
 
   const handleSelect = async (
     e: React.MouseEvent<HTMLButtonElement>,
@@ -77,7 +78,7 @@ export const UserPostCard = () => {
   return (
     <CardContainer>
       {filteredPosts.map((element) => {
-        const user = filterUsers(element.userId);
+        const user = filterUsers(Number(element.userId));
         return (
           <>
             <StyledCard key={element.id}>
@@ -100,8 +101,8 @@ export const UserPostCard = () => {
                     buttonType="smallIcon"
                     type="button"
                     onClick={() => {
-                      setEditModal(!editModal)
-                      setCurrentPost(element)
+                      setEditModal(!editModal);
+                      setCurrentPost(element);
                     }}
                   >
                     <HiDotsVertical />
@@ -125,7 +126,9 @@ export const UserPostCard = () => {
                   <Button
                     buttonType="smallIcon"
                     type="button"
-                    onClick={(e) => handleSelect(e, element.uid, user)}
+                    onClick={(e: any): Promise<void> =>
+                      handleSelect(e, element.uid, user)
+                    }
                   >
                     <TbMessage />
                   </Button>
@@ -135,16 +138,12 @@ export const UserPostCard = () => {
           </>
         );
       })}
-            <Modal
-              title="Editar post"
-              setState={setEditModal}
-              state={editModal}
-            >
-              <ModalEditPost
-                setState={setEditModal}
-                post={currentPost}
-              ></ModalEditPost>
-            </Modal>
+      <Modal title="Editar post" setState={setEditModal} state={editModal}>
+        <ModalEditPost
+          setState={setEditModal}
+          post={currentPost}
+        ></ModalEditPost>
+      </Modal>
     </CardContainer>
   );
 };
