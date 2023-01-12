@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface iUser {
-  email: string;
-  name: string;
-  age: string;
-  favoriteGames: iGame[];
-  socialMedia: string;
-  id: number;
-  url: string;
+  email?: string;
+  name?: string;
+  age?: string;
+  favoriteGames?: iGame[];
+  socialMedia?: string;
+  id?: string;
+  url?: string;
 }
 
 export interface iGame {
@@ -17,6 +17,6 @@ export interface iGame {
 }
 
 export interface iModalProfile {
-  user: iUser;
-  setState: Dispatch<SetStateAction<boolean>>;
+  user: iUser | null;
+  setState?: Dispatch<SetStateAction<boolean>>;
 }

@@ -15,10 +15,9 @@ export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
   const { nav, setNav, isChat } = useContext(NavContext);
 
-  function handleClick(e: React.MouseEvent) {
-    const parent: HTMLElement | null | undefined = (
-      e.target as HTMLButtonElement
-    ).parentElement?.parentElement;
+  function handleClick(e: any) {
+    const parent: any = (e.target as HTMLButtonElement).parentElement
+      ?.parentElement;
     if (nav !== e.target.value && e.target.value !== "") {
       if (parent.classList.contains("slide-down-navbar")) {
         parent.classList.remove("slide-down-navbar");
@@ -36,7 +35,7 @@ export const MobileNavBar = () => {
 
   const chat = isChat ? <Messages /> : <ChatFeed />;
 
-  console.log(chat)
+  console.log(chat);
 
   return (
     <>
@@ -94,7 +93,7 @@ export const MobileNavBar = () => {
             )}
           </div>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
-          {nav === "chat" ? ( isChat ? <Messages /> : <ChatFeed />) : null}
+          {nav === "chat" ? isChat ? <Messages /> : <ChatFeed /> : null}
           {nav === "users" ? <UserCard /> : null}
         </StyledMobileNavbar>
       ) : (
@@ -150,7 +149,7 @@ export const MobileNavBar = () => {
             )}
           </div>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
-          {nav === "chat" ? ( isChat ? <Messages /> : <ChatFeed />) : null}
+          {nav === "chat" ? isChat ? <Messages /> : <ChatFeed /> : null}
           {nav === "users" ? <UserCard /> : null}
         </StyledMobileNavbar>
       )}

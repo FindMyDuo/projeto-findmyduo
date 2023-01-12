@@ -12,13 +12,13 @@ export interface iUserContext {
   login: (data: iLoginData) => void;
   registerUser: (data: iRegisterData) => void;
   posts: iPost[];
-  filterUsers: (id: string) => iUserResponse | undefined;
+  filterUsers: (id: number) => iUserResponse | undefined;
   setLoadingGames: Dispatch<SetStateAction<boolean>>;
   filteredPosts: iPost[];
   setFilterPosts: Dispatch<SetStateAction<string>>;
   logout: () => void;
   setObserver: Dispatch<SetStateAction<boolean>>;
-  allUsers: iUserResponse;
+  allUsers: iUserResponse[];
   currentUser: iUserResponse;
   setCurrentUser: Dispatch<SetStateAction<iUserResponse>>;
   currentPost: iPost;
@@ -41,16 +41,16 @@ export type iUser = {
 export type iUserResponse = {
   email: string;
   age: string | undefined;
-  favoriteGames: [
-    {
-      name: string;
-      genre: string;
-      img: string;
-    }
-  ];
+  favoriteGames: iGames[];
   socialMedia: string;
   id: number;
   name: string;
   url: string;
   password?: string;
 };
+
+interface iGames {
+  name: string;
+  genre: string;
+  img: string;
+}
