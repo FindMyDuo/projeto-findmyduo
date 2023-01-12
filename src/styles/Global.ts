@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 [data-reach-dialog-overlay]{
   display: flex;
   justify-content: center;
+  z-index: 4;
 }
 
   :root{

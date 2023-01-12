@@ -5,6 +5,7 @@ import chat from "../../assets/chat.svg";
 import discord from "../../assets/discord.svg";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext/UserContext";
+import noUser from "../../assets/noProfilePic.svg";
 
 const ModalViewerProfile = () => {
   const { currentUser: user } = useContext(UserContext);
@@ -12,7 +13,11 @@ const ModalViewerProfile = () => {
   return (
     <StyledDiv>
       <div>
-        <img id="profile" src={user.url} alt={user.name} />
+        {user.url ? (
+          <img id="profile" src={user.url} alt="" />
+        ) : (
+          <img id="profile" src={noUser} alt="" />
+        )}
       </div>
       <h2>{user.name}</h2>
 

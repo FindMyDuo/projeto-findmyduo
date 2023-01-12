@@ -13,8 +13,8 @@ import { GamesContext } from "../../contexts/GamesContext/GamesContext";
 
 export const ModalAddGame = ({ setState }: iModalAddGame) => {
   const { allGames } = useContext(GamesContext);
+  const { user, setObserver } = useContext(UserContext);
 
-  const { user } = useContext(UserContext);
 
   const {
     register,
@@ -39,14 +39,21 @@ export const ModalAddGame = ({ setState }: iModalAddGame) => {
   const newGames = onlyNew(allGames, user!.favoriteGames, alreadyHave);
 
   const addGame = (data: iNewGame) => {
-    const newGame = allGames.find((game: iGame) => game.name === data.newGame);
-    const newListFavorites = [...user!.favoriteGames, newGame];
-    const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
-    api.patch(
-      `users/${user!.id}`,
-      { favoriteGames: newListFavorites },
-      { headers: { Authorization: `Bearer ${TOKEN}` } }
-    );
+    setObserver(true)
+    try {
+      const newGame = allGames.find((game: iGame) => game.name === data.newGame);
+      const newListFavorites = [...user!.favoriteGames, newGame];
+      const TOKEN = JSON.parse(localStorage.getItem("@TOKEN")!);
+      api.patch(
+        `users/${user!.id}`,
+        { favoriteGames: newListFavorites },
+        { headers: { Authorization: `Bearer ${TOKEN}` } }
+      );
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setObserver(false)
+    }
 
     setState((old) => !old);
   };

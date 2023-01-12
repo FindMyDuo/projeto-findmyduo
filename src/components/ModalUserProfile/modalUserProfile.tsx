@@ -10,6 +10,7 @@ import { ModalDeleteProfile } from "../modalDeleteProfile/modalDeleteProfile";
 import { iModalProfile, iGame } from "./types";
 import { useContext, useState } from "react";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import noUser from "../../assets/noProfilePic.svg";
 
 export const ModalProfileUser = ({ user }: iModalProfile) => {
   const [modalDelete, setModalDelete] = useState(false);
@@ -22,7 +23,11 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
     <StyledDiv>
       <div></div>
       <div>
-        <img src={user.url} alt={user.name} />
+        {user.url ? (
+          <img src={user.url} alt="" />
+        ) : (
+          <img src={noUser} alt="" />
+        )}
       </div>
 
       <div>
@@ -44,6 +49,7 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
       <div>
         <h3>Jogos Favoritos</h3>
         <button
+          title="AddGame"
           onClick={() => {
             setModalAddGame(!modalAddGame);
           }}
@@ -101,8 +107,8 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
       </button>
 
       <div onClick={() => logout()}>
-        <h2> logout </h2>
-        <LogoutIcon sx={{ fontSize: 30 }}  />
+        <h2> Logout </h2>
+        <LogoutIcon sx={{ fontSize: 30 }} />
       </div>
     </StyledDiv>
   );

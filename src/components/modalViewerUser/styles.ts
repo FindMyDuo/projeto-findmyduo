@@ -68,7 +68,8 @@ export const StyledDiv = styled.div`
 
   #profile {
     object-fit: cover;
-    max-width: 200px;
+    max-width: 225px;
+    min-height: 125%;
   }
 `;
 

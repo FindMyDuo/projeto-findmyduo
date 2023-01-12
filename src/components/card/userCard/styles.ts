@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const StyledUserCardContainer = styled.ul`
   width: 100%;
-  padding: 16px;
-  background-color: var(--gray6);
+  background-color: var(--gray5);
   display: flex;
   flex-direction: column;
   gap: 12px;
   height: 100%;
+
+  > h2 {
+    color: var(--gray1);
+  }
 `;
 
 export const StyledUserCard = styled.li`
@@ -22,19 +25,20 @@ export const StyledUserCard = styled.li`
     border: 1px solid var(--fixed-white);
   }
 
-  background-color: var(--gray5);
+  background-color: var(--gray6);
+  padding: 8px;
 
   border-radius: var(--radius1);
 
   h2 {
-    color: var(--fixed-white);
-    font-size: var(--font2);
+    color: var(--gray1);
+    font-size: var(--font4);
     font-weight: 400;
   }
 
   figure {
-    height: 70px;
-    width: 70px;
+    height: 65px;
+    width: 65px;
     border: 1px solid var(--color-primary);
     border-radius: 100%;
     margin-right: 12px;

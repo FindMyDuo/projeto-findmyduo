@@ -10,8 +10,8 @@ export const StyledModal = styled(Dialog)`
   position: fixed;
   z-index: 4;
   border-radius: var(--radius2);
-  top: 0;
-  transform: translateY(50%);
+  top: 13%;
+  /* transform: translateY(50%); */
 
   & > button {
     position: absolute;

@@ -49,7 +49,7 @@ export const StyledButton = styled.button<iButton>`
           color: var(--fixed-white);
           background-color: var(--color-primary);
 
-          padding: 12px 20px;
+          padding: 8px 20px;
 
           border: none;
           border-radius: var(--radius1);
