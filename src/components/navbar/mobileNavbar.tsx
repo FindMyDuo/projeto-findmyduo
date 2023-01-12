@@ -13,7 +13,7 @@ import Messages from "../chat/messages/Messages";
 
 export const MobileNavBar = () => {
   const { user } = useContext(UserContext);
-  const { nav, setNav, isChat, setChat } = useContext(NavContext);
+  const { nav, setNav, isChat } = useContext(NavContext);
 
   function handleClick(e: React.MouseEvent) {
     const parent: HTMLElement | null | undefined = (
@@ -34,12 +34,16 @@ export const MobileNavBar = () => {
     }
   }
 
+  const chat = isChat ? <Messages /> : <ChatFeed />;
+
+  console.log(chat)
+
   return (
     <>
       <SlideClasses />
       {nav ? (
         <StyledMobileNavbar className="slide-up-navbar">
-          <div>
+          <div className="nav-bar">
             {nav === null ? (
               <button className="active-button" value="" onClick={handleClick}>
                 <StyledHomeIcon>Outlined</StyledHomeIcon>
@@ -90,12 +94,12 @@ export const MobileNavBar = () => {
             )}
           </div>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
-          {nav === "chat" ? <ChatFeed /> : null}
+          {nav === "chat" ? ( isChat ? <Messages /> : <ChatFeed />) : null}
           {nav === "users" ? <UserCard /> : null}
         </StyledMobileNavbar>
       ) : (
         <StyledMobileNavbar className="slide-down-navbar">
-          <div>
+          <div className="nav-bar">
             {nav === null ? (
               <button className="active-button" value="" onClick={handleClick}>
                 <StyledHomeIcon>Outlined</StyledHomeIcon>
@@ -146,7 +150,7 @@ export const MobileNavBar = () => {
             )}
           </div>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
-          {isChat ? <Messages /> : nav === "chat" ? <ChatFeed /> : null}
+          {nav === "chat" ? ( isChat ? <Messages /> : <ChatFeed />) : null}
           {nav === "users" ? <UserCard /> : null}
         </StyledMobileNavbar>
       )}

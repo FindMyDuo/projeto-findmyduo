@@ -4,16 +4,13 @@ export const FormSearch = styled.div`
   width: 100%;
   max-width: 390px;
   padding: 10px;
-
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row;
   background: var(--gray4);
   border-radius: var(--radius1);
 
   button {
     height: 25px;
-
     background: transparent;
     border: none;
     color: var(--gray2);

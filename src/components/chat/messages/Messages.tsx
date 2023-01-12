@@ -6,10 +6,11 @@ import { doc, onSnapshot } from "@firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import Message from "./Message";
 import Input from "../inputChat/Input";
+import { NavContext } from "../../../contexts/NavContext/NavContext";
 
 const Messages = () => {
   const [messages, setMessages] = useState([] as any);
-
+  const { setChat } = useContext(NavContext)
   const { data } = useContext(ChatContext);
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const Messages = () => {
       unsub();
     };
   }, [data.chatId]);
+
+  const handleClick = () => {
+    setChat(false)
+  }
 
   return (
     <ContainerMessages>
@@ -34,12 +39,12 @@ const Messages = () => {
             <img src="" alt="" />
           </span>
         </div>
-        <button>j</button>
+        <button onClick={handleClick}>X</button>
       </div>
 
       <div>
         {messages.map((message: { id: React.Key | null | undefined }) => {
-          <Message message={message} key={message.id} />;
+          return <Message message={message} key={message.id} />;
         })}
       </div>
       <Input />

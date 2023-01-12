@@ -50,7 +50,6 @@ export const StyledMobileNavbar = styled.aside`
   width: 100%;
   height: 7rem;
   background-color: var(--gray5);
-  padding: 1.5rem 1rem;
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: flex-end;
@@ -58,7 +57,7 @@ export const StyledMobileNavbar = styled.aside`
   gap: 1rem;
   z-index: 1;
 
-  & > div {
+  .nav-bar {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -111,7 +110,7 @@ export const StyledDesktopNavbar = styled.aside`
     height: 60px;
   }
 
-  div {
+   .nav-div {
     margin: auto 0;
     display: flex;
     flex-direction: column;
