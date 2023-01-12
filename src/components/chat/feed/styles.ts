@@ -4,6 +4,7 @@ export const ContainerChatFeed = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   max-height: calc(100% - 5.75rem);
   background: var(--gray5);
   gap: 26px;
@@ -80,6 +81,7 @@ export const ContainerChatFeed = styled.main`
     display: flex;
     flex-direction: column;
     gap: 35px;
+    height: 100%;
 
     > h3 {
       font-style: normal;
@@ -91,8 +93,8 @@ export const ContainerChatFeed = styled.main`
 
     > div {
       height: 100%;
-      max-height: 420px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      margin-bottom: 5.75rem;
 
       ::-webkit-scrollbar {
         display: none;

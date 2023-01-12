@@ -5,6 +5,8 @@ export const UserMessageContainer = styled.ul`
   background-color: var(--gray5);
   display: flex;
   flex-direction: column;
+  height: fit-content;
+  margin-bottom: 8rem;
 `;
 
 export const StyledUserMessageCard = styled.li`
@@ -26,6 +28,9 @@ export const StyledUserMessageCard = styled.li`
   p {
     color: var(--gray1);
     font-size: var(--font5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 15ch;
   }
 
   figure {

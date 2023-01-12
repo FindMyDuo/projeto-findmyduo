@@ -89,7 +89,6 @@ export const StyledDesktopNavbar = styled.aside`
   background-color: var(--gray5);
   padding: 1rem 1.5rem;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   overflow-y: hidden;
   z-index: 1;
