@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const ContainerMessages = styled.div`
-  max-height: calc(100% - 5rem);
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding-top: 5.75rem;
 
   > div:nth-child(1) {
     padding: 10px;
@@ -53,6 +53,7 @@ export const ContainerMessages = styled.div`
 
   .owner {
     margin-left: auto;
+    margin-right: 0;
     border-radius: 16px;
     border-top-right-radius: 0px;
   }
@@ -84,6 +85,7 @@ export const MessagesStyled = styled.div`
   margin-top: 12px;
   overflow-wrap: break-word;
   margin-right: auto;
+  position: relative;
 
   span {
     font-size: 11px;
@@ -96,6 +98,8 @@ export const MessagesStyled = styled.div`
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
+    justify-content: space-between;
+    
 
     div {
       max-width: 100%;
