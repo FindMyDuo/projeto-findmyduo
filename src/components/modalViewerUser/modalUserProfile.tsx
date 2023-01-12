@@ -1,5 +1,5 @@
 import { DiscordButton, StyledDiv, StyledLink } from "./styles";
-import { iModalProfile, iGame } from "./types";
+import { iGame } from "./types";
 
 import chat from "../../assets/chat.svg";
 import discord from "../../assets/discord.svg";

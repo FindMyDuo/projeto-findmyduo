@@ -11,7 +11,7 @@ export interface iButton {
     | "smallIcon"
     | "exclueProfile"
     | "logout";
-  onClick?: () => void;
+  onClick?: (e: any) => void;
   type: "submit" | "button";
   children: React.ReactElement | string;
 }

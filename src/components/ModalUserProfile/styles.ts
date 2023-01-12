@@ -1,4 +1,3 @@
-import { Button } from "./../button/Button";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -28,7 +27,7 @@ export const StyledDiv = styled.div`
     transform: translateY(-50%);
     margin: 0 auto;
     margin-top: 10rem;
-    
+
     img {
       min-height: 120%;
       max-height: 125%;
