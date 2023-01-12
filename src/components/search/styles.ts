@@ -36,5 +36,12 @@ export const FormSearch = styled.div`
 export const UserChat = styled.div`
   width: 100%;
   padding: 10px;
-  background: var(--gray3);
+  background: var(--gray4);
+  border-radius: var(--radius1);
+
+  span {
+    width: 100%;
+    text-align: left;
+    color: var(--gray1);
+  }
 `;

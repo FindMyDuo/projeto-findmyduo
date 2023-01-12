@@ -34,7 +34,6 @@ export const StyledButton = styled.button<iButton>`
           font-weight: 700;
           font-family: "Inter";
 
-          box-shadow: 0px 4px 4px var(--color-primary);
           border: none;
           border-radius: var(--radius1);
 

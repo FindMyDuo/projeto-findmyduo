@@ -7,6 +7,7 @@ export const StyledUserCardContainer = styled.ul`
   flex-direction: column;
   gap: 12px;
   height: 100%;
+  padding: 25px 10px 10px 10px;
 
   > h2 {
     color: var(--gray1);
@@ -28,7 +29,7 @@ export const StyledUserCard = styled.li`
   background-color: var(--gray6);
   padding: 8px;
 
-  border-radius: var(--radius1);
+  border-radius: var(--radius2);
 
   h2 {
     color: var(--gray1);

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const BoxInput = styled.div`
   display: flex;
-  gap: 12px;
   background-color: #1a1b1f;
   padding: 15px 25px;
   align-self: flex-end;
@@ -17,7 +16,15 @@ export const BoxInput = styled.div`
     color: #6b6c7a;
   }
   > button {
+    width: 20%;
+    background: transparent;
+    border: none;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
     font-size: 25px;
-    color: #fff;
+    color: var(--gray1);
   }
 `;

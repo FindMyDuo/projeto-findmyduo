@@ -34,6 +34,12 @@ export const ContainerMessages = styled.div`
         border-radius: 50%;
       }
     }
+
+    > button {
+      background: none;
+      border: none;
+      color: var(--gray2);
+    }
   }
 
   > div:nth-child(2) {
@@ -48,6 +54,20 @@ export const ContainerMessages = styled.div`
 
   .owner {
     margin-left: auto;
+    text-align:right;
+    border-radius: 16px;
+    border-top-right-radius: 0px;
+  }
+
+  .userInfo {
+    width: 70%;
+    display: flex;
+    gap: 15px !important;
+
+     p {
+      color: var(--gray1);
+      font-size: var(--font4);
+    }
   }
 `;
 
@@ -56,11 +76,34 @@ export const MessagesStyled = styled.div`
   flex-direction: column;
   align-self: flex-end;
   width: fit-content;
-  padding: 0.5rem;
+  padding: 10px 0.5rem;
 
-  p > padding: 12px;
+  min-width: 25%;
+  max-width: 80%;
+
   background-color: #373943;
   border-radius: 16px;
+  border-top-left-radius: 0px;
   color: #fff;
-  margin-top: 12px;  
+  margin-top: 12px;
+  overflow-wrap: break-word;
+
+  span {
+    font-size: 11px;
+    color: var(--gray1);
+
+    margin-bottom: -4px;
+  }
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    div {
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+  }
 `;

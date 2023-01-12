@@ -82,8 +82,8 @@ const ChatFeed = () => {
                       </div>
                     </UserMessageContact>
                     <MessageCounter>
-                      <p>20min</p>
-                      <span>1</span>
+                      <p>Agora</p>
+                      <span></span>
                     </MessageCounter>
                   </StyledUserMessageCard>
                 )
