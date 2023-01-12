@@ -41,7 +41,7 @@ const StyledForm = styled.form`
   }
 
   button + button {
-    background-color: red;
+    background-color: var(--color-red);
     box-shadow: none;
   }
 `;

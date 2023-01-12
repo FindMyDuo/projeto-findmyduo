@@ -7,12 +7,13 @@ export const ContainerChatFeed = styled.main`
   max-height: calc(100% - 5rem);
   background: var(--gray5);
   gap: 26px;
+  padding: 20px 10px 10px 10px;
 
   > div:nth-child(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 
     div {
       display: flex;

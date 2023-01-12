@@ -18,7 +18,9 @@ const Message = ({ message }) => {
       className={`message ${message.senderId === currentUser.uid && "owner"}`}
     >
       <div>
-        <p>{message.text}</p>
+        <div>
+          <p>{message.text}</p>
+        </div>
         <span>
           {new Date(message.date * 1000).toLocaleTimeString().slice(0, -3)}
         </span>

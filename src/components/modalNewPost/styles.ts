@@ -11,7 +11,7 @@ const StyledForm = styled.form`
     margin-bottom: 16px;
   }
 
-  span {
+  > span {
     margin-bottom: -10px;
     color: var(--gray1);
     font-size: 14px;

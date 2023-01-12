@@ -16,12 +16,16 @@ export const StyledModal = styled(Dialog)`
   & > button {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 10px;
     background-color: transparent;
     color: var(--fixed-white);
     border: none;
     font-size: var(--font4);
     color: var(--gray1);
+  }
+
+  button {
+    height: 50px;
   }
 
   & > h1 {

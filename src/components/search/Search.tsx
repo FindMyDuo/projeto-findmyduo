@@ -15,13 +15,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const Search = () => {
-
   const [searchName, setSearchName] = useState("");
   const [user, setUser] = useState(null as any);
 
   const { currentUser } = useContext(AuthContext);
+  const { allUsers } = useContext(UserContext);
 
   const handleSearch = async () => {
     const q = query(
@@ -88,12 +89,13 @@ const Search = () => {
           type="text"
           placeholder="Pesquisar"
           onKeyDown={handleKey}
-          onChange={(e) => setSearchName(e.target.value)}
+          onChange={(e) => {
+            setSearchName(e.target.value);
+          }}
         />
       </FormSearch>
       {user && (
         <UserChat onClick={handleSelect}>
-          <img src="" alt="" />
           <div>
             <span>{user.displayName}</span>
           </div>

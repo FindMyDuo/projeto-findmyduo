@@ -60,6 +60,8 @@ export const GlobalStyles = createGlobalStyle`
 
     --color-primary: #0D81EC;
 
+    --color-red: #cc2222;
+
     --font1: 2.625rem;    //42px
     --font2: 1.5rem;     //24px
     --font3: 2rem;       //32px

@@ -7,11 +7,15 @@ import { db } from "../../../firebase/firebase";
 import Message from "./Message";
 import Input from "../inputChat/Input";
 import { NavContext } from "../../../contexts/NavContext/NavContext";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
+import { GrReturn } from "react-icons/gr";
+import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
 
 const Messages = () => {
   const [messages, setMessages] = useState([] as any);
-  const { setChat } = useContext(NavContext)
+  const { setChat } = useContext(NavContext);
   const { data } = useContext(ChatContext);
+  const { allUsers } = useContext(UserContext);
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
@@ -24,22 +28,27 @@ const Messages = () => {
   }, [data.chatId]);
 
   const handleClick = () => {
-    setChat(false)
-  }
+    setChat(false);
+  };
+
+  const result = allUsers.find((user) => {
+    return user.name === data.user?.displayName;
+  });
 
   return (
     <ContainerMessages>
       <div>
-        <div>
+        <div className="userInfo">
           <figure>
-            <img src={noPicture} alt="" />
+            <img src={result?.url || noPicture} alt="" />
           </figure>
           <span>
             <p>{data.user?.displayName}</p>
-            <img src="" alt="" />
           </span>
         </div>
-        <button onClick={handleClick}>X</button>
+        <button title="Exit" onClick={handleClick}>
+          <KeyboardReturnIcon fontSize="large" />
+        </button>
       </div>
 
       <div>

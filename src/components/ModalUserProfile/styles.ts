@@ -163,7 +163,7 @@ export const StyledDiv = styled.div`
   & > Button:nth-child(7) {
     background: var(--gray4);
     padding: 0 8px;
-    color: red;
+    color: var(--color-red);
     width: 100%;
     height: 60px;
     display: flex;

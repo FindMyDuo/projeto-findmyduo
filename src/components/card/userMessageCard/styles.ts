@@ -8,12 +8,14 @@ export const UserMessageContainer = styled.ul`
 `;
 
 export const StyledUserMessageCard = styled.li`
-  background-color: transparent;
+  background-color: var(--gray4);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 74px;
+  height: 80px;
   margin-bottom: 22px;
+  border-radius: var(--radius1);
+  padding: 8px;
 
   h3 {
     color: var(--fixed-white);
@@ -59,6 +61,12 @@ export const StyledUserMessageCard = styled.li`
 
 export const UserMessageContact = styled.div`
   display: flex;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const MessageCounter = styled.div`
