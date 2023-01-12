@@ -34,6 +34,7 @@ export interface iPost {
 }
 
 export type iUser = {
+  favoriteGames: any;
   id: string;
   token: string;
   user: iUserResponse;
