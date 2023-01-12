@@ -53,7 +53,6 @@ export const ContainerMessages = styled.div`
 
   .owner {
     margin-left: auto;
-    text-align: right;
     border-radius: 16px;
     border-top-right-radius: 0px;
   }
@@ -76,21 +75,19 @@ export const MessagesStyled = styled.div`
   align-self: flex-end;
   width: fit-content;
   padding: 10px 0.5rem;
-
   min-width: 25%;
   max-width: 80%;
-
   background-color: #373943;
   border-radius: 16px;
   border-top-left-radius: 0px;
   color: #fff;
   margin-top: 12px;
   overflow-wrap: break-word;
+  margin-right: auto;
 
   span {
     font-size: 11px;
     color: var(--gray1);
-
     margin-bottom: -4px;
   }
 

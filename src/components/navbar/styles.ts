@@ -1,10 +1,8 @@
-import styledEngineSc from "@mui/styled-engine-sc";
 import styled, { createGlobalStyle } from "styled-components";
 
 export const SlideClasses = createGlobalStyle`
   .slide-up-navbar{
     animation: slide-up 500ms;
-    height: calc(100% - 5rem);
   }
 
   @keyframes slide-up {
@@ -19,7 +17,6 @@ export const SlideClasses = createGlobalStyle`
 
   .slide-down-navbar {
     animation: slide-down 500ms;
-    height: 5.75rem;
     border-top: 1px solid var(--gray1);
   }
 
@@ -50,7 +47,6 @@ export const StyledMobileNavbar = styled.aside`
   bottom: 0;
   display: none;
   width: 100%;
-  height: 5.75rem;
   background-color: var(--gray5);
   flex-direction: column-reverse;
   justify-content: space-between;
