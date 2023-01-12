@@ -1,7 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { useContext, useState } from "react";
 import { FormSearch, UserChat } from "./styles";
-import { ChatContext } from "../../contexts/ChatContext/ChatContext";
 import {
   collection,
   doc,

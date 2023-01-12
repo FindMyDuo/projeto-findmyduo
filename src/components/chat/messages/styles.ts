@@ -14,7 +14,6 @@ export const ContainerMessages = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: var(--gray6);
-    
 
     > div {
       display: flex;
@@ -43,7 +42,7 @@ export const ContainerMessages = styled.div`
   }
 
   > div:nth-child(2) {
-    background: var(--gray5)
+    background: var(--gray5);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -54,7 +53,7 @@ export const ContainerMessages = styled.div`
 
   .owner {
     margin-left: auto;
-    text-align:right;
+    text-align: right;
     border-radius: 16px;
     border-top-right-radius: 0px;
   }
@@ -64,7 +63,7 @@ export const ContainerMessages = styled.div`
     display: flex;
     gap: 15px !important;
 
-     p {
+    p {
       color: var(--gray1);
       font-size: var(--font4);
     }

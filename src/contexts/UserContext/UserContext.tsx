@@ -1,5 +1,5 @@
 import api from "../../services/axios";
-import { Navigate, NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import {
   iPost,
   iUser,

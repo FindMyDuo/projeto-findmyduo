@@ -1,7 +1,5 @@
 import api from "../../services/axios";
 import StyledDiv from "./styles";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext/UserContext";
 import { iModalDelete } from "./types";
 
 export const ModalDeleteProfile = ({ setState }: iModalDelete) => {
