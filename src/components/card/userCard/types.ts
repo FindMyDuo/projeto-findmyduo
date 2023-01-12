@@ -6,7 +6,7 @@ export interface iUserCard {
   socialMedia: string;
   url?: string;
   confirmPassword?: string;
-  favoriteGames?: iFavoriteGames;
+  favoriteGames?: iFavoriteGames[];
   age?: string;
 }
 
