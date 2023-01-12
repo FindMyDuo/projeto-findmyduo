@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
 import { StyledDesktopNavbar } from "./styles";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
+import AddIcon from '@mui/icons-material/Add';
 
 export const DesktopNavBar = () => {
   const { user } = useContext(UserContext);

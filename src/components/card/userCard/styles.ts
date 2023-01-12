@@ -7,7 +7,8 @@ export const StyledUserCardContainer = styled.ul`
   flex-direction: column;
   gap: 12px;
   height: 100%;
-  padding: 25px 10px 10px 10px;
+  padding: 1.5rem 0.75rem 0.75rem 0.75rem;
+  overflow-y: auto;
 
   > h2 {
     color: var(--gray1);
@@ -18,7 +19,6 @@ export const StyledUserCard = styled.li`
   width: 100%;
   height: 82px;
   padding: 6px;
-
   transition: all 0.2s ease-in-out;
 
   :hover {
@@ -28,13 +28,24 @@ export const StyledUserCard = styled.li`
 
   background-color: var(--gray6);
   padding: 8px;
-
-  border-radius: var(--radius2);
+  border-radius: var(--radius1);
 
   h2 {
     color: var(--gray1);
     font-size: var(--font4);
     font-weight: 400;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   figure {

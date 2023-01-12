@@ -51,7 +51,7 @@ export const StyledButton = styled.button<iButton>`
           padding: 8px 20px;
 
           border: none;
-          border-radius: var(--radius1);
+          border-radius: 4px;
 
           :hover {
             filter: brightness(1.2);

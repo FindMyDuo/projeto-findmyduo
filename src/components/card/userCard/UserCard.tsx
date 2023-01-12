@@ -28,14 +28,15 @@ export const UserCard = () => {
                     <img src={noUser} alt="" />
                   )}
                 </figure>
-                <section>
+                <div className="card-content">
                   <h2>{element.name}</h2>
-
-                  {element.favoriteGames &&
-                    element.favoriteGames.map((e) => (
-                      <img key={e.name} src={e.img} alt="" />
-                    ))}
-                </section>
+                  <section>
+                    {element.favoriteGames &&
+                      element.favoriteGames.map((e: any) => (
+                        <img key={e.name} src={e.img} alt="" />
+                      ))}
+                  </section>
+                </div>
               </div>
               <Button
                 type="button"

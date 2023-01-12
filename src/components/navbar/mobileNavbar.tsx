@@ -2,7 +2,7 @@ import logoIcon from "../../assets/aditionalIcons/logo-icon.svg";
 import React, { useContext, useState } from "react";
 import { tNavButton } from "./types";
 import { UserContext } from "../../contexts/UserContext/UserContext";
-import { SlideClasses } from "./styles";
+import { SlideClasses, StyledDiv } from "./styles";
 import { ModalProfileUser } from "../ModalUserProfile/modalUserProfile";
 import { StyledMobileNavbar } from "./styles";
 import { StyledChatIcon, StyledHomeIcon, StyledUserIcon } from "./styledIcons";
@@ -33,16 +33,12 @@ export const MobileNavBar = () => {
     }
   }
 
-  const chat = isChat ? <Messages /> : <ChatFeed />;
-
-  console.log(chat);
-
   return (
     <>
       <SlideClasses />
       {nav ? (
         <StyledMobileNavbar className="slide-up-navbar">
-          <div className="nav-bar">
+          <StyledDiv>
             {nav === null ? (
               <button className="active-button" value="" onClick={handleClick}>
                 <StyledHomeIcon>Outlined</StyledHomeIcon>
@@ -91,14 +87,14 @@ export const MobileNavBar = () => {
                 <StyledUserIcon>Outlined</StyledUserIcon>
               </button>
             )}
-          </div>
+          </StyledDiv>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
           {nav === "chat" ? isChat ? <Messages /> : <ChatFeed /> : null}
           {nav === "users" ? <UserCard /> : null}
         </StyledMobileNavbar>
       ) : (
         <StyledMobileNavbar className="slide-down-navbar">
-          <div className="nav-bar">
+          <StyledDiv>
             {nav === null ? (
               <button className="active-button" value="" onClick={handleClick}>
                 <StyledHomeIcon>Outlined</StyledHomeIcon>
@@ -147,7 +143,7 @@ export const MobileNavBar = () => {
                 <StyledUserIcon>Outlined</StyledUserIcon>
               </button>
             )}
-          </div>
+          </StyledDiv>
           {nav === "profile" ? <ModalProfileUser user={user} /> : null}
           {nav === "chat" ? isChat ? <Messages /> : <ChatFeed /> : null}
           {nav === "users" ? <UserCard /> : null}
