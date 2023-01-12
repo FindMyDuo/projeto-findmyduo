@@ -4,10 +4,10 @@ export const ContainerChatFeed = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-height: calc(100% - 5rem);
+  max-height: calc(100% - 5.75rem);
   background: var(--gray5);
   gap: 26px;
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 0px 10px;
 
   > div:nth-child(1) {
     display: flex;
@@ -37,7 +37,6 @@ export const ContainerChatFeed = styled.main`
   > div:nth-child(2) {
     display: flex;
     flex-direction: column;
-    height: 1px;
 
     > h3 {
       font-style: normal;

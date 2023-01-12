@@ -9,7 +9,6 @@ import {
 } from "./types";
 import { useState, useEffect, createContext } from "react";
 import { iLoginData } from "../../components/form/formLogin/types";
-import ToolbarSeparator from "material-ui/Toolbar/ToolbarSeparator";
 import { iRegisterData } from "../../components/form/formRegister/types";
 
 export const UserContext = createContext({} as iUserContext);
@@ -23,7 +22,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [loadingGames, setLoadingGames] = useState(false);
   const [filterPosts, setFilterPosts] = useState("todos");
   const [currentUser, setCurrentUser] = useState({} as iUserResponse);
-  const [currentPost, setCurrentPost] = useState({} as iPost)
+  const [currentPost, setCurrentPost] = useState({} as iPost);
 
   function filterUsers(id: number) {
     const findUser = allUsers.find((e: iUserResponse) => e.id == id);
@@ -50,7 +49,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         return;
       }
       try {
-        const myToken = JSON.parse(token);
+        const myToken = JSON.parse(token!);
         api.defaults.headers.common.authorization = `Bearer ${myToken}`;
         const response = await api.get(`/users/${myId}`);
         const responsePost = await api.get("/posts");

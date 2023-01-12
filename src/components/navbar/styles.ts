@@ -21,7 +21,6 @@ export const SlideClasses = createGlobalStyle`
     animation: slide-down 500ms;
     height: 5.75rem;
     border-top: 1px solid var(--gray1);
-
   }
 
   @keyframes slide-down {
@@ -57,7 +56,6 @@ export const StyledMobileNavbar = styled.aside`
   justify-content: space-between;
   align-items: flex-end;
   overflow-y: hidden;
-  gap: 1rem;
   z-index: 1;
 
   & > div > button {
