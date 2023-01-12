@@ -10,18 +10,22 @@ export const StyledModal = styled(Dialog)`
   position: fixed;
   z-index: 4;
   border-radius: var(--radius2);
-  top: 0;
-  transform: translateY(50%);
+  top: 13%;
+  /* transform: translateY(50%); */
 
   & > button {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 10px;
     background-color: transparent;
     color: var(--fixed-white);
     border: none;
     font-size: var(--font4);
     color: var(--gray1);
+  }
+
+  button {
+    height: 50px;
   }
 
   & > h1 {

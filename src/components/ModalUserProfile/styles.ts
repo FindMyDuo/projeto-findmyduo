@@ -10,9 +10,10 @@ export const StyledDiv = styled.div`
   position: relative;
   gap: 1rem;
   overflow-y: auto;
+  margin-top: -32px;
 
-  & > div:nth-child(1) {
-    display: none;
+  & > div:first-child {
+    display: none !important;
   }
 
   & > div:nth-child(2) {
@@ -27,9 +28,11 @@ export const StyledDiv = styled.div`
     transform: translateY(-50%);
     margin: 0 auto;
     margin-top: 10rem;
-
+    
     img {
-      width: 130%;
+      min-height: 120%;
+      max-height: 125%;
+      object-fit: cover;
     }
   }
 
@@ -44,6 +47,23 @@ export const StyledDiv = styled.div`
     align-items: center;
     text-align: center;
     padding: 6px;
+  }
+
+  & > div:last-child {
+    width: 100%;
+    height: 60px;
+    background-color: var(--gray4);
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border-radius: var(--radius1);
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 8px;
+    color: var(--color-primary);
+    font-size: var(--font6);
   }
 
   * {
@@ -76,15 +96,21 @@ export const StyledDiv = styled.div`
   }
 
   & > div:nth-child(5) {
+    margin-bottom: -22px;
     background: none;
     display: flex;
     align-items: center;
+    align-content: center;
 
     & > h3 {
       margin-right: auto;
       color: var(--gray1);
-      font-size: var(--font2);
-      margin-bottom: -22px;
+      font-size: var(--font4);
+    }
+
+    & > button {
+      background: none;
+      border: none;
     }
   }
 
@@ -119,7 +145,6 @@ export const StyledDiv = styled.div`
 
     button {
       max-width: 200px;
-
       background: var(--color-primary);
       height: 40px;
       padding: 0 8px;
@@ -127,6 +152,8 @@ export const StyledDiv = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border: none;
+      border-radius: var(--radius1);
 
       h2 {
         color: white;
@@ -136,11 +163,15 @@ export const StyledDiv = styled.div`
   & > Button:nth-child(7) {
     background: var(--gray4);
     padding: 0 8px;
-    color: red;
+    color: var(--color-red);
     width: 100%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: var(--radius1);
+    font-size: var(--font6);
+    font-weight: 400;
   }
 
   @media (max-width: 991px) {

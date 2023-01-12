@@ -9,7 +9,7 @@ export const CardContainer = styled.ul`
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 1rem 1rem 8.5rem 1rem;
 `;
 
 export const StyledCard = styled.li`
@@ -62,7 +62,7 @@ export const CardUserInfo = styled.div`
 export const CardUserContact = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   margin-top: 23px;
@@ -78,5 +78,20 @@ export const CardUserContact = styled.div`
   img {
     height: 32px;
     width: 32px;
+  }
+
+  > p {
+  }
+
+  #Options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      width: fit-content;
+      padding: 0px;
+      margin-left: auto;
+    }
   }
 `;

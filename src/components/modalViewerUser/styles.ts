@@ -6,6 +6,7 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 32px;
   & > div:first-child {
     display: flex;
@@ -68,7 +69,8 @@ export const StyledDiv = styled.div`
 
   #profile {
     object-fit: cover;
-    max-width: 200px;
+    max-width: 225px;
+    min-height: 125%;
   }
 `;
 

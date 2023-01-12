@@ -21,6 +21,8 @@ export interface iUserContext {
   allUsers: iUserResponse;
   currentUser: iUserResponse;
   setCurrentUser: Dispatch<SetStateAction<iUserResponse>>;
+  currentPost: iPost;
+  setCurrentPost: Dispatch<SetStateAction<iPost>>;
 }
 
 export interface iPost {

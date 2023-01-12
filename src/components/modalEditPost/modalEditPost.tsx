@@ -53,7 +53,7 @@ export const ModalEditPost = ({ post, setState }: iModalEdit) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(editPost)}>
-      <span>Edit seu post</span>
+      <span>Edite seu post</span>
       <textarea
         {...register("content")}
         disabled={false}

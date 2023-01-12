@@ -4,16 +4,13 @@ export const FormSearch = styled.div`
   width: 100%;
   max-width: 390px;
   padding: 10px;
-
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row;
   background: var(--gray4);
   border-radius: var(--radius1);
 
   button {
     height: 25px;
-
     background: transparent;
     border: none;
     color: var(--gray2);
@@ -39,5 +36,12 @@ export const FormSearch = styled.div`
 export const UserChat = styled.div`
   width: 100%;
   padding: 10px;
-  background: var(--gray3);
+  background: var(--gray4);
+  border-radius: var(--radius1);
+
+  span {
+    width: 100%;
+    text-align: left;
+    color: var(--gray1);
+  }
 `;

@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
 export const ContainerChatFeed = styled.main`
-  width: 100%;
-  height: 85vh;
-  padding: 10px;
-  background: var(--gray5);
-
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-height: calc(100% - 5rem);
+  background: var(--gray5);
   gap: 26px;
+  padding: 20px 10px 10px 10px;
 
   > div:nth-child(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 
     div {
       display: flex;
@@ -38,8 +37,7 @@ export const ContainerChatFeed = styled.main`
   > div:nth-child(2) {
     display: flex;
     flex-direction: column;
-    gap: 38px;
-    position: relative;
+    height: 1px;
 
     > h3 {
       font-style: normal;
@@ -63,10 +61,8 @@ export const ContainerChatFeed = styled.main`
 
       figure {
         width: 60px;
-
         display: flex;
         justify-content: center;
-
         background: var(--color-primary);
         border: 1px solid var(--color-primary);
         border-radius: 50%;

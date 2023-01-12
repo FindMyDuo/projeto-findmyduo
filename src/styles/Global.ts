@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
 [data-reach-dialog-overlay]{
   display: flex;
   justify-content: center;
+  z-index: 4;
 }
 
   :root{
@@ -58,6 +59,8 @@ export const GlobalStyles = createGlobalStyle`
     --fixed-white: #FFFFFF;
 
     --color-primary: #0D81EC;
+
+    --color-red: #cc2222;
 
     --font1: 2.625rem;    //42px
     --font2: 1.5rem;     //24px

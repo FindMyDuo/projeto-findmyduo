@@ -23,6 +23,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const [loadingGames, setLoadingGames] = useState(false);
   const [filterPosts, setFilterPosts] = useState("todos");
   const [currentUser, setCurrentUser] = useState({} as iUserResponse);
+  const [currentPost, setCurrentPost] = useState({} as iPost)
 
   function filterUsers(id: number) {
     const findUser = allUsers.find((e: iUserResponse) => e.id == id);
@@ -122,6 +123,8 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         allUsers,
         currentUser,
         setCurrentUser,
+        currentPost,
+        setCurrentPost,
       }}
     >
       {children}

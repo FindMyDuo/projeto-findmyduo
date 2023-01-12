@@ -15,6 +15,7 @@ export const UserCard = () => {
 
   return (
     <StyledUserCardContainer>
+      <h2>Todos os usuários - {allUsers.length}</h2>
       {allUsers.map((element: iUserCard) => {
         return (
           <StyledUserCard key={element.id}>
@@ -46,14 +47,13 @@ export const UserCard = () => {
               >
                 Ver perfil
               </Button>
-
-              <Modal setState={setModalUser} state={modalUser} title="Perfil">
-                <ModalViewerProfile />
-              </Modal>
             </CardUserInfo>
           </StyledUserCard>
         );
       })}
+      <Modal setState={setModalUser} state={modalUser} title="Perfil">
+        <ModalViewerProfile />
+      </Modal>
     </StyledUserCardContainer>
   );
 };
