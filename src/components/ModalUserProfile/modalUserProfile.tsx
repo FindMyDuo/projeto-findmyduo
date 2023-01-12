@@ -23,16 +23,16 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
     <StyledDiv>
       <div></div>
       <div>
-        {user.url ? (
-          <img src={user.url} alt="" />
+        {user!.url ? (
+          <img src={user!.url} alt="" />
         ) : (
           <img src={noUser} alt="" />
         )}
       </div>
 
       <div>
-        <h2>{user.name}</h2>
-        <h4>{user.socialMedia}</h4>
+        <h2>{user!.name}</h2>
+        <h4>{user!.socialMedia}</h4>
       </div>
 
       <section>
@@ -65,9 +65,9 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
         <ModalAddGame setState={setModalAddGame} />
       </Modal>
 
-      {user.favoriteGames ? (
+      {user!.favoriteGames ? (
         <div>
-          {user.favoriteGames.map((game: iGame) => {
+          {user!.favoriteGames.map((game: iGame) => {
             return <img key={game.name} src={game.img} alt={game.name} />;
           })}
         </div>
