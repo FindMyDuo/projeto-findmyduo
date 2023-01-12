@@ -11,6 +11,7 @@ import { iModalProfile, iGame } from "./types";
 import { useContext, useState } from "react";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import noUser from "../../assets/noProfilePic.svg";
+import AddIcon from "@mui/icons-material/Add";
 
 export const ModalProfileUser = ({ user }: iModalProfile) => {
   const [modalDelete, setModalDelete] = useState(false);
@@ -42,7 +43,7 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
           }}
         >
           <h2>Editar usuário</h2>
-          <MdOutlineArrowForwardIos size={30} />
+          <MdOutlineArrowForwardIos color="white" size={30} />
         </button>
       </section>
 
@@ -54,7 +55,7 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
             setModalAddGame(!modalAddGame);
           }}
         >
-          <GrFormAdd size={30} />
+          <AddIcon style={{ color: "white" }}>Outlined</AddIcon>
         </button>
       </div>
       <Modal
@@ -89,17 +90,6 @@ export const ModalProfileUser = ({ user }: iModalProfile) => {
       >
         <ModalDeleteProfile setState={setModalDelete} />
       </Modal>
-
-      {/* <StyledLink to="/*">
-                <img src={chat} alt="Chat" />
-            </StyledLink>
-            <DiscordButton
-                onClick={() => {
-                    navigator.clipboard.writeText(user.socialMedia);
-                }}
-            >
-                <img src={discord} alt="Discord" />
-            </DiscordButton> */}
 
       <button onClick={() => setModalDelete(!modalDelete)}>
         <h2>Excluir conta</h2>
