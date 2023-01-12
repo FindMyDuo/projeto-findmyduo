@@ -11,6 +11,7 @@ export const HeaderStyled = styled.header`
   align-items: center;
   z-index: 2;
   background: var(--gray5);
+  border-bottom: 1px solid gray;
   button {
     background: transparent;
     border: none;

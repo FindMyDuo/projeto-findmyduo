@@ -6,7 +6,6 @@ export const Modal = ({ title, setState, state, children }: iModal) => {
     <StyledOverlayModal isOpen={state} onDismiss={() => setState(!state)}>
       <StyledModal>
         <h1>{title}</h1>
-
         <button onClick={() => setState(!state)}>X</button>
         {children}
       </StyledModal>
